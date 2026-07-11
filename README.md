@@ -8,7 +8,7 @@
 
 **GitHub Pages:** https://utpal-mishra.github.io/Swasthya/
 
-The deployed website is currently a responsive static MVP. All displayed health signals are clearly labelled demonstration records until validated live integrations are introduced.
+The deployed website is currently a responsive static MVP. Most displayed health signals remain clearly labelled demonstration or manually maintained reference records until validated live integrations are introduced.
 
 ## Product vision
 
@@ -26,11 +26,21 @@ Swasthya aims to answer five practical questions:
 - Manual location entry and optional browser geolocation
 - User-controlled proximity radius
 - Demonstration alert filtering by distance
+- Opt-in browser notifications for high-priority reference signals while the website is active
+- High-temperature health reference with hydration, food, shade and vulnerable-person guidance
+- Location-aware navigation to nearby open grocery stores
+- Emergency call actions for Ireland using `112` and `999`
+- Samaritans emotional-support contact using `116 123`
+- HSE local-service navigation
 - Health-awareness categories covering air, weather, infectious disease and wellbeing
 - Direct links to official reference organisations
 - Transparent labels distinguishing demonstration information from verified live alerts
 - Python/Streamlit foundation for future server-side integrations
 - Automated GitHub Pages deployment from `main`
+
+## Notification limitation
+
+The current static GitHub Pages version can request browser notification permission and show high-priority notifications while the website is open or active. Reliable background push notifications when the website is closed will require a service worker, push subscription storage and a secure backend notification service.
 
 ## Planned capability areas
 
@@ -82,7 +92,7 @@ Ranking, deduplication and provenance
 Dashboard, source explorer and optional notifications
 ```
 
-The static site currently performs only browser-side interaction. The future backend will handle provider ingestion, validation, risk processing, provenance and optional notification services.
+The static site currently performs browser-side interaction only. The future backend will handle provider ingestion, validation, risk processing, provenance and reliable background notifications.
 
 ## Repository structure
 
@@ -90,7 +100,7 @@ The static site currently performs only browser-side interaction. The future bac
 Swasthya/
 ├── index.html                      # Static GitHub Pages interface
 ├── styles.css                      # Responsive design and layout
-├── app.js                          # Browser-side interactions and demo alerts
+├── app.js                          # Browser interactions, notifications and reference alerts
 ├── app/
 │   ├── app.py                      # Streamlit application foundation
 │   └── services/
@@ -117,8 +127,6 @@ Swasthya/
 - [Deployment guide](docs/deployment.md)
 
 ## Run the static website locally
-
-Open `index.html` directly, or serve the repository with a local static server:
 
 ```bash
 python -m http.server 8000
@@ -152,7 +160,10 @@ streamlit run app/app.py
 - Project foundation and documentation baseline
 - Static, mobile-responsive awareness dashboard
 - Browser-side location and radius controls
-- Transparent demonstration alerts
+- Transparent demonstration and reference alerts
+- Opt-in active-page browser notifications
+- Heat-health guidance and grocery navigation
+- Emergency and emotional-support contact actions
 - Streamlit scaffold
 - GitHub Pages deployment workflow
 
@@ -161,9 +172,10 @@ streamlit run app/app.py
 1. Introduce a canonical alert schema and validation tests.
 2. Implement the first official provider adapter.
 3. Add freshness, geographic-quality and provenance checks.
-4. Replace demonstration records with verified live data in one category.
-5. Add observability, failure handling and automated tests.
-6. Introduce a source and methodology explorer.
+4. Replace manually maintained weather references with verified live data.
+5. Add a secure backend and service-worker flow for background push notifications.
+6. Add observability, failure handling and automated tests.
+7. Introduce a source and methodology explorer.
 
 ## Contributing
 

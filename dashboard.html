@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Swasthya — health and wellbeing dashboard.">
+  <title>Swasthya | Health Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="page-layout.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="Swasthya home"><span class="brand-mark">S</span><span><strong>Swasthya</strong><small>Health intelligence near you</small></span></a>
+    <nav aria-label="Main navigation"><a href="index.html">Location awareness</a><a class="active-nav" href="dashboard.html">Health dashboard</a><a href="#neuro-health">Neuro & mental health</a></nav>
+  </header>
+
+  <main>
+    <section class="page-switch" aria-label="Application sections"><a class="page-switch-link" href="index.html"><strong>1</strong><span>Location-based healthcare awareness</span></a><a class="page-switch-link active" href="dashboard.html"><strong>2</strong><span>Health and wellbeing dashboard</span></a></section>
+
+    <section class="dashboard-hero"><p class="eyebrow">HEALTH AND WELLBEING DASHBOARD</p><h1>Understand key health indicators and personal wellbeing patterns.</h1><p class="lead">This page separates detailed KPI views and private wellbeing check-ins from the location-based awareness experience.</p></section>
+
+    <section class="notice" role="note"><strong>Demonstration and self-reflection only.</strong> Air-quality values are illustrative, and wellbeing check-ins do not diagnose, screen or predict any condition.</section>
+
+    <section id="air-quality" class="section-block dashboard-section">
+      <div class="section-heading"><div><p class="eyebrow">AIR QUALITY DASHBOARD</p><h2>Six prominent air-quality KPIs</h2></div><span class="demo-badge">Demonstration values</span></div>
+      <p class="section-intro">The six KPIs are displayed as a 3 × 2 matrix on desktop, two columns on tablets and one column on small mobile screens.</p>
+      <div class="kpi-matrix" aria-label="Air quality KPI matrix">
+        <article class="kpi-card primary-kpi"><span>AQI / AQIH</span><strong>3</strong><small>Low air-pollution reference</small></article>
+        <article class="kpi-card"><span>PM2.5</span><strong>8 µg/m³</strong><small>Fine particles</small></article>
+        <article class="kpi-card"><span>PM10</span><strong>14 µg/m³</strong><small>Inhalable particles</small></article>
+        <article class="kpi-card"><span>NO₂</span><strong>18 µg/m³</strong><small>Nitrogen dioxide</small></article>
+        <article class="kpi-card"><span>O₃</span><strong>42 µg/m³</strong><small>Ground-level ozone</small></article>
+        <article class="kpi-card"><span>CO</span><strong>0.3 mg/m³</strong><small>Carbon monoxide</small></article>
+      </div>
+      <div class="source-strip"><span>Future live view: nearest station · observation time · dominant pollutant · official index band</span><a href="https://airquality.ie/" target="_blank" rel="noopener">EPA AirQuality.ie ↗</a></div>
+    </section>
+
+    <section id="neuro-health" class="section-block dashboard-section">
+      <p class="eyebrow">INSPIRED BY THE HEALTHCARE IDEATHON</p><h2>Neurodiversity and mental-health insight dashboard</h2>
+      <p class="section-intro">Use this browser-only check-in to notice patterns and prepare questions for a qualified professional. It does not screen, diagnose or predict a condition.</p>
+      <div class="condition-tabs" role="tablist" aria-label="Choose an insight area"><button class="condition-tab active" data-condition="adhd" type="button">ADHD support</button><button class="condition-tab" data-condition="epilepsy" type="button">Epilepsy wellbeing</button><button class="condition-tab" data-condition="stress" type="button">Stress</button><button class="condition-tab" data-condition="mental" type="button">Mental wellbeing</button></div>
+      <div class="insight-dashboard">
+        <article class="checkin-panel"><h3 id="conditionTitle">ADHD support check-in</h3><p id="conditionDescription">Notice how sleep, structure, focus load and stress are affecting your day.</p>
+          <label>Sleep quality <output id="sleepValue">3</output>/5<input class="checkin-range" id="sleepRange" type="range" min="1" max="5" value="3"></label>
+          <label>Stress load <output id="stressValue">3</output>/5<input class="checkin-range" id="stressRange" type="range" min="1" max="5" value="3"></label>
+          <label>Focus or cognitive load <output id="focusValue">3</output>/5<input class="checkin-range" id="focusRange" type="range" min="1" max="5" value="3"></label>
+          <label>Routine consistency <output id="routineValue">3</output>/5<input class="checkin-range" id="routineRange" type="range" min="1" max="5" value="3"></label>
+        </article>
+        <article class="insight-panel"><span class="insight-score-label">TODAY'S PATTERN</span><strong id="insightScore">Balanced</strong><p id="insightText">Your check-in is mixed. Keep the day simple, protect sleep and use one clear next action.</p><div id="conditionActions" class="action-list"></div><p class="local-note">Your selections stay in this browser session and are not sent anywhere.</p></article>
+      </div>
+      <div class="condition-resource-grid"><a href="https://adhdireland.ie/" target="_blank" rel="noopener"><strong>ADHD Ireland</strong><span>Information and support ↗</span></a><a href="https://www.epilepsy.ie/" target="_blank" rel="noopener"><strong>Epilepsy Ireland</strong><span>Safety, services and support ↗</span></a><a href="https://www2.hse.ie/mental-health/" target="_blank" rel="noopener"><strong>HSE Mental Health</strong><span>Official support information ↗</span></a><a href="https://www.samaritans.org/ireland/samaritans-ireland/" target="_blank" rel="noopener"><strong>Samaritans</strong><span>Immediate emotional support ↗</span></a></div>
+    </section>
+
+    <section class="section-block page-cta"><div><p class="eyebrow">LOCATION PAGE</p><h2>Return to nearby healthcare awareness</h2><p>Review current location-based alerts, notifications, nearby groceries and emergency support.</p></div><a class="button-link" href="index.html">Open location awareness →</a></section>
+  </main>
+
+  <footer><p><strong>Swasthya</strong> · Health and wellbeing dashboard</p><a href="https://github.com/Utpal-Mishra/Swasthya" target="_blank" rel="noopener">View source on GitHub ↗</a></footer>
+  <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Swasthya — location-aware health, environment and wellbeing awareness.">
+  <title>Swasthya | Local Health Awareness</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#overview" aria-label="Swasthya home">
+      <span class="brand-mark">S</span>
+      <span><strong>Swasthya</strong><small>Health intelligence near you</small></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#alerts">Alerts</a><a href="#health-areas">Health areas</a><a href="#sources">Sources</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="overview">
+      <div>
+        <p class="eyebrow">LOCATION-AWARE HEALTH AWARENESS</p>
+        <h1>Understand what may affect your health, where you are.</h1>
+        <p class="lead">Swasthya brings environmental, weather, public-health and wellbeing signals into one transparent dashboard with clear source references.</p>
+      </div>
+      <div class="location-panel">
+        <label for="location">Your area</label>
+        <div class="input-row">
+          <input id="location" value="Cork, Ireland" aria-label="Location">
+          <button id="locateButton" type="button">Use my location</button>
+        </div>
+        <label for="radius">Alert radius: <strong><span id="radiusValue">10</span> km</strong></label>
+        <input id="radius" type="range" min="1" max="50" value="10">
+        <p id="locationStatus" class="privacy-note">Your browser location is processed on this device and is not stored by this static demo.</p>
+      </div>
+    </section>
+
+    <section class="notice" role="note">
+      <strong>Awareness, not diagnosis.</strong> Swasthya does not replace professional medical care or emergency services. All current dashboard records are visibly labelled demonstrations.
+    </section>
+
+    <section class="metrics" aria-label="Dashboard summary">
+      <article><span>Selected area</span><strong id="areaMetric">Cork, Ireland</strong></article>
+      <article><span>Alert radius</span><strong id="radiusMetric">10 km</strong></article>
+      <article><span>Signals shown</span><strong id="signalMetric">3</strong></article>
+      <article><span>Checked</span><strong id="checkedMetric">—</strong></article>
+    </section>
+
+    <section id="alerts" class="section-heading">
+      <div><p class="eyebrow">NEARBY AWARENESS</p><h2>Health situation overview</h2></div>
+      <span class="demo-badge">Demonstration data</span>
+    </section>
+    <section id="alertGrid" class="alert-grid" aria-live="polite"></section>
+
+    <section id="health-areas" class="section-block">
+      <p class="eyebrow">PLANNED COVERAGE</p><h2>Health and wellbeing areas</h2>
+      <div class="area-grid">
+        <article><span>🌬️</span><h3>Air & pollution</h3><p>PM2.5, PM10, nitrogen dioxide, ozone, carbon monoxide and environmental incidents.</p></article>
+        <article><span>🌦️</span><h3>Weather health</h3><p>Heat, cold, UV, severe weather and other conditions with potential health relevance.</p></article>
+        <article><span>🦠</span><h3>Infectious disease</h3><p>Official public-health notices filtered by geography, freshness and public relevance.</p></article>
+        <article><span>🧠</span><h3>Mental wellbeing</h3><p>Verified local support and preventive wellbeing resources without attempting diagnosis.</p></article>
+        <article><span>💧</span><h3>Water & environment</h3><p>Future notices for contamination, bathing-water quality and environmental incidents.</p></article>
+        <article><span>🏥</span><h3>Local support</h3><p>Trusted health-service, urgent-care and community-resource signposting.</p></article>
+      </div>
+    </section>
+
+    <section id="sources" class="section-block sources">
+      <p class="eyebrow">TRUST & PROVENANCE</p><h2>Reference sources</h2>
+      <p>Live integrations will only be promoted to trusted alerts after authority, licensing, freshness, geographic precision and quality checks.</p>
+      <div class="source-grid">
+        <a href="https://www.hse.ie/" target="_blank" rel="noopener"><strong>HSE</strong><span>Health advice and services ↗</span></a>
+        <a href="https://www.hpsc.ie/" target="_blank" rel="noopener"><strong>HPSC</strong><span>Disease surveillance ↗</span></a>
+        <a href="https://airquality.ie/" target="_blank" rel="noopener"><strong>EPA Air Quality</strong><span>Monitoring information ↗</span></a>
+        <a href="https://www.met.ie/" target="_blank" rel="noopener"><strong>Met Éireann</strong><span>Forecasts and warnings ↗</span></a>
+        <a href="https://www.ecdc.europa.eu/" target="_blank" rel="noopener"><strong>ECDC</strong><span>European health intelligence ↗</span></a>
+        <a href="https://www.who.int/" target="_blank" rel="noopener"><strong>WHO</strong><span>Global public health ↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Swasthya</strong> · Open-source health-awareness foundation</p>
+    <a href="https://github.com/Utpal-Mishra/Swasthya" target="_blank" rel="noopener">View source on GitHub ↗</a>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

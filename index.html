@@ -3,19 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Swasthya — location-aware health, environment and wellbeing awareness.">
-  <title>Swasthya | Local Health Awareness</title>
+  <meta name="description" content="Swasthya — location-based healthcare awareness.">
+  <title>Swasthya | Location Awareness</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#overview" aria-label="Swasthya home"><span class="brand-mark">S</span><span><strong>Swasthya</strong><small>Health intelligence near you</small></span></a>
-    <nav aria-label="Main navigation"><a href="#alerts">Alerts</a><a href="#air-quality">Air quality</a><a href="#neuro-health">Neuro & mental health</a><a href="#emergency">Emergency</a></nav>
+    <a class="brand" href="index.html" aria-label="Swasthya home"><span class="brand-mark">S</span><span><strong>Swasthya</strong><small>Health intelligence near you</small></span></a>
+    <nav aria-label="Main navigation"><a class="active-nav" href="index.html">Location awareness</a><a href="dashboard.html">Health dashboard</a><a href="#emergency">Emergency</a></nav>
   </header>
 
   <main>
+    <section class="page-switch" aria-label="Application sections"><a class="page-switch-link active" href="index.html"><strong>1</strong><span>Location-based healthcare awareness</span></a><a class="page-switch-link" href="dashboard.html"><strong>2</strong><span>Health and wellbeing dashboard</span></a></section>
+
     <section class="hero" id="overview">
-      <div><p class="eyebrow">LOCATION-AWARE HEALTH AWARENESS</p><h1>Understand what may affect your health, where you are.</h1><p class="lead">Swasthya brings environmental, weather, public-health and wellbeing signals into one transparent dashboard with clear source references.</p></div>
+      <div><p class="eyebrow">LOCATION-BASED HEALTHCARE AWARENESS</p><h1>Understand what may affect your health, where you are.</h1><p class="lead">Review nearby environmental, weather and public-health signals with clear references, practical actions and location-aware support.</p></div>
       <div class="location-panel">
         <label for="location">Region, nearby town or city</label>
         <div class="input-row"><input id="location" value="Cork, Ireland" aria-label="Region, nearby town or city"><button id="locateButton" type="button">Use my location</button></div>
@@ -29,45 +31,19 @@
 
     <section class="priority-alert" aria-live="polite"><div><p class="eyebrow">CURRENT WEATHER-HEALTH REFERENCE</p><h2>High temperatures across parts of Ireland</h2><p>Hot conditions can increase dehydration and heat-stress risk, especially for vulnerable people.</p><ul><li>Drink water regularly and choose hydrating foods.</li><li>Avoid prolonged outdoor activity during the hottest part of the day.</li><li>Use shade, light clothing and sun protection.</li><li>Seek urgent help for confusion, collapse or loss of consciousness.</li></ul><div class="priority-actions"><a id="groceriesLink" class="button-link" href="https://www.google.com/maps/search/open+grocery+stores+near+Cork+Ireland" target="_blank" rel="noopener">Find open groceries nearby ↗</a><a class="secondary-link" href="https://www.met.ie/" target="_blank" rel="noopener">Check Met Éireann ↗</a><a class="secondary-link" href="https://www.hse.ie/" target="_blank" rel="noopener">Review HSE advice ↗</a></div></div><span class="heat-icon" aria-hidden="true">☀️</span></section>
 
-    <section class="metrics" aria-label="Dashboard summary"><article><span>Region</span><strong id="areaMetric">Cork, Ireland</strong></article><article><span>Alert radius</span><strong id="radiusMetric">10 km</strong></article><article><span>Signals shown</span><strong id="signalMetric">4</strong></article><article><span>Checked</span><strong id="checkedMetric">—</strong></article></section>
+    <section class="metrics" aria-label="Location awareness summary"><article><span>Region</span><strong id="areaMetric">Cork, Ireland</strong></article><article><span>Alert radius</span><strong id="radiusMetric">10 km</strong></article><article><span>Signals shown</span><strong id="signalMetric">4</strong></article><article><span>Checked</span><strong id="checkedMetric">—</strong></article></section>
 
-    <section id="air-quality" class="section-block">
-      <div class="section-heading"><div><p class="eyebrow">AIR QUALITY DASHBOARD</p><h2>Recognised air-quality indicators</h2></div><span class="demo-badge">Demonstration values</span></div>
-      <p class="section-intro">Ireland commonly communicates air quality through an index alongside individual pollutant concentrations. A production version should show the applicable official index, monitoring station, timestamp and dominant pollutant.</p>
-      <div class="aq-layout">
-        <article class="aq-hero"><span class="aq-label">AQI / AQIH</span><strong>3</strong><span class="aq-status">Low air-pollution reference</span><small>Illustrative only — not a live reading</small></article>
-        <div class="pollutant-grid">
-          <article><span>PM2.5</span><strong>8 µg/m³</strong><small>Fine particles</small></article><article><span>PM10</span><strong>14 µg/m³</strong><small>Inhalable particles</small></article><article><span>NO₂</span><strong>18 µg/m³</strong><small>Nitrogen dioxide</small></article><article><span>O₃</span><strong>42 µg/m³</strong><small>Ground-level ozone</small></article><article><span>CO</span><strong>0.3 mg/m³</strong><small>Carbon monoxide</small></article><article><span>Dominant pollutant</span><strong>PM2.5</strong><small>Example classification</small></article>
-        </div>
-      </div>
-      <div class="source-strip"><span>Future live view: nearest station · observation time · official index band · health message</span><a href="https://airquality.ie/" target="_blank" rel="noopener">EPA AirQuality.ie ↗</a></div>
-    </section>
+    <section id="alerts" class="section-heading"><div><p class="eyebrow">NEARBY AWARENESS</p><h2>Health situation overview</h2></div><span class="demo-badge">Reference and demonstration data</span></section>
+    <section id="alertGrid" class="alert-grid" aria-live="polite"></section>
 
-    <section id="alerts" class="section-heading"><div><p class="eyebrow">NEARBY AWARENESS</p><h2>Health situation overview</h2></div><span class="demo-badge">Reference and demonstration data</span></section><section id="alertGrid" class="alert-grid" aria-live="polite"></section>
-
-    <section id="neuro-health" class="section-block">
-      <p class="eyebrow">INSPIRED BY THE HEALTHCARE IDEATHON</p><h2>Neurodiversity and mental-health insight dashboard</h2>
-      <p class="section-intro">Use this private, browser-only check-in to notice patterns and prepare questions for a qualified professional. It does not screen, diagnose or predict a condition.</p>
-      <div class="condition-tabs" role="tablist" aria-label="Choose an insight area"><button class="condition-tab active" data-condition="adhd" type="button">ADHD support</button><button class="condition-tab" data-condition="epilepsy" type="button">Epilepsy wellbeing</button><button class="condition-tab" data-condition="stress" type="button">Stress</button><button class="condition-tab" data-condition="mental" type="button">Mental wellbeing</button></div>
-      <div class="insight-dashboard">
-        <article class="checkin-panel"><h3 id="conditionTitle">ADHD support check-in</h3><p id="conditionDescription">Notice how sleep, structure, focus load and stress are affecting your day.</p>
-          <label>Sleep quality <output id="sleepValue">3</output>/5<input class="checkin-range" id="sleepRange" type="range" min="1" max="5" value="3"></label>
-          <label>Stress load <output id="stressValue">3</output>/5<input class="checkin-range" id="stressRange" type="range" min="1" max="5" value="3"></label>
-          <label>Focus or cognitive load <output id="focusValue">3</output>/5<input class="checkin-range" id="focusRange" type="range" min="1" max="5" value="3"></label>
-          <label>Routine consistency <output id="routineValue">3</output>/5<input class="checkin-range" id="routineRange" type="range" min="1" max="5" value="3"></label>
-        </article>
-        <article class="insight-panel"><span class="insight-score-label">TODAY'S PATTERN</span><strong id="insightScore">Balanced</strong><p id="insightText">Your check-in is mixed. Keep the day simple, protect sleep and use one clear next action.</p><div id="conditionActions" class="action-list"></div><p class="local-note">Your selections stay in this browser session and are not sent anywhere.</p></article>
-      </div>
-      <div class="condition-resource-grid"><a href="https://adhdireland.ie/" target="_blank" rel="noopener"><strong>ADHD Ireland</strong><span>Information and support ↗</span></a><a href="https://www.epilepsy.ie/" target="_blank" rel="noopener"><strong>Epilepsy Ireland</strong><span>Safety, services and support ↗</span></a><a href="https://www2.hse.ie/mental-health/" target="_blank" rel="noopener"><strong>HSE Mental Health</strong><span>Official support information ↗</span></a><a href="https://www.samaritans.org/ireland/samaritans-ireland/" target="_blank" rel="noopener"><strong>Samaritans</strong><span>Immediate emotional support ↗</span></a></div>
-    </section>
-
-    <section id="health-areas" class="section-block"><p class="eyebrow">PLANNED COVERAGE</p><h2>Health and wellbeing areas</h2><div class="area-grid"><article><span>🌬️</span><h3>Air & pollution</h3><p>AQI/AQIH, PM2.5, PM10, NO₂, ozone, carbon monoxide and incidents.</p></article><article><span>🌦️</span><h3>Weather health</h3><p>Heat, cold, UV and severe weather.</p></article><article><span>🦠</span><h3>Infectious disease</h3><p>Official notices by geography and freshness.</p></article><article><span>🧠</span><h3>Mental wellbeing</h3><p>Private pattern check-ins and verified support.</p></article><article><span>💧</span><h3>Water & environment</h3><p>Water quality and environmental incidents.</p></article><article><span>🏥</span><h3>Local support</h3><p>Urgent-care and community-resource signposting.</p></article></div></section>
+    <section id="health-areas" class="section-block"><p class="eyebrow">LOCATION-AWARE COVERAGE</p><h2>Health and environmental areas</h2><div class="area-grid"><article><span>🌬️</span><h3>Air & pollution</h3><p>AQI/AQIH, PM2.5, PM10, NO₂, ozone, carbon monoxide and incidents.</p></article><article><span>🌦️</span><h3>Weather health</h3><p>Heat, cold, UV and severe weather.</p></article><article><span>🦠</span><h3>Infectious disease</h3><p>Official notices by geography and freshness.</p></article><article><span>💧</span><h3>Water & environment</h3><p>Water quality and environmental incidents.</p></article><article><span>🏥</span><h3>Local healthcare</h3><p>Urgent-care and nearby service signposting.</p></article><article><span>🛒</span><h3>Local essentials</h3><p>Location-aware access to groceries and practical support.</p></article></div></section>
 
     <section id="emergency" class="section-block emergency-section"><p class="eyebrow">URGENT SUPPORT IN IRELAND</p><h2>Emergency and immediate support</h2><p class="emergency-intro">Use emergency services for an immediate threat to life or serious injury. Swasthya does not contact services on your behalf.</p><div class="emergency-grid"><article class="emergency-card critical-card"><span>🚨</span><h3>Emergency services</h3><p>Ambulance, Gardaí, fire service or Coast Guard.</p><div class="contact-actions"><a href="tel:112">Call 112</a><a href="tel:999">Call 999</a></div></article><article class="emergency-card"><span>💚</span><h3>Samaritans</h3><p>Free emotional support, 24 hours a day.</p><div class="contact-actions"><a href="tel:116123">Call 116 123</a><a href="https://www.samaritans.org/ireland/samaritans-ireland/" target="_blank" rel="noopener">Open website ↗</a></div></article><article class="emergency-card"><span>🏥</span><h3>Find urgent healthcare</h3><p>Use official HSE service information.</p><div class="contact-actions"><a href="https://www2.hse.ie/services/" target="_blank" rel="noopener">Find HSE services ↗</a></div></article></div></section>
 
-    <section id="sources" class="section-block sources"><p class="eyebrow">TRUST & PROVENANCE</p><h2>Reference sources</h2><div class="source-grid"><a href="https://www.hse.ie/" target="_blank" rel="noopener"><strong>HSE</strong><span>Health advice and services ↗</span></a><a href="https://www.hpsc.ie/" target="_blank" rel="noopener"><strong>HPSC</strong><span>Disease surveillance ↗</span></a><a href="https://airquality.ie/" target="_blank" rel="noopener"><strong>EPA Air Quality</strong><span>Monitoring information ↗</span></a><a href="https://www.met.ie/" target="_blank" rel="noopener"><strong>Met Éireann</strong><span>Forecasts and warnings ↗</span></a><a href="https://adhdireland.ie/" target="_blank" rel="noopener"><strong>ADHD Ireland</strong><span>Support and education ↗</span></a><a href="https://www.epilepsy.ie/" target="_blank" rel="noopener"><strong>Epilepsy Ireland</strong><span>Information and support ↗</span></a></div></section>
+    <section class="section-block page-cta"><div><p class="eyebrow">NEXT PAGE</p><h2>Explore the health and wellbeing dashboard</h2><p>View the six air-quality KPIs in a 3 × 2 matrix and use the private ADHD, epilepsy, stress and mental-wellbeing check-ins.</p></div><a class="button-link" href="dashboard.html">Open dashboard →</a></section>
   </main>
 
-  <footer><p><strong>Swasthya</strong> · Open-source health-awareness foundation</p><a href="https://github.com/Utpal-Mishra/Swasthya" target="_blank" rel="noopener">View source on GitHub ↗</a></footer><script src="app.js"></script>
+  <footer><p><strong>Swasthya</strong> · Location-based healthcare awareness</p><a href="https://github.com/Utpal-Mishra/Swasthya" target="_blank" rel="noopener">View source on GitHub ↗</a></footer>
+  <script src="app.js"></script>
 </body>
 </html>

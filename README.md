@@ -10,51 +10,38 @@
 
 The deployed website is currently a responsive static MVP. Most displayed health signals remain clearly labelled demonstration or manually maintained reference records until validated live integrations are introduced.
 
-## Product vision
-
-Swasthya aims to answer five practical questions:
-
-1. What health, environmental or weather-related conditions may be relevant near me?
-2. How geographically relevant is the signal?
-3. How recent, severe and reliable is it?
-4. Which official or trusted source produced it?
-5. What proportionate preventive action or official guidance should I review?
-
 ## Current capabilities
 
 - Responsive GitHub Pages dashboard
-- Manual location entry and optional browser geolocation
+- Region, nearby-town or city entry with optional browser geolocation
 - User-controlled proximity radius
-- Demonstration alert filtering by distance
 - Opt-in browser notifications for high-priority reference signals while the website is active
 - High-temperature health reference with hydration, food, shade and vulnerable-person guidance
 - Location-aware navigation to nearby open grocery stores
+- Air-quality dashboard using AQI/AQIH and prominent pollutant KPIs: PM2.5, PM10, NO₂, O₃ and CO
+- Dominant-pollutant, monitoring-station and observation-time placeholders for future live integration
+- Private browser-only check-in dashboard for ADHD support, epilepsy wellbeing, stress and general mental wellbeing
+- Condition-specific practical actions and verified support links
 - Emergency call actions for Ireland using `112` and `999`
 - Samaritans emotional-support contact using `116 123`
 - HSE local-service navigation
-- Health-awareness categories covering air, weather, infectious disease and wellbeing
-- Direct links to official reference organisations
-- Transparent labels distinguishing demonstration information from verified live alerts
+- Direct links to official and specialist reference organisations
 - Python/Streamlit foundation for future server-side integrations
 - Automated GitHub Pages deployment from `main`
+
+## Air-quality interpretation
+
+The current AQI/AQIH and pollutant figures are illustrative values, not live readings. A production alert must show the applicable official index, nearest relevant monitoring station, observation timestamp, geographic coverage, dominant pollutant and direct source link.
+
+## Neurodiversity and mental-health dashboard boundary
+
+The check-in dashboard helps users notice general patterns in sleep, stress, cognitive load and routine. It does not screen for, diagnose or predict ADHD, epilepsy, stress disorders or any mental-health condition. Epilepsy content does not predict seizures. Selections remain in the current browser session and are not transmitted by the static site.
+
+Reference support includes ADHD Ireland, Epilepsy Ireland, HSE Mental Health and Samaritans.
 
 ## Notification limitation
 
 The current static GitHub Pages version can request browser notification permission and show high-priority notifications while the website is open or active. Reliable background push notifications when the website is closed will require a service worker, push subscription storage and a secure backend notification service.
-
-## Planned capability areas
-
-| Area | Intended capability |
-|---|---|
-| Health overview | Ranked summary of current relevant signals |
-| Nearby alerts | Map and list filtered by distance, coverage and freshness |
-| Air and environment | Pollutants, environmental incidents and exposure context |
-| Weather health | Heat, cold, UV, severe weather and other health-relevant conditions |
-| Infectious disease | Official surveillance notices and geographic applicability |
-| Water and environment | Water-quality and environmental incident awareness |
-| Mental wellbeing | Verified support resources and preventive wellbeing guidance |
-| Local support | Health-service, urgent-care and community-resource signposting |
-| Source explorer | Provenance, methods, thresholds, freshness and data-quality details |
 
 ## Trust-by-design
 
@@ -75,7 +62,7 @@ Demonstration, stale, estimated, modelled and community-sourced information must
 ## Architecture summary
 
 ```text
-User consent and location
+User consent and region
         ↓
 Location normalisation and privacy controls
         ↓
@@ -94,29 +81,6 @@ Dashboard, source explorer and optional notifications
 
 The static site currently performs browser-side interaction only. The future backend will handle provider ingestion, validation, risk processing, provenance and reliable background notifications.
 
-## Repository structure
-
-```text
-Swasthya/
-├── index.html                      # Static GitHub Pages interface
-├── styles.css                      # Responsive design and layout
-├── app.js                          # Browser interactions, notifications and reference alerts
-├── app/
-│   ├── app.py                      # Streamlit application foundation
-│   └── services/
-│       └── alert_engine.py         # Demonstration alert construction
-├── docs/
-│   ├── project-brief.md            # Purpose, scope, objectives and success measures
-│   ├── architecture.md             # Current and target technical architecture
-│   ├── repository-structure.md     # File ownership and structural conventions
-│   ├── data-sources.md             # Source-selection and validation policy
-│   ├── roadmap.md                  # Phased implementation roadmap
-│   └── deployment.md               # Local and GitHub Pages deployment runbook
-├── .github/workflows/pages.yml     # GitHub Pages deployment workflow
-├── requirements.txt                # Python dependencies
-└── README.md                       # Project entry point
-```
-
 ## Documentation
 
 - [Project brief](docs/project-brief.md)
@@ -126,7 +90,7 @@ Swasthya/
 - [Implementation roadmap](docs/roadmap.md)
 - [Deployment guide](docs/deployment.md)
 
-## Run the static website locally
+## Run locally
 
 ```bash
 python -m http.server 8000
@@ -134,7 +98,7 @@ python -m http.server 8000
 
 Then open `http://localhost:8000`.
 
-## Run the Streamlit foundation locally
+For the Streamlit foundation:
 
 ```bash
 python -m venv .venv
@@ -150,36 +114,28 @@ streamlit run app/app.py
 - Prefer coarse location or on-device distance calculations where possible.
 - Do not introduce background tracking in the initial product phases.
 - Collect only the minimum data required for the requested feature.
-- Define retention and deletion policies before introducing accounts or saved preferences.
-- Never infer or expose sensitive health status from location behaviour alone.
+- Do not infer or expose sensitive health status from location or check-in behaviour.
 
 ## Delivery status
 
 ### Completed
 
-- Project foundation and documentation baseline
 - Static, mobile-responsive awareness dashboard
-- Browser-side location and radius controls
-- Transparent demonstration and reference alerts
-- Opt-in active-page browser notifications
+- Browser-side region, radius and notification controls
 - Heat-health guidance and grocery navigation
+- AQI/AQIH and pollutant KPI dashboard foundation
+- ADHD, epilepsy, stress and mental-wellbeing check-in dashboard
 - Emergency and emotional-support contact actions
-- Streamlit scaffold
-- GitHub Pages deployment workflow
+- Streamlit scaffold and GitHub Pages workflow
 
 ### Next priorities
 
-1. Introduce a canonical alert schema and validation tests.
-2. Implement the first official provider adapter.
-3. Add freshness, geographic-quality and provenance checks.
+1. Connect an official live air-quality provider and replace illustrative KPI values.
+2. Add monitoring-station distance, observation time and dominant-pollutant logic.
+3. Introduce canonical alert schemas and automated tests.
 4. Replace manually maintained weather references with verified live data.
-5. Add a secure backend and service-worker flow for background push notifications.
-6. Add observability, failure handling and automated tests.
-7. Introduce a source and methodology explorer.
-
-## Contributing
-
-Contributions should preserve the product’s safety, privacy and transparency principles. New providers or risk rules should include source authority, licensing, geographic precision, freshness expectations, validation logic and user-facing limitations.
+5. Add secure background push notifications.
+6. Add optional, consent-based local history for wellbeing patterns without creating diagnostic scores.
 
 ## Licence
 

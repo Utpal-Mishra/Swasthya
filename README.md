@@ -2,6 +2,12 @@
 
 Swasthya is a location-aware health intelligence and early-warning platform. It combines trusted public-health, environmental, weather and wellbeing information to help people understand nearby risks and take informed preventive action.
 
+## Live website
+
+**GitHub Pages:** https://utpal-mishra.github.io/Swasthya/
+
+The GitHub Pages version is a responsive static dashboard. It uses browser-side interaction only, so location coordinates are not sent to or stored by this website. The Python/Streamlit foundation remains available for future server-side data integrations and processing.
+
 ## Vision
 
 Move beyond a static healthcare ideathon prototype into a practical, transparent and privacy-conscious dashboard that can answer:
@@ -43,7 +49,7 @@ Every alert should include:
 
 For Ireland, the platform will prioritise HSE, HPSC, EPA Ireland, Met Éireann, CSO, data.gov.ie and local-authority sources. European and international expansion may use ECDC, WHO, Copernicus and OpenAQ where appropriate.
 
-## Run locally
+## Run the Streamlit foundation locally
 
 ```bash
 python -m venv .venv
@@ -51,6 +57,8 @@ source .venv/bin/activate  # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 streamlit run app/app.py
 ```
+
+The static website can also be previewed by opening `index.html` or serving the repository with any static web server.
 
 ## Privacy principles
 
@@ -60,6 +68,10 @@ streamlit run app/app.py
 - Collect only data required for the current feature.
 - Explain how each alert was produced.
 
+## Deployment
+
+A GitHub Actions workflow in `.github/workflows/pages.yml` deploys the static site whenever changes are merged or pushed to `main`.
+
 ## Status
 
-Foundation MVP scaffold. Live provider integrations will be added incrementally and must pass source, licensing, freshness and geographic-quality checks before being presented as trusted alerts.
+Foundation MVP with a deployable static dashboard. Current records are deliberately marked as demonstration data. Live provider integrations will be added incrementally and must pass source, licensing, freshness and geographic-quality checks before being presented as trusted alerts.

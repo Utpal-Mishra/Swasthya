@@ -14,7 +14,7 @@
       <span><strong>Swasthya</strong><small>Health intelligence near you</small></span>
     </a>
     <nav aria-label="Main navigation">
-      <a href="#alerts">Alerts</a><a href="#health-areas">Health areas</a><a href="#sources">Sources</a>
+      <a href="#alerts">Alerts</a><a href="#health-areas">Health areas</a><a href="#emergency">Emergency</a><a href="#sources">Sources</a>
     </nav>
   </header>
 
@@ -33,24 +33,56 @@
         </div>
         <label for="radius">Alert radius: <strong><span id="radiusValue">10</span> km</strong></label>
         <input id="radius" type="range" min="1" max="50" value="10">
+        <div class="notification-row">
+          <div>
+            <strong>Unexpected-condition notifications</strong>
+            <small>Notify me while this website is open when a high-priority signal appears.</small>
+          </div>
+          <label class="switch" aria-label="Enable notifications">
+            <input id="notificationToggle" type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <p id="notificationStatus" class="privacy-note">Notifications are off. Browser permission is requested only when you enable them.</p>
         <p id="locationStatus" class="privacy-note">Your browser location is processed on this device and is not stored by this static demo.</p>
       </div>
     </section>
 
     <section class="notice" role="note">
-      <strong>Awareness, not diagnosis.</strong> Swasthya does not replace professional medical care or emergency services. All current dashboard records are visibly labelled demonstrations.
+      <strong>Awareness, not diagnosis.</strong> Swasthya does not replace professional medical care or emergency services. Current weather-health content is a manually maintained reference alert, not a live clinical warning feed.
+    </section>
+
+    <section class="priority-alert" aria-live="polite">
+      <div>
+        <p class="eyebrow">CURRENT WEATHER-HEALTH REFERENCE</p>
+        <h2>High temperatures across parts of Ireland</h2>
+        <p>Hot conditions can increase dehydration and heat-stress risk, especially for older adults, young children, pregnant people, outdoor workers and people with existing health conditions.</p>
+        <ul>
+          <li>Drink water regularly rather than waiting until you feel thirsty.</li>
+          <li>Choose hydrating foods such as fruit, vegetables, yoghurt and light meals.</li>
+          <li>Avoid prolonged outdoor activity during the hottest part of the day.</li>
+          <li>Use shade, light clothing and sun protection, and check on vulnerable people.</li>
+          <li>Seek urgent help for confusion, collapse, very high temperature or loss of consciousness.</li>
+        </ul>
+        <div class="priority-actions">
+          <a id="groceriesLink" class="button-link" href="https://www.google.com/maps/search/open+grocery+stores+near+Cork+Ireland" target="_blank" rel="noopener">Find open groceries nearby ↗</a>
+          <a class="secondary-link" href="https://www.met.ie/" target="_blank" rel="noopener">Check Met Éireann ↗</a>
+          <a class="secondary-link" href="https://www.hse.ie/" target="_blank" rel="noopener">Review HSE advice ↗</a>
+        </div>
+      </div>
+      <span class="heat-icon" aria-hidden="true">☀️</span>
     </section>
 
     <section class="metrics" aria-label="Dashboard summary">
       <article><span>Selected area</span><strong id="areaMetric">Cork, Ireland</strong></article>
       <article><span>Alert radius</span><strong id="radiusMetric">10 km</strong></article>
-      <article><span>Signals shown</span><strong id="signalMetric">3</strong></article>
+      <article><span>Signals shown</span><strong id="signalMetric">4</strong></article>
       <article><span>Checked</span><strong id="checkedMetric">—</strong></article>
     </section>
 
     <section id="alerts" class="section-heading">
       <div><p class="eyebrow">NEARBY AWARENESS</p><h2>Health situation overview</h2></div>
-      <span class="demo-badge">Demonstration data</span>
+      <span class="demo-badge">Reference and demonstration data</span>
     </section>
     <section id="alertGrid" class="alert-grid" aria-live="polite"></section>
 
@@ -63,6 +95,28 @@
         <article><span>🧠</span><h3>Mental wellbeing</h3><p>Verified local support and preventive wellbeing resources without attempting diagnosis.</p></article>
         <article><span>💧</span><h3>Water & environment</h3><p>Future notices for contamination, bathing-water quality and environmental incidents.</p></article>
         <article><span>🏥</span><h3>Local support</h3><p>Trusted health-service, urgent-care and community-resource signposting.</p></article>
+      </div>
+    </section>
+
+    <section id="emergency" class="section-block emergency-section">
+      <p class="eyebrow">URGENT SUPPORT IN IRELAND</p><h2>Emergency and immediate support</h2>
+      <p class="emergency-intro">Use emergency services for an immediate threat to life or serious injury. Swasthya does not contact services on your behalf.</p>
+      <div class="emergency-grid">
+        <article class="emergency-card critical-card">
+          <span>🚨</span><h3>Emergency services</h3>
+          <p>Ambulance, Gardaí, fire service or Coast Guard.</p>
+          <div class="contact-actions"><a href="tel:112">Call 112</a><a href="tel:999">Call 999</a></div>
+        </article>
+        <article class="emergency-card">
+          <span>💚</span><h3>Samaritans</h3>
+          <p>Free emotional support, 24 hours a day.</p>
+          <div class="contact-actions"><a href="tel:116123">Call 116 123</a><a href="https://www.samaritans.org/ireland/samaritans-ireland/" target="_blank" rel="noopener">Open website ↗</a></div>
+        </article>
+        <article class="emergency-card">
+          <span>🏥</span><h3>Find urgent healthcare</h3>
+          <p>Use official HSE service information for urgent and local care options.</p>
+          <div class="contact-actions"><a href="https://www2.hse.ie/services/" target="_blank" rel="noopener">Find HSE services ↗</a></div>
+        </article>
       </div>
     </section>
 

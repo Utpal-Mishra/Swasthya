@@ -4,24 +4,82 @@
 
 Swasthya must not present information as a trusted health alert merely because an API, webpage or dataset is publicly accessible. Every integration must be assessed for authority, licensing, freshness, geographic precision, stability, interpretability and responsible use.
 
-This policy defines the minimum conditions for accepting, transforming and presenting external information.
-
 ## 2. Source hierarchy
 
-Sources should generally be prioritised in this order:
+Sources are prioritised in this order:
 
 1. National public-health, environmental and meteorological authorities
-2. European and international public institutions
-3. Local authorities and public-service bodies
-4. Peer-reviewed or institutionally maintained research datasets
-5. Validated third-party aggregators where official coverage is unavailable
-6. Community reports, always separated from verified alerts
+2. Regional public-health authorities such as ECDC
+3. WHO and other international public institutions
+4. Local authorities and public-service bodies
+5. Peer-reviewed/institutional datasets
+6. Validated third-party aggregators where official coverage is unavailable
+7. Community reports, always separated from verified alerts
 
-A lower-ranked source may supplement official coverage but should not silently replace or contradict a more authoritative source.
+For location-aware disease intelligence, Swasthya now implements the first practical version of this hierarchy as:
 
-## 3. Source onboarding checklist
+```text
+Resolved country
+      ↓
+National connected source (when available)
+      ↓
+Regional source (when applicable)
+      ↓
+WHO Disease Outbreak News fallback
+```
 
-Before integration, document:
+A lower-ranked source may supplement official coverage but should not silently replace or contradict the competent authority.
+
+## 3. Connected public-health sources
+
+| Layer | Provider | Access | Use in Swasthya | Status |
+|---|---|---|---|---|
+| Global | WHO Disease Outbreak News | WHO public API | Country-matched outbreak intelligence and global fallback | **Connected** |
+| EU/EEA | ECDC | Official RSS feeds | Communicable-disease threat reports and epidemiological updates | **Connected** |
+| Ireland | HPSC | Epidemiology reports/publications | Irish national surveillance context | **Connected** |
+| Country directory | National authorities | Registry of official URLs | Link to competent national authority when a dedicated feed is not yet connected | **Connected registry** |
+
+The scheduled ingestion job runs through `scripts/fetch_public_health.py` and writes `data/public-health.json`.
+
+## 4. Important limitation: publication is not proximity
+
+The public-health cache contains official publications, not patient tracking.
+
+Swasthya must never transform:
+
+- a national WHO/HPSC notice into a 1 km case alert
+- an EU/EEA surveillance report into a street-level exposure claim
+- a report mentioning a country into evidence that a particular individual nearby is infected
+
+When a user selects a 5 km radius, that radius applies only to data whose source geometry genuinely supports that precision. National or regional disease intelligence keeps its original geographic resolution.
+
+## 5. Country switching
+
+Manual place search returns a country code from the geocoder. Browser location uses a reverse-geocoding service to resolve country/region. That country code determines:
+
+- national health-authority link
+- applicable regional layer
+- WHO fallback
+- verified emergency information where present in the country registry
+
+The country-provider registry is stored at `data/country-health-providers.json`.
+
+Unknown countries fall back to WHO and do **not** receive invented emergency numbers or local surveillance claims.
+
+## 6. Environmental sources
+
+| Domain | Provider | Intended use | Status |
+|---|---|---|---|
+| Weather | Open-Meteo | Live modelled current weather context | Connected MVP |
+| Air | Open-Meteo European AQI | Supporting citizen exposure context | Connected MVP |
+| Official Irish weather | Met Éireann | Verification/official warnings | Reference; direct warning ingestion pending |
+| Official Irish air | EPA / AirQuality.ie | Verification and future observation feed | Reference; direct station ingestion pending |
+
+Modelled weather/air data must never be labelled as an official observation.
+
+## 7. Source onboarding checklist
+
+Before a new provider is integrated, document:
 
 - provider and dataset owner
 - official status and authority
@@ -34,134 +92,75 @@ Before integration, document:
 - historic availability and revision behaviour
 - API stability, rate limits and service expectations
 - known quality issues or missing-data patterns
-- contact or escalation route where available
 - intended Swasthya use and prohibited interpretations
 
-## 4. Initial Ireland catalogue
-
-| Domain | Preferred source | Reference | Intended use | Current status |
-|---|---|---|---|---|
-| Public health | HSE | https://www.hse.ie/ | Official health advice and services | Reference only |
-| Disease surveillance | HPSC | https://www.hpsc.ie/ | Surveillance reports and public-health notices | Reference only |
-| Air and environment | EPA Ireland | https://www.epa.ie/ | Environmental monitoring and official guidance | Candidate |
-| Air monitoring | AirQuality.ie | https://airquality.ie/ | Air-quality observations and station information | Candidate |
-| Weather | Met Éireann | https://www.met.ie/ | Forecasts and official warnings | Candidate |
-| Open government data | data.gov.ie | https://data.gov.ie/ | Discovery of Irish public datasets | Discovery source |
-| Statistics | CSO Ireland | https://www.cso.ie/ | Population and health-related context | Contextual |
-| Local services | Local authorities | Varies | Environmental incidents and local notices | Future review |
-
-`Reference only` means the current interface links to the organisation but does not ingest its data. `Candidate` means an adapter may be designed after technical and licensing review.
-
-## 5. European and international catalogue
-
-| Domain | Preferred source | Reference | Intended use | Current status |
-|---|---|---|---|---|
-| European disease intelligence | ECDC | https://www.ecdc.europa.eu/ | Cross-border surveillance and risk information | Future review |
-| Global public health | WHO | https://www.who.int/ | International guidance and emergency information | Reference only |
-| Atmosphere and environment | Copernicus | https://www.copernicus.eu/ | Modelled environmental and atmospheric products | Future review |
-| Open air-quality aggregation | OpenAQ | https://openaq.org/ | Supplemental monitoring with retained provenance | Future review |
-
-## 6. Required provider metadata
-
-Each provider configuration should include:
-
-- unique provider identifier
-- provider name and source URL
-- source classification: `official`, `institutional`, `modelled`, `third_party` or `community`
-- dataset or advisory title
-- licence and attribution requirement
-- expected update cadence
-- freshness threshold
-- supported geography
-- geographic resolution
-- units and definitions
-- adapter version
-- owner and review status
-
-## 7. Required observation and alert metadata
+## 8. Required record metadata
 
 Every canonical record should retain:
 
 - original provider record identifier
-- observed, issued, published and retrieved timestamps where available
-- geographic coverage and coordinates where permitted
-- original measurement, units and definition
-- quality flags supplied by the source
+- provider name and direct source URL
+- source classification
+- publication/observation/retrieval timestamps where available
+- country and regional tags
+- original geographic precision
+- source-specific quality flags
 - transformation history
 - schema version
-- severity or advisory status
-- threshold standard and risk-rule version
-- confidence or quality status
+- severity/importance supplied or derived
 - freshness state
-- direct source reference
 
-## 8. Freshness policy
+## 9. Freshness policy
 
-Freshness limits must be provider- and category-specific. The system should:
+Freshness limits are category-specific. The system should:
 
 - calculate age from the most relevant source timestamp
-- distinguish observation time from publication and retrieval time
-- mark records as current, ageing, stale or expired
-- suppress expired records from active-alert views
-- retain stale records only for history or audit where permitted
-- never imply that an old record represents current conditions
+- distinguish observation time from publication/retrieval time
+- mark records current, ageing, stale or expired
+- suppress old outbreak items from actionable notifications
+- retain older reports only as surveillance/history where appropriate
+- never imply that an old publication represents a current nearby case
 
-## 9. Geographic-quality policy
+## 10. Geographic-quality policy
 
-The application must respect the geographic resolution of the source:
-
-- station-level data may describe a station, not an entire city
-- county-level advisories must not be presented as street-level alerts
-- modelled grids must identify their spatial resolution
-- national guidance must not be assigned an artificial distance
-- distance should be shown only when the source geometry supports it
-
-## 10. Transformation policy
-
-Transformations must be documented and testable. This includes:
-
-- unit conversions
-- timestamp normalisation
-- coordinate transformations
-- category mappings
-- aggregation windows
-- missing-value handling
-- severity calculation
-- deduplication and conflict resolution
-
-Original values should remain available for provenance wherever licensing permits.
+- Station data describes a station or model grid, not necessarily an entire city.
+- County-level advisories remain county-level.
+- National guidance remains national.
+- Regional ECDC intelligence remains regional unless the source explicitly identifies a country.
+- Distance is shown only when source geometry actually supports distance calculation.
+- Individual patient coordinates are never exposed.
 
 ## 11. Presentation rules
 
-- Demo, stale, estimated, modelled and community-sourced information must be visibly labelled.
-- Link to the original source, not only an aggregator.
-- Show when the application retrieved the record.
-- Explain the geographic coverage.
-- Preserve the source's terminology unless a documented mapping is used.
-- Do not merge differently defined measurements without explaining the conversion.
-- Suppress or downgrade records that fail mandatory freshness, licensing or quality checks.
-- Never convert an informational notice into a medical diagnosis or personalised treatment recommendation.
+- Official, modelled, stale, estimated and community-sourced information must be visibly distinguished.
+- Link to the original source.
+- Show publication/observation date.
+- Explain geographic coverage.
+- Preserve source terminology unless a documented mapping is used.
+- Do not infer diagnosis, personal exposure or treatment from area-level surveillance.
+- Absence of a matched item must be worded as **"no recent matched item in connected feeds"**, never **"no disease nearby"**.
 
-## 12. Conflict handling
+## 12. Privacy and country lookup
 
-When reliable sources disagree:
+When browser location is enabled, coordinates are sent to selected data providers for environmental and country lookup. The static Swasthya site does not persist exact coordinates in a backend.
 
-1. preserve each source independently
-2. check definitions, timestamps, geography and revision status
-3. prioritise the competent authority for that jurisdiction and topic
-4. avoid averaging incompatible values
-5. disclose the disagreement when material
-6. escalate unresolved conflicts for manual review
+Future production architecture should consider:
+
+- server-side provider proxying
+- coarse geohashes rather than raw coordinates where possible
+- documented retention rules
+- DPIA/privacy review
+- provider data-processing terms
 
 ## 13. Review and ownership
 
 Each live provider should have:
 
-- a named technical owner
+- a technical owner
 - a documented review date
-- automated retrieval and schema tests
+- automated retrieval/schema tests
 - a monitored freshness threshold
 - a deactivation process
-- a periodic authority, licence and quality review
+- periodic authority, licence and quality review
 
 No provider should remain active indefinitely without review.

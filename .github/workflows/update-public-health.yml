@@ -1,0 +1,43 @@
+name: Update public-health intelligence
+
+on:
+  schedule:
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: public-health-cache
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install feed dependencies
+        run: pip install requests beautifulsoup4 feedparser pycountry
+
+      - name: Fetch official public-health sources
+        run: python scripts/fetch_public_health.py
+
+      - name: Commit material cache changes
+        run: |
+          if git diff --quiet -- data/public-health.json; then
+            echo "No public-health changes detected."
+            exit 0
+          fi
+          git config user.name "swasthya-data-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/public-health.json
+          git commit -m "chore: refresh public-health intelligence"
+          git push

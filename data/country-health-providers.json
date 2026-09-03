@@ -1,0 +1,31 @@
+{
+  "default": {
+    "authority_name": "WHO",
+    "authority_url": "https://www.who.int/emergencies/disease-outbreak-news",
+    "regional_sources": ["WHO"],
+    "emergency_note": "Use the local emergency number for the country you are in. Swasthya does not infer an emergency number when it has not been verified."
+  },
+  "IE": {"authority_name":"HPSC Ireland","authority_url":"https://www.hpsc.ie/","regional_sources":["HPSC","ECDC","WHO"],"emergency_numbers":["112","999"]},
+  "GB": {"authority_name":"UK Health Security Agency","authority_url":"https://www.gov.uk/government/organisations/uk-health-security-agency","regional_sources":["UKHSA","WHO"],"emergency_numbers":["999","112"]},
+  "US": {"authority_name":"US CDC","authority_url":"https://www.cdc.gov/outbreaks/","regional_sources":["CDC","WHO"],"emergency_numbers":["911"]},
+  "IN": {"authority_name":"National Centre for Disease Control India","authority_url":"https://ncdc.mohfw.gov.in/","regional_sources":["NCDC India","WHO"],"emergency_numbers":["112"]},
+  "CA": {"authority_name":"Public Health Agency of Canada","authority_url":"https://www.canada.ca/en/public-health.html","regional_sources":["PHAC","WHO"],"emergency_numbers":["911"]},
+  "AU": {"authority_name":"Australian Department of Health","authority_url":"https://www.health.gov.au/topics/communicable-diseases","regional_sources":["Australia Health","WHO"],"emergency_numbers":["000"]},
+  "NZ": {"authority_name":"New Zealand Ministry of Health","authority_url":"https://www.health.govt.nz/","regional_sources":["NZ Health","WHO"],"emergency_numbers":["111"]},
+  "FR": {"authority_name":"Santé publique France","authority_url":"https://www.santepubliquefrance.fr/","regional_sources":["Santé publique France","ECDC","WHO"],"emergency_numbers":["112","15"]},
+  "DE": {"authority_name":"Robert Koch Institute","authority_url":"https://www.rki.de/","regional_sources":["RKI","ECDC","WHO"],"emergency_numbers":["112"]},
+  "ES": {"authority_name":"Ministerio de Sanidad","authority_url":"https://www.sanidad.gob.es/","regional_sources":["Spain Health","ECDC","WHO"],"emergency_numbers":["112"]},
+  "IT": {"authority_name":"Istituto Superiore di Sanità","authority_url":"https://www.iss.it/","regional_sources":["ISS","ECDC","WHO"],"emergency_numbers":["112"]},
+  "NL": {"authority_name":"RIVM","authority_url":"https://www.rivm.nl/en","regional_sources":["RIVM","ECDC","WHO"],"emergency_numbers":["112"]},
+  "BE": {"authority_name":"Sciensano","authority_url":"https://www.sciensano.be/en","regional_sources":["Sciensano","ECDC","WHO"],"emergency_numbers":["112"]},
+  "PT": {"authority_name":"Direção-Geral da Saúde","authority_url":"https://www.dgs.pt/","regional_sources":["DGS","ECDC","WHO"],"emergency_numbers":["112"]},
+  "SE": {"authority_name":"Public Health Agency of Sweden","authority_url":"https://www.folkhalsomyndigheten.se/the-public-health-agency-of-sweden/","regional_sources":["Sweden Public Health","ECDC","WHO"],"emergency_numbers":["112"]},
+  "NO": {"authority_name":"Norwegian Institute of Public Health","authority_url":"https://www.fhi.no/en/","regional_sources":["FHI","ECDC","WHO"],"emergency_numbers":["113","112"]},
+  "DK": {"authority_name":"Statens Serum Institut","authority_url":"https://en.ssi.dk/","regional_sources":["SSI","ECDC","WHO"],"emergency_numbers":["112"]},
+  "FI": {"authority_name":"Finnish Institute for Health and Welfare","authority_url":"https://thl.fi/en/","regional_sources":["THL","ECDC","WHO"],"emergency_numbers":["112"]},
+  "CH": {"authority_name":"Federal Office of Public Health Switzerland","authority_url":"https://www.bag.admin.ch/bag/en/home.html","regional_sources":["FOPH","WHO"],"emergency_numbers":["112","144"]},
+  "AT": {"authority_name":"Austrian Agency for Health and Food Safety","authority_url":"https://www.ages.at/en","regional_sources":["AGES","ECDC","WHO"],"emergency_numbers":["112","144"]},
+  "JP": {"authority_name":"Ministry of Health, Labour and Welfare Japan","authority_url":"https://www.mhlw.go.jp/english/","regional_sources":["MHLW Japan","WHO"],"emergency_numbers":["119"]},
+  "SG": {"authority_name":"Singapore Ministry of Health","authority_url":"https://www.moh.gov.sg/","regional_sources":["Singapore MOH","WHO"],"emergency_numbers":["995"]},
+  "AE": {"authority_name":"UAE Ministry of Health and Prevention","authority_url":"https://mohap.gov.ae/en","regional_sources":["UAE MOHAP","WHO"],"emergency_numbers":["998","999"]}
+}

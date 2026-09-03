@@ -1,0 +1,29 @@
+name: Validate Swasthya
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate JavaScript syntax
+        run: |
+          node --check app.js
+          node --check dashboard.js
+
+      - name: Validate Python syntax
+        run: python -m py_compile scripts/fetch_public_health.py
+
+      - name: Validate public JSON
+        run: |
+          python -m json.tool data/public-health.json > /dev/null
+          python -m json.tool data/country-health-providers.json > /dev/null

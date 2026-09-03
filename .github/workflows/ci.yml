@@ -21,7 +21,9 @@ jobs:
           node --check dashboard.js
 
       - name: Validate Python syntax
-        run: python -m py_compile scripts/fetch_public_health.py
+        run: |
+          python -m py_compile scripts/fetch_public_health.py
+          python -m py_compile scripts/feedparser.py
 
       - name: Validate public JSON
         run: |

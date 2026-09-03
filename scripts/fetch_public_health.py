@@ -104,6 +104,16 @@ def parse_date(value: object) -> str:
     return iso_now()
 
 
+def age_days(value: str) -> float:
+    try:
+        dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return max(0.0, (datetime.now(timezone.utc) - dt.astimezone(timezone.utc)).total_seconds() / 86400)
+    except Exception:
+        return 10_000.0
+
+
 def extract_countries(text: str) -> list[str]:
     hay = f" {text.lower()} "
     found: set[str] = set()
@@ -233,10 +243,18 @@ def hpsc_items() -> list[dict]:
     return out[:20]
 
 
+def keep_fresh(item: dict) -> bool:
+    kind = item.get("source_kind")
+    max_days = 60 if kind == "national_surveillance" else 45
+    return age_days(item.get("published_at", "")) <= max_days
+
+
 def dedupe(items: list[dict]) -> list[dict]:
     seen: set[tuple[str, str]] = set()
     unique: list[dict] = []
     for item in items:
+        if not keep_fresh(item):
+            continue
         key = (item.get("source", ""), item.get("url", "") or item.get("title", ""))
         if key in seen:
             continue
@@ -264,7 +282,7 @@ def main() -> None:
     old = existing_payload()
     items = dedupe(fetched)
     if not items:
-        items = old.get("items", [])
+        items = [item for item in old.get("items", []) if keep_fresh(item)]
 
     if items == old.get("items", []):
         print(f"No material public-health change; keeping existing cache with {len(items)} items.")

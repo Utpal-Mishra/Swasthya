@@ -1,97 +1,138 @@
 # Swasthya
 
-**Swasthya** is an open-source, location-aware health, environment and wellbeing awareness platform. Its purpose is to help people understand potentially relevant conditions near them through transparent, source-linked and privacy-conscious information.
+**Swasthya** is an open-source, location-aware health-intelligence and wellbeing-awareness platform. Its primary purpose is to answer three questions:
+
+1. **What health-relevant thing is happening around me?**
+2. **Does it matter right now?**
+3. **What can I reasonably do next?**
 
 > Swasthya is an awareness and decision-support product. It does not diagnose, prescribe treatment, replace professional medical advice or replace emergency services.
 
 ## Live application
 
-**Location-based awareness:** https://utpal-mishra.github.io/Swasthya/
+**Around Me — vicinity health intelligence:** https://utpal-mishra.github.io/Swasthya/
 
-**Health and wellbeing dashboard:** https://utpal-mishra.github.io/Swasthya/dashboard.html
+**My Health — optional personal dashboard:** https://utpal-mishra.github.io/Swasthya/dashboard.html
 
-## Responsive KPI layout
+## Current product structure
 
-The six air-quality KPIs now adapt to screen size:
+### 1. Around Me
 
-- Large monitors: **1 row × 6 columns**
-- Tablets: **2 rows × 3 columns**
-- Phones: **2 rows × 3 columns**, using compact card typography and spacing
+The primary page is now dynamic and location-aware.
 
-The KPI set includes AQI/AQIH, PM2.5, PM10, NO₂, O₃ and CO.
+Current implementation includes:
 
-## Page 1 — Location-based healthcare awareness
-
-`index.html` contains:
-
-- Region, nearby-town or city selection
+- Town/city geocoding
 - Optional browser geolocation
-- User-controlled alert radius
-- Meaningful-alert notification toggle
-- Heat-health awareness and preventive measures
-- Nearby grocery navigation
-- Location-filtered environmental and public-health alert cards
-- Emergency services, Samaritans and HSE service navigation
-- A decision-support section covering action, freshness, confidence, safer alternatives, low-clutter design and notification control
+- Optional **Live Health Awareness** using coarse location changes
+- Configurable 1–25 km health-awareness radius
+- Live current weather context
+- Live modelled European AQI and pollutant context
+- Weather interpretation using current rain, apparent temperature, wind and UV
+- Health-relevance prioritisation rather than a conventional weather forecast screen
+- `What Matters Now?` summary
+- One practical next action
+- Nearby pharmacy, healthcare, essentials and indoor-location searches
+- Meaningful notifications only for materially changed high-priority context
+- Explicit unavailable states for disease, environmental-incident and community-health feeds that are not yet connected
 
-## Page 2 — Health and wellbeing dashboard
+No hard-coded condition is allowed to present itself as current weather or current disease activity.
 
-`dashboard.html` contains:
+### 2. My Health
 
-- Six responsive air-quality KPI cards
-- ADHD support check-in
-- Epilepsy wellbeing check-in
-- Stress check-in
-- General mental-wellbeing check-in
-- Condition-specific actions and verified support links
+The secondary page is optional and contains:
 
-The air-quality values are illustrative until an official live feed is connected. The wellbeing check-ins do not diagnose, screen or predict a condition, and the epilepsy section does not predict seizures.
+- ADHD support mode
+- Epilepsy wellbeing mode
+- Stress support
+- General mental wellbeing
+- Private browser-session check-ins
+- Specialist support resources
+- Technical air-quality detail for users who want underlying indicators
 
-## Product principles informed by mapping, weather and health-app feedback
+The personal layer does not diagnose, screen or predict a condition. Epilepsy content does not predict seizures.
 
-Swasthya is designed around the following principles:
+## Live environmental providers
 
-1. **Action first** — show the most useful next step before secondary detail.
-2. **Visible freshness** — display observation time, retrieval time and stale-data status.
-3. **Honest uncertainty** — distinguish official observations, forecasts, models and reference content.
-4. **Route-aware support** — future navigation should consider exposure, shade, heat, opening hours and accessibility, not only shortest distance.
-5. **Progressive disclosure** — keep the main screen readable and move methodology, thresholds and source detail behind expandable views.
-6. **Meaningful notifications** — alert only when a high-priority condition is new or materially changed.
-7. **One consolidated view** — reduce the need to switch between separate maps, weather, air-quality and health-support apps.
+The current GitHub Pages MVP uses **Open-Meteo** in the browser for live modelled weather and air-quality context because it requires no client-side API secret. Swasthya labels this information as modelled and links users to official Irish sources such as:
 
-## Current files
+- Met Éireann
+- EPA AirQuality.ie
+- HPSC
+- HSE
+
+This is an MVP provider strategy, not the final commercial data architecture. Before commercial launch, provider licensing, SLAs, official-warning ingestion, source validation and fallback behaviour must be reviewed.
+
+## Vicinity disease intelligence
+
+Swasthya does **not** show identifiable patient locations and does not infer whether a nearby individual is healthy or ill.
+
+The intended disease-awareness model is:
 
 ```text
-Swasthya/
-├── index.html          # Location-based healthcare awareness page
-├── dashboard.html      # KPI and wellbeing dashboard page
-├── styles.css          # Shared application styles
-├── page-layout.css     # Responsive page navigation and KPI matrix
-├── app.js              # Location awareness, alerts and notifications
-├── dashboard.js        # Wellbeing dashboard interactions
-├── app/                # Streamlit foundation
-├── docs/               # Brief, architecture, roadmap and policies
-└── .github/workflows/  # GitHub Pages deployment
+Official / authorised surveillance
+        ↓
+Geographic aggregation
+        ↓
+Freshness + privacy validation
+        ↓
+Selected user proximity
+        ↓
+Health Around Me signal
 ```
+
+If a trustworthy feed does not support street-level precision, Swasthya must display the real geographic resolution rather than manufacture a smaller radius. Until such feeds are connected, disease activity is shown as **Unavailable**, with a link to official surveillance.
+
+## Health-context engine
+
+Current environmental interpretation considers signals such as:
+
+- rain / precipitation
+- apparent temperature
+- cold exposure
+- wind
+- UV
+- European AQI
+
+It converts those inputs into ranked awareness signals and one primary next action. These are general-awareness rules, not clinical assessments or official warnings.
+
+## Privacy principles
+
+- Location access is explicit, optional and revocable.
+- Exact coordinates remain in the browser session and are not stored by the static site.
+- Live awareness refreshes on coarse location-cell changes rather than every GPS movement.
+- Individual patient health status must never be displayed.
+- Future community-health signals must use privacy-preserving aggregation and minimum-participant thresholds.
+- Personal wellbeing data must not be combined with precise location without a deliberate privacy architecture and user consent.
 
 ## Notification limitation
 
-The current static GitHub Pages version can request browser notification permission and show high-priority notifications while the website is open or active. Reliable background push notifications when the website is closed will require a service worker, push subscription storage and a secure backend notification service.
+The current GitHub Pages version can show notifications while the website is open or active. Reliable background alerts when the website is closed will require a service worker, push-subscription storage and a secure backend notification service.
 
 ## Trust-by-design
 
-Every future production alert should include:
+Every future production health signal should include:
 
-- source organisation and direct reference URL
-- source classification
-- publication, observation and retrieval timestamps
-- geographic coverage and distance relevance
-- original units and definitions
-- severity, confidence and freshness status
-- applicable threshold or risk-rule version
-- recommended action linked to official guidance
+- provider and source URL
+- source classification: official, observed, modelled, community or reference
+- observation/publication/retrieval timestamps
+- real geographic precision
+- freshness status
+- confidence / uncertainty
+- applicable rule version
+- practical action linked to authoritative guidance
 
-Demonstration, stale, estimated, modelled and community-sourced information must always be visibly distinguished.
+**Unknown is better than wrong.** Stale, unavailable, estimated and modelled information must never masquerade as a current official observation.
+
+## Next priorities
+
+1. Integrate official Met Éireann warnings and/or an appropriate licensed weather feed.
+2. Integrate official EPA air-quality observations and station distance.
+3. Identify the highest-resolution suitable HPSC/ECDC disease-surveillance feeds.
+4. Build the canonical provider/observation/advisory/provenance schema in the backend.
+5. Add a production notification service and service worker.
+6. Add privacy-safe aggregated community-health signals only after privacy/security design is complete.
+7. Move personal longitudinal wellbeing history behind explicit consent and secure storage.
 
 ## Run locally
 
@@ -103,22 +144,6 @@ Open:
 
 - `http://localhost:8000/`
 - `http://localhost:8000/dashboard.html`
-
-## Privacy principles
-
-- Location access must be explicit, optional and revocable.
-- Exact coordinates must not be stored by default.
-- Prefer coarse location or on-device distance calculations.
-- Do not introduce background tracking in the initial phases.
-- Do not infer or expose sensitive health status from location or check-in behaviour.
-
-## Next priorities
-
-1. Connect official live air-quality and weather providers.
-2. Add station distance, timestamps, dominant-pollutant and confidence logic.
-3. Add route-aware exposure and safer-place recommendations.
-4. Add canonical alert schemas and automated tests.
-5. Add secure background push notifications.
 
 ## Licence
 

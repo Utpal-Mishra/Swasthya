@@ -23,6 +23,7 @@ UA = "Swasthya-public-health-cache/1.0 (+https://github.com/Utpal-Mishra/Swasthy
 SESSION = requests.Session()
 SESSION.headers.update({"User-Agent": UA, "Accept": "application/json,text/html,application/rss+xml,application/xml;q=0.9,*/*;q=0.8"})
 TIMEOUT = 30
+NOTICE = "Country and regional public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown."
 
 ALIASES = {
     "democratic republic of the congo": "CD",
@@ -76,7 +77,7 @@ def parse_date(value: object) -> str:
     if not value:
         return iso_now()
     text = str(value).strip()
-    # WHO normally returns ISO datetimes; feeds may use RFC822 dates.
+    text = re.sub(r"(\d{1,2})(st|nd|rd|th)\b", r"\1", text, flags=re.I)
     try:
         dt = datetime.fromisoformat(text.replace("Z", "+00:00"))
         if dt.tzinfo is None:
@@ -84,7 +85,15 @@ def parse_date(value: object) -> str:
         return dt.astimezone(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     except ValueError:
         pass
-    for fmt in ("%a, %d %b %Y %H:%M:%S %z", "%d %B %Y", "%d %b %Y", "%Y-%m-%d"):
+    formats = (
+        "%a, %d %b %Y %H:%M:%S %z",
+        "%d %B %Y",
+        "%d %b %Y",
+        "%d %B, %Y",
+        "%d %b, %Y",
+        "%Y-%m-%d",
+    )
+    for fmt in formats:
         try:
             dt = datetime.strptime(text, fmt)
             if dt.tzinfo is None:
@@ -237,28 +246,31 @@ def dedupe(items: list[dict]) -> list[dict]:
     return unique[:160]
 
 
-def existing_items() -> list[dict]:
+def existing_payload() -> dict:
     try:
-        return json.loads(OUT.read_text(encoding="utf-8")).get("items", [])
+        return json.loads(OUT.read_text(encoding="utf-8"))
     except Exception:
-        return []
+        return {"generated_at": None, "notice": NOTICE, "items": []}
 
 
 def main() -> None:
-    fetched = []
+    fetched: list[dict] = []
     for loader in (who_items, ecdc_items, hpsc_items):
         try:
             fetched.extend(loader())
         except Exception as exc:
             print(f"Loader failed: {loader.__name__}: {exc}")
+
+    old = existing_payload()
     items = dedupe(fetched)
     if not items:
-        items = existing_items()
-    payload = {
-        "generated_at": iso_now(),
-        "notice": "Country and regional public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
-        "items": items,
-    }
+        items = old.get("items", [])
+
+    if items == old.get("items", []):
+        print(f"No material public-health change; keeping existing cache with {len(items)} items.")
+        return
+
+    payload = {"generated_at": iso_now(), "notice": NOTICE, "items": items}
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"Wrote {len(items)} public-health items to {OUT}")

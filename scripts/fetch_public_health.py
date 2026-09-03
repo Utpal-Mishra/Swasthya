@@ -2,7 +2,8 @@
 """Build the static public-health cache used by Swasthya.
 
 The job intentionally favours authoritative feeds and conservative geography.
-It never converts a country/regional publication into street-level disease claims.
+It never converts a country, county or wastewater-catchment publication into a
+street-level patient claim.
 """
 from __future__ import annotations
 
@@ -19,11 +20,13 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "public-health.json"
-UA = "Swasthya-public-health-cache/1.0 (+https://github.com/Utpal-Mishra/Swasthya)"
+UA = "Swasthya-public-health-cache/1.1 (+https://github.com/Utpal-Mishra/Swasthya)"
 SESSION = requests.Session()
 SESSION.headers.update({"User-Agent": UA, "Accept": "application/json,text/html,application/rss+xml,application/xml;q=0.9,*/*;q=0.8"})
 TIMEOUT = 30
-NOTICE = "Country and regional public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown."
+NOTICE = "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown."
+HPSC_EPI_URL = "https://www.hpsc.ie/epidemiology-reports"
+HPSC_WASTEWATER_ARCHIVE = "https://www.hpsc.ie/a-z/nationalwastewatersurveillanceprogramme/2026wastewatersurveillanceprogrammereports/"
 
 ALIASES = {
     "democratic republic of the congo": "CD",
@@ -91,6 +94,8 @@ def parse_date(value: object) -> str:
         "%d %b %Y",
         "%d %B, %Y",
         "%d %b, %Y",
+        "%d %m %Y",
+        "%d/%m/%Y",
         "%Y-%m-%d",
     )
     for fmt in formats:
@@ -155,8 +160,7 @@ def who_items() -> list[dict]:
         if url and not str(url).startswith("http"):
             url = urljoin("https://www.who.int", str(url))
         url_name = row.get("UrlName") or row.get("EventId") or re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
-        text = f"{title} {summary}"
-        countries = extract_countries(text)
+        countries = extract_countries(f"{title} {summary}")
         out.append({
             "id": f"who-{url_name}",
             "source": "WHO",
@@ -208,7 +212,7 @@ def ecdc_items() -> list[dict]:
 
 
 def hpsc_items() -> list[dict]:
-    url = "https://www.hpsc.ie/epidemiology-reports"
+    url = HPSC_EPI_URL
     try:
         r = SESSION.get(url, timeout=TIMEOUT)
         r.raise_for_status()
@@ -217,7 +221,7 @@ def hpsc_items() -> list[dict]:
         return []
     soup = BeautifulSoup(r.text, "html.parser")
     out: list[dict] = []
-    for row in soup.select("tr")[:40]:
+    for row in soup.select("tr")[:60]:
         cells = row.find_all(["td", "th"])
         if len(cells) < 2:
             continue
@@ -240,12 +244,129 @@ def hpsc_items() -> list[dict]:
             "importance": "info",
             "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation.",
         })
-    return out[:20]
+    return out[:30]
+
+
+def latest_hpsc_wastewater_report() -> tuple[str, str] | None:
+    """Return the newest linked HPSC wastewater report and publication timestamp."""
+    for listing_url in (HPSC_EPI_URL, HPSC_WASTEWATER_ARCHIVE):
+        try:
+            r = SESSION.get(listing_url, timeout=TIMEOUT)
+            r.raise_for_status()
+            soup = BeautifulSoup(r.text, "html.parser")
+        except Exception as exc:
+            print(f"HPSC wastewater listing failed: {listing_url}: {exc}")
+            continue
+
+        candidates: list[tuple[str, str]] = []
+        for row in soup.select("tr"):
+            text = strip_html(row.get_text(" ", strip=True))
+            if "SARS-CoV-2 Wastewater Surveillance Programme" not in text:
+                continue
+            link = row.find("a", href=True)
+            if not link:
+                continue
+            cells = row.find_all(["td", "th"])
+            date_text = strip_html(cells[1].get_text(" ", strip=True)) if len(cells) > 1 else ""
+            candidates.append((urljoin(listing_url, link["href"]), parse_date(date_text)))
+        if candidates:
+            candidates.sort(key=lambda x: x[1], reverse=True)
+            return candidates[0]
+
+        # Archive pages can expose report links outside a table.
+        for link in soup.find_all("a", href=True):
+            text = strip_html(link.get_text(" ", strip=True))
+            if "SARS-CoV-2 Wastewater Surveillance Programme Report" in text:
+                return (urljoin(listing_url, link["href"]), iso_now())
+    return None
+
+
+def wastewater_result_summary(result: str, catchment: str, county: str, sample_date: str) -> str:
+    base = f"HPSC wastewater surveillance for {catchment}, {county}; sample {sample_date}. "
+    result_lower = result.lower()
+    if result_lower == "positive":
+        return base + "SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    if "weak" in result_lower:
+        return base + "SARS-CoV-2 RNA was detected below the quantification limit. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    if "undetect" in result_lower:
+        return base + "SARS-CoV-2 RNA was below the assay detection limit. HPSC notes this does not prove that the virus is absent from the catchment."
+    return base + f"HPSC reported the sample category as {result}. Open the official report for interpretation and limitations."
+
+
+def hpsc_wastewater_items() -> list[dict]:
+    latest = latest_hpsc_wastewater_report()
+    if not latest:
+        return []
+    report_url, published_at = latest
+    try:
+        r = SESSION.get(report_url, timeout=TIMEOUT)
+        r.raise_for_status()
+        soup = BeautifulSoup(r.text, "html.parser")
+    except Exception as exc:
+        print(f"HPSC wastewater report failed: {report_url}: {exc}")
+        return []
+
+    target_table = None
+    for table in soup.find_all("table"):
+        headers = [strip_html(th.get_text(" ", strip=True)).lower() for th in table.find_all("th")]
+        joined = " | ".join(headers)
+        if "wastewater catchment area" in joined and "result category" in joined:
+            target_table = table
+            break
+    if target_table is None:
+        print(f"No catchment result table found in {report_url}")
+        return []
+
+    report_text = strip_html(soup.get_text(" ", strip=True))
+    week_match = re.search(r"Week\s+(\d+)\s+(20\d{2})", report_text, flags=re.I)
+    report_label = f"week {week_match.group(1)} {week_match.group(2)}" if week_match else "latest report"
+
+    out: list[dict] = []
+    current_county = ""
+    for row in target_table.find_all("tr"):
+        cells = [strip_html(td.get_text(" ", strip=True)) for td in row.find_all("td")]
+        if len(cells) < 5:
+            continue
+        county, catchment, sample_type, sample_date, result = cells[:5]
+        if county:
+            current_county = county
+        county = current_county
+        if not county or not catchment or not result:
+            continue
+        result_lower = result.lower()
+        importance = "moderate" if result_lower == "positive" else "info"
+        slug = re.sub(r"[^a-z0-9]+", "-", f"{report_label}-{county}-{catchment}".lower()).strip("-")
+        out.append({
+            "id": f"hpsc-wastewater-{slug}"[:180],
+            "source": "HPSC",
+            "source_kind": "wastewater_surveillance",
+            "title": f"SARS-CoV-2 wastewater · {catchment}",
+            "published_at": published_at,
+            "sample_date": parse_date(sample_date),
+            "url": report_url,
+            "countries": ["IE"],
+            "regions": [county],
+            "county": county,
+            "catchment": catchment,
+            "result_category": result,
+            "sample_type": sample_type,
+            "disease": "SARS-CoV-2",
+            "geographic_precision": f"Wastewater catchment: {catchment}, County {county}; catchment surveillance, not a patient location or street-level exposure boundary",
+            "importance": importance,
+            "proximity_mode": "catchment_context",
+            "summary": wastewater_result_summary(result, catchment, county, sample_date),
+        })
+    return out
 
 
 def keep_fresh(item: dict) -> bool:
     kind = item.get("source_kind")
-    max_days = 60 if kind == "national_surveillance" else 45
+    if kind == "wastewater_surveillance":
+        max_days = 45
+    elif kind == "national_surveillance":
+        max_days = 60
+    else:
+        max_days = 45
     return age_days(item.get("published_at", "")) <= max_days
 
 
@@ -255,13 +376,13 @@ def dedupe(items: list[dict]) -> list[dict]:
     for item in items:
         if not keep_fresh(item):
             continue
-        key = (item.get("source", ""), item.get("url", "") or item.get("title", ""))
+        key = (item.get("source", ""), item.get("id") or item.get("url", "") or item.get("title", ""))
         if key in seen:
             continue
         seen.add(key)
         unique.append(item)
     unique.sort(key=lambda x: x.get("published_at", ""), reverse=True)
-    return unique[:160]
+    return unique[:220]
 
 
 def existing_payload() -> dict:
@@ -273,7 +394,7 @@ def existing_payload() -> dict:
 
 def main() -> None:
     fetched: list[dict] = []
-    for loader in (who_items, ecdc_items, hpsc_items):
+    for loader in (who_items, ecdc_items, hpsc_items, hpsc_wastewater_items):
         try:
             fetched.extend(loader())
         except Exception as exc:

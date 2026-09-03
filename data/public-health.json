@@ -1,58 +1,1020 @@
 {
-  "generated_at": "2026-09-03T20:30:00Z",
-  "notice": "Country and regional public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
+  "generated_at": "2026-09-03T20:39:49Z",
+  "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
-      "id": "who-2026-DON615",
-      "source": "WHO",
-      "source_kind": "global_outbreak",
-      "title": "Ebola disease caused by Bundibugyo virus - Democratic Republic of the Congo",
-      "published_at": "2026-08-14T00:00:00Z",
-      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON615",
-      "countries": ["CD"],
-      "regions": [],
-      "geographic_precision": "country / affected provinces described by WHO",
-      "importance": "high",
-      "summary": "WHO Disease Outbreak News reports an active Ebola outbreak in the Democratic Republic of the Congo. Open the official report for affected areas and current guidance."
-    },
-    {
-      "id": "ecdc-cdtr-2026-w32",
-      "source": "ECDC",
-      "source_kind": "regional_surveillance",
-      "title": "Communicable disease threats report, 1 - 7 August 2026, week 32",
-      "published_at": "2026-08-07T00:00:00Z",
-      "url": "https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-1-7-august-2026-week-32",
-      "countries": [],
-      "regions": ["EU_EEA"],
-      "geographic_precision": "EU/EEA regional surveillance",
-      "importance": "info",
-      "summary": "ECDC weekly monitoring covered active communicable-disease threats and respiratory-virus epidemiology in the EU/EEA."
-    },
-    {
-      "id": "hpsc-wastewater-w33-2026",
+      "id": "hpsc-national-sars-cov-2-wastewater-surveillance-programme-report-week-33-2026",
       "source": "HPSC",
       "source_kind": "national_surveillance",
       "title": "National SARS-CoV-2 Wastewater Surveillance Programme Report - Week 33 2026",
       "published_at": "2026-09-01T00:00:00Z",
-      "url": "https://www.hpsc.ie/epidemiology-reports",
-      "countries": ["IE"],
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
       "regions": [],
-      "geographic_precision": "Ireland national surveillance; report may contain site-level wastewater information",
+      "geographic_precision": "Ireland national/report-specific surveillance",
       "importance": "info",
-      "summary": "HPSC published the latest national SARS-CoV-2 wastewater surveillance report. This is surveillance context, not evidence that a nearby individual is infected."
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
     },
     {
-      "id": "hpsc-infectious-notifications-2020-2025",
+      "id": "hpsc-wastewater-week-33-2026-carlow-carlow",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Carlow",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-18T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Carlow"
+      ],
+      "county": "Carlow",
+      "catchment": "Carlow",
+      "result_category": "Weak Positive",
+      "sample_type": "Unknown",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Carlow, County Carlow; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "info",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Carlow, Carlow; sample 18/08/2026. SARS-CoV-2 RNA was detected below the quantification limit. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-cavan-cavan",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Cavan",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-17T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Cavan"
+      ],
+      "county": "Cavan",
+      "catchment": "Cavan",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Cavan, County Cavan; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Cavan, Cavan; sample 17/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-clare-ennis-north",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Ennis North",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-16T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Clare"
+      ],
+      "county": "Clare",
+      "catchment": "Ennis North",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Ennis North, County Clare; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Ennis North, Clare; sample 16/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-cork-ballincollig",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Ballincollig",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-17T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Cork"
+      ],
+      "county": "Cork",
+      "catchment": "Ballincollig",
+      "result_category": "Positive",
+      "sample_type": "Unknown",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Ballincollig, County Cork; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Ballincollig, Cork; sample 17/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-cork-cork-city",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Cork City",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-17T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Cork"
+      ],
+      "county": "Cork",
+      "catchment": "Cork City",
+      "result_category": "Weak Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Cork City, County Cork; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "info",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Cork City, Cork; sample 17/08/2026. SARS-CoV-2 RNA was detected below the quantification limit. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-cork-cork-lower-harbour",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Cork Lower Harbour",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-17T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Cork"
+      ],
+      "county": "Cork",
+      "catchment": "Cork Lower Harbour",
+      "result_category": "Undetectable",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Cork Lower Harbour, County Cork; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "info",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Cork Lower Harbour, Cork; sample 17/08/2026. SARS-CoV-2 RNA was below the assay detection limit. HPSC notes this does not prove that the virus is absent from the catchment."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-donegal-buncrana",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Buncrana",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-19T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Donegal"
+      ],
+      "county": "Donegal",
+      "catchment": "Buncrana",
+      "result_category": "Positive",
+      "sample_type": "Grab",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Buncrana, County Donegal; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Buncrana, Donegal; sample 19/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-donegal-letterkenny",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Letterkenny",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-18T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Donegal"
+      ],
+      "county": "Donegal",
+      "catchment": "Letterkenny",
+      "result_category": "Weak Positive",
+      "sample_type": "Unknown",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Letterkenny, County Donegal; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "info",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Letterkenny, Donegal; sample 18/08/2026. SARS-CoV-2 RNA was detected below the quantification limit. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-dublin-balbriggan",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Balbriggan",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-18T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Dublin"
+      ],
+      "county": "Dublin",
+      "catchment": "Balbriggan",
+      "result_category": "Positive",
+      "sample_type": "Grab",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Balbriggan, County Dublin; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Balbriggan, Dublin; sample 18/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-dublin-portrane-donabate",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Portrane Donabate",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-17T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Dublin"
+      ],
+      "county": "Dublin",
+      "catchment": "Portrane Donabate",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Portrane Donabate, County Dublin; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Portrane Donabate, Dublin; sample 17/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-dublin-ringsend-1",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Ringsend 1",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-16T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Dublin"
+      ],
+      "county": "Dublin",
+      "catchment": "Ringsend 1",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Ringsend 1, County Dublin; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Ringsend 1, Dublin; sample 16/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-dublin-ringsend-2",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Ringsend 2",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-19T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Dublin"
+      ],
+      "county": "Dublin",
+      "catchment": "Ringsend 2",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Ringsend 2, County Dublin; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Ringsend 2, Dublin; sample 19/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-dublin-shanganagh",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Shanganagh",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-18T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Dublin"
+      ],
+      "county": "Dublin",
+      "catchment": "Shanganagh",
+      "result_category": "Positive",
+      "sample_type": "Grab",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Shanganagh, County Dublin; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Shanganagh, Dublin; sample 18/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-dublin-swords",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Swords",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-17T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Dublin"
+      ],
+      "county": "Dublin",
+      "catchment": "Swords",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Swords, County Dublin; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Swords, Dublin; sample 17/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-galway-galway",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Galway",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-16T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Galway"
+      ],
+      "county": "Galway",
+      "catchment": "Galway",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Galway, County Galway; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Galway, Galway; sample 16/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-kerry-tralee",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Tralee",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-17T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Kerry"
+      ],
+      "county": "Kerry",
+      "catchment": "Tralee",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Tralee, County Kerry; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Tralee, Kerry; sample 17/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-kildare-lower-liffey-valley-regional-sewerage-scheme-leixlip",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Lower Liffey Valley Regional Sewerage Scheme (Leixlip)",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-18T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Kildare"
+      ],
+      "county": "Kildare",
+      "catchment": "Lower Liffey Valley Regional Sewerage Scheme (Leixlip)",
+      "result_category": "Positive",
+      "sample_type": "Incomp",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Lower Liffey Valley Regional Sewerage Scheme (Leixlip), County Kildare; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Lower Liffey Valley Regional Sewerage Scheme (Leixlip), Kildare; sample 18/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-kildare-upper-liffey-valley-sewerage-scheme-osberstown",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Upper Liffey Valley Sewerage Scheme (Osberstown)",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-18T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Kildare"
+      ],
+      "county": "Kildare",
+      "catchment": "Upper Liffey Valley Sewerage Scheme (Osberstown)",
+      "result_category": "Positive",
+      "sample_type": "Unknown",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Upper Liffey Valley Sewerage Scheme (Osberstown), County Kildare; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Upper Liffey Valley Sewerage Scheme (Osberstown), Kildare; sample 18/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-kilkenny-kilkenny",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Kilkenny",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-16T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Kilkenny"
+      ],
+      "county": "Kilkenny",
+      "catchment": "Kilkenny",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Kilkenny, County Kilkenny; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Kilkenny, Kilkenny; sample 16/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-laois-portlaoise",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Portlaoise",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-16T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Laois"
+      ],
+      "county": "Laois",
+      "catchment": "Portlaoise",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Portlaoise, County Laois; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Portlaoise, Laois; sample 16/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-limerick-limerick-city",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Limerick City",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-17T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Limerick"
+      ],
+      "county": "Limerick",
+      "catchment": "Limerick City",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Limerick City, County Limerick; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Limerick City, Limerick; sample 17/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-louth-drogheda",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Drogheda",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-17T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Louth"
+      ],
+      "county": "Louth",
+      "catchment": "Drogheda",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Drogheda, County Louth; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Drogheda, Louth; sample 17/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-louth-dundalk",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Dundalk",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-17T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Louth"
+      ],
+      "county": "Louth",
+      "catchment": "Dundalk",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Dundalk, County Louth; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Dundalk, Louth; sample 17/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-mayo-castlebar",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Castlebar",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-16T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Mayo"
+      ],
+      "county": "Mayo",
+      "catchment": "Castlebar",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Castlebar, County Mayo; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Castlebar, Mayo; sample 16/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-meath-navan",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Navan",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-17T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Meath"
+      ],
+      "county": "Meath",
+      "catchment": "Navan",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Navan, County Meath; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Navan, Meath; sample 17/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-monaghan-monaghan",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Monaghan",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-17T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Monaghan"
+      ],
+      "county": "Monaghan",
+      "catchment": "Monaghan",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Monaghan, County Monaghan; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Monaghan, Monaghan; sample 17/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-sligo-sligo",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Sligo",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-18T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Sligo"
+      ],
+      "county": "Sligo",
+      "catchment": "Sligo",
+      "result_category": "Positive",
+      "sample_type": "Unknown",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Sligo, County Sligo; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Sligo, Sligo; sample 18/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-tipperary-clonmel",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Clonmel",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-17T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Tipperary"
+      ],
+      "county": "Tipperary",
+      "catchment": "Clonmel",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Clonmel, County Tipperary; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Clonmel, Tipperary; sample 17/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-waterford-waterford",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Waterford",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-16T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Waterford"
+      ],
+      "county": "Waterford",
+      "catchment": "Waterford",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Waterford, County Waterford; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Waterford, Waterford; sample 16/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-westmeath-mullingar",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Mullingar",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-18T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Westmeath"
+      ],
+      "county": "Westmeath",
+      "catchment": "Mullingar",
+      "result_category": "Positive",
+      "sample_type": "24 Hrs",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Mullingar, County Westmeath; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "moderate",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Mullingar, Westmeath; sample 18/08/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-week-33-2026-wexford-wexford",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Wexford",
+      "published_at": "2026-09-01T00:00:00Z",
+      "sample_date": "2026-08-16T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Wexford"
+      ],
+      "county": "Wexford",
+      "catchment": "Wexford",
+      "result_category": "Weak Positive",
+      "sample_type": "Incomp",
+      "disease": "SARS-CoV-2",
+      "geographic_precision": "Wastewater catchment: Wexford, County Wexford; catchment surveillance, not a patient location or street-level exposure boundary",
+      "importance": "info",
+      "proximity_mode": "catchment_context",
+      "summary": "HPSC wastewater surveillance for Wexford, Wexford; sample 16/08/2026. SARS-CoV-2 RNA was detected below the quantification limit. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
+    },
+    {
+      "id": "hpsc-summary-report-on-carbapenemase-producing-enterobacterales-cpe-july-2026",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "Summary Report on Carbapenemase Producing Enterobacterales (CPE) July 2026",
+      "published_at": "2026-08-28T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/carbapenemresistantenterobacteriaceaecre/epidemiologicaldata/1787910084.pdf",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-epidemiology-of-invasive-group-a-streptococcal-igas-infections-in-ireland-2024-2025",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "Epidemiology of invasive Group A streptococcal (iGAS) infections in Ireland, 2024-2025",
+      "published_at": "2026-08-26T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/groupastreptococcaldiseasegas/epidemiologicaldata/annualreports/1787755888.pdf",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-enhanced-surveillance-of-clostridioides-difficile-infection-in-ireland-q1-q2-2026",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "Enhanced Surveillance of Clostridioides difficile Infection in Ireland Q1–Q2 2026",
+      "published_at": "2026-08-25T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/clostridioidesdifficile/surveillancereports/1787665727.pdf",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-annual-infectious-disease-notifications-in-ireland-2020-2025",
       "source": "HPSC",
       "source_kind": "national_surveillance",
       "title": "Annual Infectious Disease Notifications in Ireland 2020 - 2025",
       "published_at": "2026-08-24T00:00:00Z",
-      "url": "https://www.hpsc.ie/epidemiology-reports",
-      "countries": ["IE"],
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/infectioncontrolandhai/surveillancereports/1787582316.pdf",
+      "countries": [
+        "IE"
+      ],
       "regions": [],
-      "geographic_precision": "Ireland national / report-specific",
+      "geographic_precision": "Ireland national/report-specific surveillance",
       "importance": "info",
-      "summary": "Official HPSC infectious-disease notification report for Ireland."
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-streptococcus-pneumoniae-invasive-in-ireland-2025",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "Streptococcus Pneumoniae (invasive) in Ireland 2025",
+      "published_at": "2026-08-19T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/pneumococcaldisease/annualreports/1787154570.pdf",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-national-sars-cov-2-wastewater-surveillance-programme-report-week-29-2026",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "National SARS-CoV-2 Wastewater Surveillance Programme Report - Week 29 2026",
+      "published_at": "2026-08-18T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/epidemiologicaldata/1787038315.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-sari-surveillance-report-week-32-2026",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "SARI Surveillance Report, Week 32 2026",
+      "published_at": "2026-08-13T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/acuterespiratoryinfection/surveillancereports/1786608317.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-summary-report-on-carbapenemase-producing-enterobacterales-cpe-june-2026",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "Summary Report on Carbapenemase Producing Enterobacterales (CPE) June 2026",
+      "published_at": "2026-07-31T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/carbapenemresistantenterobacteriaceaecre/surveillancereports/1785486285.pdf",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-surveillance-of-novel-or-rare-antimicrobial-resistant-organisms-nrao-in-ireland-2022-2025",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "Surveillance of novel or rare antimicrobial resistant organisms (NRAO) in Ireland, 2022 - 2025",
+      "published_at": "2026-07-30T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/nrao/surveillancereports/1785424296.pdf",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-enhanced-surveillance-of-carbapenemase-producing-enterobacterales-cpe-in-ireland-2025",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "Enhanced surveillance of Carbapenemase-Producing Enterobacterales (CPE) in Ireland, 2025",
+      "published_at": "2026-07-30T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/carbapenemresistantenterobacteriaceaecre/surveillancereports/1785423458.pdf",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-hepatitis-c-in-ireland-2025-infographic",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "Hepatitis C in Ireland 2025 infographic",
+      "published_at": "2026-07-27T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/hepatitisc/epidemiologicaldata/annualreports/1766246718.png",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-epidemiology-of-hepatitis-b-in-ireland",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "Epidemiology of Hepatitis B in Ireland",
+      "published_at": "2026-07-27T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/hepatitisb/surveillancereports/1766247198.pdf",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-hepatitis-b-in-ireland-2025-infographic",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "Hepatitis B in Ireland 2025 infographic",
+      "published_at": "2026-07-27T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/hepatitisb/surveillancereports/1766247228.png",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-epidemiology-of-hepatitis-c-in-ireland",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "Epidemiology of Hepatitis C in Ireland",
+      "published_at": "2026-07-27T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/hepatitisc/epidemiologicaldata/1753093620.pdf",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-antimicrobial-resistance-in-neisseria-gonorrhoeae-ireland-2015-2025",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "Antimicrobial resistance in Neisseria gonorrhoeae, Ireland 2015-2025",
+      "published_at": "2026-07-16T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/amrgonorrhoea/surveillancereports/1784286138.pdf",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-hiv-mpox-sexually-transmitted-infections-trends-in-ireland-05-01-2026-04-07-2026",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "HIV, Mpox & Sexually Transmitted Infections trends in Ireland, 05/01/2026 - 04/07/2026",
+      "published_at": "2026-07-13T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/sexuallytransmittedinfections/epidemiologicaldata/1783953730.pdf",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-national-sars-cov-2-wastewater-surveillance-programme-report-week-25-2026",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "National SARS-CoV-2 Wastewater Surveillance Programme Report - Week 25 2026",
+      "published_at": "2026-07-09T00:00:00Z",
+      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/epidemiologicaldata/1787038988.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
     }
   ]
 }

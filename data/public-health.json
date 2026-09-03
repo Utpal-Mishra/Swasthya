@@ -16,19 +16,6 @@
       "summary": "WHO Disease Outbreak News reports an active Ebola outbreak in the Democratic Republic of the Congo. Open the official report for affected areas and current guidance."
     },
     {
-      "id": "who-2026-DON609",
-      "source": "WHO",
-      "source_kind": "global_outbreak",
-      "title": "Nipah virus disease - India",
-      "published_at": "2026-06-25T00:00:00Z",
-      "url": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON609",
-      "countries": ["IN"],
-      "regions": [],
-      "geographic_precision": "country; WHO report identifies Kerala/Kozhikode",
-      "importance": "moderate",
-      "summary": "WHO reported a laboratory-confirmed Nipah virus infection in Kerala, India. This item is country-relevant but not a street-level proximity signal."
-    },
-    {
       "id": "ecdc-cdtr-2026-w32",
       "source": "ECDC",
       "source_kind": "regional_surveillance",

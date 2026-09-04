@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T04:08:04Z",
+  "generated_at": "2026-09-04T04:11:38Z",
   "notice": "UKHSA values are England-level official surveillance metrics. They are not individual exposure data and do not inherit the user's selected radius.",
   "items": [
     {
@@ -7,7 +7,7 @@
       "source": "UKHSA",
       "source_kind": "national_surveillance",
       "title": "COVID-19 · COVID-19_cases_casesByDay",
-      "published_at": "2020-01-30",
+      "published_at": "2026-09-02",
       "url": "https://ukhsa-dashboard.data.gov.uk/",
       "countries": [
         "GB"
@@ -19,15 +19,15 @@
       "importance": "info",
       "topic": "COVID-19",
       "metric": "COVID-19_cases_casesByDay",
-      "metric_value": 1.0,
-      "summary": "Latest UKHSA dashboard value for COVID-19: COVID-19_cases_casesByDay = 1.0. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
+      "metric_value": 5.0,
+      "summary": "Latest UKHSA dashboard value for COVID-19: COVID-19_cases_casesByDay = 5.0. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
     },
     {
       "id": "ukhsa-covid-19-covid-19_cases_countrollingmean",
       "source": "UKHSA",
       "source_kind": "national_surveillance",
       "title": "COVID-19 · COVID-19_cases_countRollingMean",
-      "published_at": "2020-02-05",
+      "published_at": "2026-08-26",
       "url": "https://ukhsa-dashboard.data.gov.uk/",
       "countries": [
         "GB"
@@ -39,15 +39,15 @@
       "importance": "info",
       "topic": "COVID-19",
       "metric": "COVID-19_cases_countRollingMean",
-      "metric_value": 3.0,
-      "summary": "Latest UKHSA dashboard value for COVID-19: COVID-19_cases_countRollingMean = 3.0. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
+      "metric_value": 49.57,
+      "summary": "Latest UKHSA dashboard value for COVID-19: COVID-19_cases_countRollingMean = 49.57. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
     },
     {
       "id": "ukhsa-covid-19-covid-19_cases_lineagepercentbyweek",
       "source": "UKHSA",
       "source_kind": "national_surveillance",
       "title": "COVID-19 · COVID-19_cases_lineagePercentByWeek",
-      "published_at": "2021-01-04",
+      "published_at": "2024-05-06",
       "url": "https://ukhsa-dashboard.data.gov.uk/",
       "countries": [
         "GB"
@@ -59,15 +59,15 @@
       "importance": "info",
       "topic": "COVID-19",
       "metric": "COVID-19_cases_lineagePercentByWeek",
-      "metric_value": 0.01,
-      "summary": "Latest UKHSA dashboard value for COVID-19: COVID-19_cases_lineagePercentByWeek = 0.01. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
+      "metric_value": 100.0,
+      "summary": "Latest UKHSA dashboard value for COVID-19: COVID-19_cases_lineagePercentByWeek = 100.0. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
     },
     {
       "id": "ukhsa-influenza-influenza_cases_surveyiliratebyweek",
       "source": "UKHSA",
       "source_kind": "national_surveillance",
       "title": "Influenza · influenza_cases_surveyILIRateByWeek",
-      "published_at": "2025-11-03",
+      "published_at": "2026-03-30",
       "url": "https://ukhsa-dashboard.data.gov.uk/",
       "countries": [
         "GB"
@@ -79,15 +79,15 @@
       "importance": "info",
       "topic": "Influenza",
       "metric": "influenza_cases_surveyILIRateByWeek",
-      "metric_value": 49.45,
-      "summary": "Latest UKHSA dashboard value for Influenza: influenza_cases_surveyILIRateByWeek = 49.45. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
+      "metric_value": 38.83,
+      "summary": "Latest UKHSA dashboard value for Influenza: influenza_cases_surveyILIRateByWeek = 38.83. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
     },
     {
       "id": "ukhsa-influenza-influenza_cases_surveyparticipantsbyweek",
       "source": "UKHSA",
       "source_kind": "national_surveillance",
       "title": "Influenza · influenza_cases_surveyParticipantsByWeek",
-      "published_at": "2025-11-03",
+      "published_at": "2026-03-30",
       "url": "https://ukhsa-dashboard.data.gov.uk/",
       "countries": [
         "GB"
@@ -99,15 +99,15 @@
       "importance": "info",
       "topic": "Influenza",
       "metric": "influenza_cases_surveyParticipantsByWeek",
-      "metric_value": 1557.0,
-      "summary": "Latest UKHSA dashboard value for Influenza: influenza_cases_surveyParticipantsByWeek = 1557.0. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
+      "metric_value": 1854.0,
+      "summary": "Latest UKHSA dashboard value for Influenza: influenza_cases_surveyParticipantsByWeek = 1854.0. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
     },
     {
       "id": "ukhsa-influenza-influenza_healthcare_hospitaladmissionratebyweek",
       "source": "UKHSA",
       "source_kind": "national_surveillance",
       "title": "Influenza · influenza_healthcare_hospitalAdmissionRateByWeek",
-      "published_at": "2015-06-29",
+      "published_at": "2026-04-20",
       "url": "https://ukhsa-dashboard.data.gov.uk/",
       "countries": [
         "GB"
@@ -119,15 +119,15 @@
       "importance": "info",
       "topic": "Influenza",
       "metric": "influenza_healthcare_hospitalAdmissionRateByWeek",
-      "metric_value": 0.0,
-      "summary": "Latest UKHSA dashboard value for Influenza: influenza_healthcare_hospitalAdmissionRateByWeek = 0.0. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
+      "metric_value": 0.18,
+      "summary": "Latest UKHSA dashboard value for Influenza: influenza_healthcare_hospitalAdmissionRateByWeek = 0.18. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
     },
     {
       "id": "ukhsa-rsv-rsv_healthcare_admissionratebyweek",
       "source": "UKHSA",
       "source_kind": "national_surveillance",
       "title": "RSV · RSV_healthcare_admissionRateByWeek",
-      "published_at": "2020-09-28",
+      "published_at": "2026-03-30",
       "url": "https://ukhsa-dashboard.data.gov.uk/",
       "countries": [
         "GB"
@@ -147,7 +147,7 @@
       "source": "UKHSA",
       "source_kind": "national_surveillance",
       "title": "RSV · RSV_testing_positivityByWeek",
-      "published_at": "2017-07-03",
+      "published_at": "2026-08-17",
       "url": "https://ukhsa-dashboard.data.gov.uk/",
       "countries": [
         "GB"

@@ -12,9 +12,22 @@ const conditionDescription=document.querySelector("#conditionDescription");
 const insightScore=document.querySelector("#insightScore");
 const insightText=document.querySelector("#insightText");
 const conditionActions=document.querySelector("#conditionActions");
+const moodButtons=[...document.querySelectorAll('.mood-anchor')];
+const moodResult=document.querySelector('#moodAnchorResult');
+const clearMood=document.querySelector('#clearMoodAnchor');
 let activeCondition="adhd";
+let sessionMood=null;
 
 function safeText(value){return String(value).replace(/[&<>'"]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[char]));}
+function timeLabel(date=new Date()){return new Intl.DateTimeFormat([], {hour:'2-digit',minute:'2-digit'}).format(date);}
+
+function updateMoodAnchor(mood){
+  sessionMood=mood||null;
+  moodButtons.forEach(button=>button.classList.toggle('active',button.dataset.mood===sessionMood));
+  if(!moodResult)return;
+  if(!sessionMood){moodResult.innerHTML='<strong>No mood anchor selected</strong><span>Selection stays in this browser session.</span>';return;}
+  moodResult.innerHTML=`<strong>${safeText(sessionMood)}</strong><span>Self-reported at ${safeText(timeLabel())}. Future wearable analysis should compare physiology around moments like this rather than guessing your emotion.</span>`;
+}
 
 function updateCheckin(){
   ranges.forEach(range=>{
@@ -46,4 +59,7 @@ function selectCondition(name){
 
 tabs.forEach(tab=>tab.addEventListener("click",()=>selectCondition(tab.dataset.condition)));
 ranges.forEach(range=>range.addEventListener("input",updateCheckin));
+moodButtons.forEach(button=>button.addEventListener('click',()=>updateMoodAnchor(button.dataset.mood)));
+if(clearMood)clearMood.addEventListener('click',()=>updateMoodAnchor(null));
 selectCondition("adhd");
+updateMoodAnchor(null);

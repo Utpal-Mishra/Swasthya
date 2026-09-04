@@ -1,3 +1,8 @@
+const wearableStyle=document.createElement('link');
+wearableStyle.rel='stylesheet';
+wearableStyle.href='wearables.css';
+document.head.appendChild(wearableStyle);
+
 const conditionContent={
   adhd:{title:"ADHD support check-in",description:"Notice how sleep, structure, focus load and stress are affecting your day.",actions:["Choose one clearly defined next task.","Reduce distractions for a short focus block.","Use a visible reminder or timer.","Seek an assessment from a qualified professional if difficulties are persistent and impairing."]},
   epilepsy:{title:"Epilepsy wellbeing check-in",description:"Track general wellbeing factors that may be useful to discuss with your care team. This is not seizure prediction.",actions:["Take prescribed medication exactly as directed.","Protect regular sleep and avoid known personal triggers.","Record events or concerns for your clinical team.","Use emergency services for a prolonged seizure, repeated seizures without recovery or serious injury."]},

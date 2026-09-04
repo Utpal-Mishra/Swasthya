@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T04:11:38Z",
+  "generated_at": "2026-09-04T16:19:52Z",
   "notice": "UKHSA values are England-level official surveillance metrics. They are not individual exposure data and do not inherit the user's selected radius.",
   "items": [
     {
@@ -79,8 +79,8 @@
       "importance": "info",
       "topic": "Influenza",
       "metric": "influenza_cases_surveyILIRateByWeek",
-      "metric_value": 38.83,
-      "summary": "Latest UKHSA dashboard value for Influenza: influenza_cases_surveyILIRateByWeek = 38.83. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
+      "metric_value": 5.93,
+      "summary": "Latest UKHSA dashboard value for Influenza: influenza_cases_surveyILIRateByWeek = 5.93. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
     },
     {
       "id": "ukhsa-influenza-influenza_cases_surveyparticipantsbyweek",

@@ -1,14 +1,49 @@
 {
-  "generated_at": "2026-09-03T20:43:51Z",
+  "generated_at": "2026-09-04T16:19:27Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
+    {
+      "id": "ecdc-https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
+      "source": "ECDC",
+      "source_kind": "epidemiological_update",
+      "title": "Ebola disease outbreak in the Democratic Republic of the Congo",
+      "published_at": "2026-09-04T15:36:21Z",
+      "url": "https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
+      "countries": [
+        "CD",
+        "CG"
+      ],
+      "regions": [
+        "EU_EEA"
+      ],
+      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
+      "importance": "moderate",
+      "summary": "Since May 2026, an Ebola virus disease outbreak caused by Bundibugyo virus has been ongoing in the Democratic Republic of the Congo (DRC)."
+    },
+    {
+      "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-29-august-4-september-week-36",
+      "source": "ECDC",
+      "source_kind": "regional_surveillance",
+      "title": "Communicable disease threats report, 29 August - 4 September, week 36",
+      "published_at": "2026-09-04T15:03:17Z",
+      "url": "https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-29-august-4-september-week-36",
+      "countries": [
+        "CG"
+      ],
+      "regions": [
+        "EU_EEA"
+      ],
+      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
+      "importance": "moderate",
+      "summary": "This issue of the ECDC Communicable Disease Threats Report (CDTR) covers the period 29 August - 4 September, and includes updates on Ebola, SARS-CoV-2 variant classification, West Nile virus, Crimean-Congo haemorrhagic fever, dengue, chikungunya, vibrio, Middle East respiratory syndrome, malaria, influenza A (H9N2), and an overview of respiratory virus epidemiology in the EU/EEA."
+    },
     {
       "id": "hpsc-national-sars-cov-2-wastewater-surveillance-programme-report-week-33-2026",
       "source": "HPSC",
       "source_kind": "national_surveillance",
       "title": "National SARS-CoV-2 Wastewater Surveillance Programme Report - Week 33 2026",
       "published_at": "2026-09-01T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -24,7 +59,7 @@
       "title": "SARS-CoV-2 wastewater · Carlow",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-18T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -48,7 +83,7 @@
       "title": "SARS-CoV-2 wastewater · Cavan",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-17T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -72,7 +107,7 @@
       "title": "SARS-CoV-2 wastewater · Ennis North",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-16T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -96,7 +131,7 @@
       "title": "SARS-CoV-2 wastewater · Ballincollig",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-17T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -120,7 +155,7 @@
       "title": "SARS-CoV-2 wastewater · Cork City",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-17T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -144,7 +179,7 @@
       "title": "SARS-CoV-2 wastewater · Cork Lower Harbour",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-17T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -168,7 +203,7 @@
       "title": "SARS-CoV-2 wastewater · Buncrana",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-19T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -192,7 +227,7 @@
       "title": "SARS-CoV-2 wastewater · Letterkenny",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-18T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -216,7 +251,7 @@
       "title": "SARS-CoV-2 wastewater · Balbriggan",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-18T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -240,7 +275,7 @@
       "title": "SARS-CoV-2 wastewater · Portrane Donabate",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-17T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -264,7 +299,7 @@
       "title": "SARS-CoV-2 wastewater · Ringsend 1",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-16T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -288,7 +323,7 @@
       "title": "SARS-CoV-2 wastewater · Ringsend 2",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-19T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -312,7 +347,7 @@
       "title": "SARS-CoV-2 wastewater · Shanganagh",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-18T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -336,7 +371,7 @@
       "title": "SARS-CoV-2 wastewater · Swords",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-17T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -360,7 +395,7 @@
       "title": "SARS-CoV-2 wastewater · Galway",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-16T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -384,7 +419,7 @@
       "title": "SARS-CoV-2 wastewater · Tralee",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-17T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -408,7 +443,7 @@
       "title": "SARS-CoV-2 wastewater · Lower Liffey Valley Regional Sewerage Scheme (Leixlip)",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-18T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -432,7 +467,7 @@
       "title": "SARS-CoV-2 wastewater · Upper Liffey Valley Sewerage Scheme (Osberstown)",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-18T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -456,7 +491,7 @@
       "title": "SARS-CoV-2 wastewater · Kilkenny",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-16T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -480,7 +515,7 @@
       "title": "SARS-CoV-2 wastewater · Portlaoise",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-16T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -504,7 +539,7 @@
       "title": "SARS-CoV-2 wastewater · Limerick City",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-17T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -528,7 +563,7 @@
       "title": "SARS-CoV-2 wastewater · Drogheda",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-17T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -552,7 +587,7 @@
       "title": "SARS-CoV-2 wastewater · Dundalk",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-17T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -576,7 +611,7 @@
       "title": "SARS-CoV-2 wastewater · Castlebar",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-16T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -600,7 +635,7 @@
       "title": "SARS-CoV-2 wastewater · Navan",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-17T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -624,7 +659,7 @@
       "title": "SARS-CoV-2 wastewater · Monaghan",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-17T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -648,7 +683,7 @@
       "title": "SARS-CoV-2 wastewater · Sligo",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-18T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -672,7 +707,7 @@
       "title": "SARS-CoV-2 wastewater · Clonmel",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-17T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -696,7 +731,7 @@
       "title": "SARS-CoV-2 wastewater · Waterford",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-16T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -720,7 +755,7 @@
       "title": "SARS-CoV-2 wastewater · Mullingar",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-18T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -744,7 +779,7 @@
       "title": "SARS-CoV-2 wastewater · Wexford",
       "published_at": "2026-09-01T00:00:00Z",
       "sample_date": "2026-08-16T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
       "countries": [
         "IE"
       ],
@@ -760,25 +795,6 @@
       "importance": "info",
       "proximity_mode": "catchment_context",
       "summary": "HPSC wastewater surveillance for Wexford, Wexford; sample 16/08/2026. SARS-CoV-2 RNA was detected below the quantification limit. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
-    },
-    {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
-      "source": "ECDC",
-      "source_kind": "epidemiological_update",
-      "title": "Ebola disease outbreak in the Democratic Republic of the Congo and Uganda",
-      "published_at": "2026-08-31T15:36:21Z",
-      "url": "https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
-      "countries": [
-        "CD",
-        "CG",
-        "UG"
-      ],
-      "regions": [
-        "EU_EEA"
-      ],
-      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
-      "importance": "moderate",
-      "summary": "On 17 May 2026, the World Health Organization (WHO) declared the Ebola virus disease outbreak caused by Bundibugyo virus in the Democratic Republic of the Congo (DRC) and Uganda a Public Health Emergency of International Concern."
     },
     {
       "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-22-28-august-week-35",
@@ -803,7 +819,7 @@
       "source_kind": "national_surveillance",
       "title": "Summary Report on Carbapenemase Producing Enterobacterales (CPE) July 2026",
       "published_at": "2026-08-28T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/carbapenemresistantenterobacteriaceaecre/epidemiologicaldata/1787910084.pdf",
+      "url": "https://file.hpsc.ie/uploads/carbapenemresistantenterobacteriaceaecre/epidemiologicaldata/1787910084.pdf",
       "countries": [
         "IE"
       ],
@@ -818,7 +834,7 @@
       "source_kind": "national_surveillance",
       "title": "Epidemiology of invasive Group A streptococcal (iGAS) infections in Ireland, 2024-2025",
       "published_at": "2026-08-26T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/groupastreptococcaldiseasegas/epidemiologicaldata/annualreports/1787755888.pdf",
+      "url": "https://file.hpsc.ie/uploads/groupastreptococcaldiseasegas/epidemiologicaldata/annualreports/1787755888.pdf",
       "countries": [
         "IE"
       ],
@@ -833,7 +849,7 @@
       "source_kind": "national_surveillance",
       "title": "Enhanced Surveillance of Clostridioides difficile Infection in Ireland Q1–Q2 2026",
       "published_at": "2026-08-25T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/clostridioidesdifficile/surveillancereports/1787665727.pdf",
+      "url": "https://file.hpsc.ie/uploads/clostridioidesdifficile/surveillancereports/1787665727.pdf",
       "countries": [
         "IE"
       ],
@@ -848,7 +864,7 @@
       "source_kind": "national_surveillance",
       "title": "Annual Infectious Disease Notifications in Ireland 2020 - 2025",
       "published_at": "2026-08-24T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/infectioncontrolandhai/surveillancereports/1787582316.pdf",
+      "url": "https://file.hpsc.ie/uploads/infectioncontrolandhai/surveillancereports/1787582316.pdf",
       "countries": [
         "IE"
       ],
@@ -897,7 +913,7 @@
       "source_kind": "national_surveillance",
       "title": "Streptococcus Pneumoniae (invasive) in Ireland 2025",
       "published_at": "2026-08-19T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/pneumococcaldisease/annualreports/1787154570.pdf",
+      "url": "https://file.hpsc.ie/uploads/pneumococcaldisease/annualreports/1787154570.pdf",
       "countries": [
         "IE"
       ],
@@ -912,7 +928,7 @@
       "source_kind": "national_surveillance",
       "title": "National SARS-CoV-2 Wastewater Surveillance Programme Report - Week 29 2026",
       "published_at": "2026-08-18T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/epidemiologicaldata/1787038315.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/epidemiologicaldata/1787038315.html",
       "countries": [
         "IE"
       ],
@@ -961,7 +977,7 @@
       "source_kind": "national_surveillance",
       "title": "SARI Surveillance Report, Week 32 2026",
       "published_at": "2026-08-13T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/acuterespiratoryinfection/surveillancereports/1786608317.html",
+      "url": "https://file.hpsc.ie/uploads/acuterespiratoryinfection/surveillancereports/1786608317.html",
       "countries": [
         "IE"
       ],
@@ -1025,7 +1041,7 @@
       "source_kind": "national_surveillance",
       "title": "Summary Report on Carbapenemase Producing Enterobacterales (CPE) June 2026",
       "published_at": "2026-07-31T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/carbapenemresistantenterobacteriaceaecre/surveillancereports/1785486285.pdf",
+      "url": "https://file.hpsc.ie/uploads/carbapenemresistantenterobacteriaceaecre/surveillancereports/1785486285.pdf",
       "countries": [
         "IE"
       ],
@@ -1040,7 +1056,7 @@
       "source_kind": "national_surveillance",
       "title": "Surveillance of novel or rare antimicrobial resistant organisms (NRAO) in Ireland, 2022 - 2025",
       "published_at": "2026-07-30T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/nrao/surveillancereports/1785424296.pdf",
+      "url": "https://file.hpsc.ie/uploads/nrao/surveillancereports/1785424296.pdf",
       "countries": [
         "IE"
       ],
@@ -1055,7 +1071,7 @@
       "source_kind": "national_surveillance",
       "title": "Enhanced surveillance of Carbapenemase-Producing Enterobacterales (CPE) in Ireland, 2025",
       "published_at": "2026-07-30T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/carbapenemresistantenterobacteriaceaecre/surveillancereports/1785423458.pdf",
+      "url": "https://file.hpsc.ie/uploads/carbapenemresistantenterobacteriaceaecre/surveillancereports/1785423458.pdf",
       "countries": [
         "IE"
       ],
@@ -1070,7 +1086,7 @@
       "source_kind": "national_surveillance",
       "title": "Hepatitis C in Ireland 2025 infographic",
       "published_at": "2026-07-27T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/hepatitisc/epidemiologicaldata/annualreports/1766246718.png",
+      "url": "https://file.hpsc.ie/uploads/hepatitisc/epidemiologicaldata/annualreports/1766246718.png",
       "countries": [
         "IE"
       ],
@@ -1085,7 +1101,7 @@
       "source_kind": "national_surveillance",
       "title": "Epidemiology of Hepatitis B in Ireland",
       "published_at": "2026-07-27T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/hepatitisb/surveillancereports/1766247198.pdf",
+      "url": "https://file.hpsc.ie/uploads/hepatitisb/surveillancereports/1766247198.pdf",
       "countries": [
         "IE"
       ],
@@ -1100,7 +1116,7 @@
       "source_kind": "national_surveillance",
       "title": "Hepatitis B in Ireland 2025 infographic",
       "published_at": "2026-07-27T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/hepatitisb/surveillancereports/1766247228.png",
+      "url": "https://file.hpsc.ie/uploads/hepatitisb/surveillancereports/1766247228.png",
       "countries": [
         "IE"
       ],
@@ -1115,7 +1131,7 @@
       "source_kind": "national_surveillance",
       "title": "Epidemiology of Hepatitis C in Ireland",
       "published_at": "2026-07-27T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/hepatitisc/epidemiologicaldata/1753093620.pdf",
+      "url": "https://file.hpsc.ie/uploads/hepatitisc/epidemiologicaldata/1753093620.pdf",
       "countries": [
         "IE"
       ],
@@ -1147,7 +1163,7 @@
       "source_kind": "national_surveillance",
       "title": "Antimicrobial resistance in Neisseria gonorrhoeae, Ireland 2015-2025",
       "published_at": "2026-07-16T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/amrgonorrhoea/surveillancereports/1784286138.pdf",
+      "url": "https://file.hpsc.ie/uploads/amrgonorrhoea/surveillancereports/1784286138.pdf",
       "countries": [
         "IE"
       ],
@@ -1162,7 +1178,7 @@
       "source_kind": "national_surveillance",
       "title": "HIV, Mpox & Sexually Transmitted Infections trends in Ireland, 05/01/2026 - 04/07/2026",
       "published_at": "2026-07-13T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/sexuallytransmittedinfections/epidemiologicaldata/1783953730.pdf",
+      "url": "https://file.hpsc.ie/uploads/sexuallytransmittedinfections/epidemiologicaldata/1783953730.pdf",
       "countries": [
         "IE"
       ],
@@ -1177,7 +1193,7 @@
       "source_kind": "national_surveillance",
       "title": "National SARS-CoV-2 Wastewater Surveillance Programme Report - Week 25 2026",
       "published_at": "2026-07-09T00:00:00Z",
-      "url": "https://d3nqh0idxaramb.cloudfront.net/uploads/novelcoronavirus/epidemiologicaldata/1787038988.html",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/epidemiologicaldata/1787038988.html",
       "countries": [
         "IE"
       ],

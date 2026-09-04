@@ -50,6 +50,24 @@ def extract_list(payload):
     return []
 
 
+def row_date(row: dict) -> str | None:
+    value = row.get("date") or row.get("period_end") or row.get("period") or row.get("timestamp") or row.get("reporting_date")
+    return str(value) if value else None
+
+
+def date_sort_key(row: dict) -> datetime:
+    value = row_date(row)
+    if not value:
+        return datetime.min.replace(tzinfo=timezone.utc)
+    try:
+        dt = datetime.fromisoformat(value.replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc)
+    except ValueError:
+        return datetime.min.replace(tzinfo=timezone.utc)
+
+
 def metric_names(topic: str) -> list[str]:
     path = f"/themes/infectious_disease/sub_themes/respiratory/topics/{quote(topic, safe='')}/geography_types/Nation/geographies/England/metrics"
     rows = extract_list(get_json(BASE + path))
@@ -60,21 +78,38 @@ def metric_names(topic: str) -> list[str]:
 
 
 def latest_metric(topic: str, metric: str) -> dict | None:
+    """Return the newest available point independent of API ordering.
+
+    UKHSA's API is page-based and reports a total ``count``. The first page is
+    not guaranteed to contain the newest point, so with page_size=1 we inspect
+    both the first and final pages and select the row with the latest date.
+    """
     path = f"/themes/infectious_disease/sub_themes/respiratory/topics/{quote(topic, safe='')}/geography_types/Nation/geographies/England/metrics/{quote(metric, safe='')}"
-    payload = get_json(BASE + path, params={"page": 1, "page_size": 1})
-    rows = extract_list(payload)
-    if not rows and isinstance(payload, list):
-        rows = payload
-    if not rows:
+    first_payload = get_json(BASE + path, params={"page": 1, "page_size": 1, "format": "json"})
+    candidates = extract_list(first_payload)
+
+    count = None
+    if isinstance(first_payload, dict):
+        try:
+            count = int(first_payload.get("count"))
+        except (TypeError, ValueError):
+            count = None
+
+    if count and count > 1:
+        last_payload = get_json(BASE + path, params={"page": count, "page_size": 1, "format": "json"})
+        candidates.extend(extract_list(last_payload))
+
+    if not candidates:
         return None
-    row = rows[0]
-    date = row.get("date") or row.get("period_end") or row.get("period") or row.get("timestamp") or row.get("reporting_date")
+
+    row = max(candidates, key=date_sort_key)
+    date = row_date(row)
     value = row.get("metric_value")
     if value is None:
         value = row.get("value")
     if value is None:
         value = row.get("figure")
-    return {"date": str(date) if date else None, "value": value}
+    return {"date": date, "value": value}
 
 
 def items() -> list[dict]:

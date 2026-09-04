@@ -8,7 +8,7 @@ on:
     branches: ["main"]
     paths:
       - "scripts/fetch_public_health.py"
-      - "scripts/feedparser.py"
+      - "scripts/fetch_us_wastewater.py"
       - "data/country-health-providers.json"
       - ".github/workflows/update-public-health.yml"
 
@@ -34,17 +34,25 @@ jobs:
       - name: Install feed dependencies
         run: pip install requests beautifulsoup4 feedparser pycountry
 
-      - name: Fetch official public-health sources
+      - name: Fetch WHO, ECDC and HPSC intelligence
         run: python scripts/fetch_public_health.py
+
+      - name: Fetch CDC NWSS county wastewater intelligence
+        run: python scripts/fetch_us_wastewater.py
+
+      - name: Validate generated JSON
+        run: |
+          python -m json.tool data/public-health.json >/dev/null
+          python -m json.tool data/us-wastewater.json >/dev/null
 
       - name: Commit material cache changes
         run: |
-          if git diff --quiet -- data/public-health.json; then
+          if git diff --quiet -- data/public-health.json data/us-wastewater.json; then
             echo "No public-health changes detected."
             exit 0
           fi
           git config user.name "swasthya-data-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/public-health.json
+          git add data/public-health.json data/us-wastewater.json
           git commit -m "chore: refresh public-health intelligence"
           git push

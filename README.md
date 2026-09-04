@@ -43,22 +43,23 @@ Current connected layers:
 - **HPSC wastewater surveillance** — catchment-level SARS-CoV-2 population surveillance for Ireland
 - **HPSC Ireland** — national epidemiology/surveillance publications
 - **CDC NWSS** — county/sewershed wastewater context for SARS-CoV-2, Influenza A, RSV, measles, mpox and avian influenza A(H5) in the United States where current records are available
+- **UKHSA Data Dashboard API** — official England-level respiratory surveillance metrics for COVID-19, influenza and RSV; retained at published national geography and not converted into a Swasthya clinical-risk score
 - **ECDC RSS** — communicable-disease threat reports and epidemiological updates for EU/EEA context
 - **WHO Disease Outbreak News (DON)** — global authoritative outbreak fallback
 
 The scheduled data path is:
 
 ```text
-WHO / ECDC / HPSC                  CDC NWSS
-        ↓                             ↓
-scripts/fetch_public_health.py    scripts/fetch_us_wastewater.py
-        ↓                             ↓
-data/public-health.json           data/us-wastewater.json
-             \                       /
-              \                     /
-               location matching in app.js
-                         ↓
-                  Health Around Me
+WHO / ECDC / HPSC          CDC NWSS               UKHSA
+        ↓                      ↓                      ↓
+fetch_public_health.py   fetch_us_wastewater.py   fetch_ukhsa.py
+        ↓                      ↓                      ↓
+public-health.json       us-wastewater.json       ukhsa-health.json
+                \             |             /
+                 \            |            /
+                  location matching in app.js
+                            ↓
+                     Health Around Me
 ```
 
 `.github/workflows/update-public-health.yml` runs every six hours, can be triggered manually and also refreshes after ingestion logic changes are merged to `main`.
@@ -78,6 +79,12 @@ The CDC NWSS adapter is schema-tolerant across several pathogen datasets. It kee
 It deliberately avoids turning every numeric wastewater measurement into a health warning. A record is elevated only when the official dataset supplies an elevated/high category or when a clearly relative source metric such as a very high historical percentile/detection proportion supports that description. Other records remain informational.
 
 A CDC wastewater site may serve all or only part of a county and can serve more than one county. Therefore a county match is **population surveillance context**, not evidence of a patient within the user's selected radius or proof of personal exposure.
+
+### UK respiratory surveillance layer
+
+UKHSA's public dashboard API is queried for available England-level respiratory metrics for COVID-19, influenza and RSV. Swasthya retains the metric name/value as UKHSA publishes it and shows its geography as **England national surveillance**.
+
+This layer deliberately does not claim that an England-level metric applies to the user's street or selected radius. If the user is elsewhere in the UK and a matching lower-level source is not connected, the national-authority/fallback path remains explicit rather than manufacturing local precision.
 
 ### Geographic honesty
 
@@ -146,10 +153,7 @@ Descriptive personal association
 
 Wearables may support statements such as “recovery appears lower than your usual baseline” or “this pattern often coincided with your self-reported tired days.” They must not independently declare that the user is happy, depressed, anxious, focused or clinically stressed.
 
-See:
-
-- `docs/wearables.md`
-- `docs/wearable-summary.schema.json`
+See `docs/wearables.md` and `docs/wearable-summary.schema.json`.
 
 ## Privacy principles
 
@@ -175,8 +179,8 @@ The current GitHub Pages version can show browser notifications while the page i
 
 ## Next priorities
 
-1. Add UKHSA machine-readable respiratory surveillance for England and other national/local adapters where geography is suitable.
-2. Validate and harden CDC/HPSC local surveillance parsers against provider schema changes.
+1. Extend fine-grained surveillance to more countries and add lower UK geography where UKHSA publishes suitable metrics.
+2. Validate and harden CDC/HPSC/UKHSA parsers against provider schema changes.
 3. Integrate official warning/weather feeds country-by-country where licensing permits.
 4. Build the Android companion prototype for consented Samsung Health summaries.
 5. Move provider adapters into a backend canonical schema and provenance layer.

@@ -2,7 +2,7 @@ const els={
   location:document.querySelector('#location'),radius:document.querySelector('#radius'),radiusValue:document.querySelector('#radiusValue'),radiusMetric:document.querySelector('#radiusMetric'),areaMetric:document.querySelector('#areaMetric'),signalMetric:document.querySelector('#signalMetric'),checkedMetric:document.querySelector('#checkedMetric'),locationStatus:document.querySelector('#locationStatus'),locateButton:document.querySelector('#locateButton'),liveToggle:document.querySelector('#liveToggle'),notificationToggle:document.querySelector('#notificationToggle'),notificationStatus:document.querySelector('#notificationStatus'),contextTitle:document.querySelector('#contextTitle'),contextSummary:document.querySelector('#contextSummary'),contextBadge:document.querySelector('#contextBadge'),contextFacts:document.querySelector('#contextFacts'),contextAction:document.querySelector('#contextAction'),contextProvenance:document.querySelector('#contextProvenance'),vicinityGrid:document.querySelector('#vicinityGrid'),alertGrid:document.querySelector('#alertGrid'),proximityBadge:document.querySelector('#proximityBadge'),supportLink:document.querySelector('#supportLink'),pharmacyLink:document.querySelector('#pharmacyLink'),healthcareLink:document.querySelector('#healthcareLink'),essentialsLink:document.querySelector('#essentialsLink'),indoorLink:document.querySelector('#indoorLink'),publicHealthGrid:document.querySelector('#publicHealthGrid'),publicHealthMeta:document.querySelector('#publicHealthMeta'),emergencyHeading:document.querySelector('#emergencyHeading'),emergencyIntro:document.querySelector('#emergencyIntro'),emergencyNumbers:document.querySelector('#emergencyNumbers'),emergencyAuthorityName:document.querySelector('#emergencyAuthorityName'),emergencyAuthorityLink:document.querySelector('#emergencyAuthorityLink')
 };
 
-let state={coords:null,watchId:null,lastCell:null,place:'Cork, Ireland',countryCode:'IE',countryName:'Ireland',subdivision:'County Cork',county:'County Cork',weather:null,air:null,loading:false,lastError:null,publicHealthData:null,usWastewaterData:null,providerRegistry:null};
+let state={coords:null,watchId:null,lastCell:null,place:'Cork, Ireland',countryCode:'IE',countryName:'Ireland',subdivision:'County Cork',county:'County Cork',weather:null,air:null,loading:false,lastError:null,publicHealthData:null,usWastewaterData:null,ukhsaData:null,providerRegistry:null};
 
 const WEATHER_URL='https://api.open-meteo.com/v1/forecast';
 const AIR_URL='https://air-quality-api.open-meteo.com/v1/air-quality';
@@ -25,13 +25,15 @@ function airBand(aqi){if(aqi==null||Number.isNaN(aqi))return {label:'Unavailable
 function hourIndex(times,target){if(!times?.length)return -1;const targetHour=target.slice(0,13);let idx=times.findIndex(t=>t.slice(0,13)===targetHour);if(idx<0)idx=0;return idx;}
 
 async function loadStaticIntelligence(){
-  const [health,usWastewater,providers]=await Promise.allSettled([
+  const [health,usWastewater,ukhsa,providers]=await Promise.allSettled([
     fetch(`data/public-health.json?ts=${Date.now()}`).then(r=>{if(!r.ok)throw new Error('Public-health cache unavailable');return r.json();}),
     fetch(`data/us-wastewater.json?ts=${Date.now()}`).then(r=>{if(!r.ok)throw new Error('US wastewater cache unavailable');return r.json();}),
+    fetch(`data/ukhsa-health.json?ts=${Date.now()}`).then(r=>{if(!r.ok)throw new Error('UKHSA cache unavailable');return r.json();}),
     fetch('data/country-health-providers.json').then(r=>{if(!r.ok)throw new Error('Country provider registry unavailable');return r.json();})
   ]);
   state.publicHealthData=health.status==='fulfilled'?health.value:{generated_at:null,items:[]};
   state.usWastewaterData=usWastewater.status==='fulfilled'?usWastewater.value:{generated_at:null,items:[]};
+  state.ukhsaData=ukhsa.status==='fulfilled'?ukhsa.value:{generated_at:null,items:[]};
   state.providerRegistry=providers.status==='fulfilled'?providers.value:{default:{authority_name:'WHO',authority_url:'https://www.who.int/emergencies/disease-outbreak-news',regional_sources:['WHO']}};
 }
 
@@ -95,14 +97,20 @@ function localResultWeight(item){
   return 0;
 }
 function localRelevanceLabel(item){const score=localRelevance(item);if(score>=4)return state.countryCode==='US'?'County/sewershed match':'Named catchment match';if(score===3)return 'Same county';if(score===2)return 'County context';if(score===1)return 'State/regional context';return 'National surveillance';}
+function nationalGeographyMatches(item){
+  const regions=item.regions||[];
+  if(!regions.length)return true;
+  const subdivision=normaliseGeo(state.subdivision||state.place);
+  return regions.some(region=>{const value=normaliseGeo(region);return value&&subdivision&&(subdivision.includes(value)||value.includes(subdivision));});
+}
 
-function allHealthItems(){return [...(state.publicHealthData?.items||[]),...(state.usWastewaterData?.items||[])];}
+function allHealthItems(){return [...(state.publicHealthData?.items||[]),...(state.usWastewaterData?.items||[]),...(state.ukhsaData?.items||[])];}
 function publicHealthMatches(){
   const code=state.countryCode;const items=allHealthItems();if(!code)return {local:[],exact:[],national:[],regional:[],all:[]};
   const recent=items.filter(i=>ageDays(i.published_at)<=90);
   const exact=recent.filter(i=>(i.countries||[]).includes(code));
   const local=exact.filter(i=>['wastewater_surveillance','county_wastewater_surveillance'].includes(i.source_kind)&&localRelevance(i)>0).sort((a,b)=>localRelevance(b)-localRelevance(a)||localResultWeight(b)-localResultWeight(a)||new Date(b.published_at)-new Date(a.published_at));
-  const national=exact.filter(i=>i.source_kind==='national_surveillance');
+  const national=exact.filter(i=>i.source_kind==='national_surveillance'&&nationalGeographyMatches(i));
   const exactThreats=exact.filter(i=>!['national_surveillance','wastewater_surveillance','county_wastewater_surveillance'].includes(i.source_kind));
   const regional=recent.filter(i=>EEA.has(code)&&(i.regions||[]).includes('EU_EEA')&&!(i.countries||[]).includes(code));
   return {local,exact:exactThreats,national,regional,all:[...local,...exactThreats,...national,...regional]};
@@ -150,9 +158,9 @@ function renderContext(){
   const diseaseText=localElevated?`${localElevated} local surveillance signal${localElevated===1?'':'s'}`:m.local.length?'Local surveillance updated':m.exact.length?`${m.exact.length} matched official notice${m.exact.length===1?'':'s'}`:m.national.length?'National surveillance updated':m.regional.length?'Regional monitoring available':'No recent matched item';
   els.contextFacts.innerHTML=`<div><span>Weather</span><strong>${safeText(weatherText)}</strong></div><div><span>Disease intelligence</span><strong>${safeText(diseaseText)}</strong></div><div><span>Main concern</span><strong>${safeText(c.top?.title||'None detected')}</strong></div><div><span>Updated</span><strong>${fmtTime()}</strong></div>`;
   els.contextAction.innerHTML=`<strong>Next action</strong><p>${safeText(c.action)}</p>`;if(c.top)els.supportLink.href=mapsSearch(c.top.query);
-  const provider=countryProvider();const cacheTime=state.publicHealthData?.generated_at?fmtDate(state.publicHealthData.generated_at):'Unavailable';const usCache=state.usWastewaterData?.generated_at?fmtDate(state.usWastewaterData.generated_at):'Unavailable';
-  const healthSources=`WHO${EEA.has(state.countryCode)?' + ECDC':''}${state.countryCode==='IE'?' + HPSC wastewater':''}${state.countryCode==='US'?' + CDC NWSS county wastewater':''}`;
-  els.contextProvenance.innerHTML=`<div><span>Location</span><strong>${safeText(state.countryName||'Country unresolved')} · ${safeText(state.county||state.subdivision||'')}</strong></div><div><span>Weather</span><strong>${w?'Live modelled data · Open-Meteo':'Unavailable'}</strong></div><div><span>Public health</span><strong>Official cache · ${safeText(healthSources)} · global cache ${safeText(cacheTime)}${state.countryCode==='US'?` · CDC cache ${safeText(usCache)}`:''}</strong></div><div><span>National authority</span><strong><a href="${provider.authority_url}" target="_blank" rel="noopener">${safeText(provider.authority_name)}</a></strong></div>`;
+  const provider=countryProvider();const cacheTime=state.publicHealthData?.generated_at?fmtDate(state.publicHealthData.generated_at):'Unavailable';const usCache=state.usWastewaterData?.generated_at?fmtDate(state.usWastewaterData.generated_at):'Unavailable';const ukCache=state.ukhsaData?.generated_at?fmtDate(state.ukhsaData.generated_at):'Unavailable';
+  const healthSources=`WHO${EEA.has(state.countryCode)?' + ECDC':''}${state.countryCode==='IE'?' + HPSC wastewater':''}${state.countryCode==='US'?' + CDC NWSS county wastewater':''}${state.countryCode==='GB'?' + UKHSA':''}`;
+  els.contextProvenance.innerHTML=`<div><span>Location</span><strong>${safeText(state.countryName||'Country unresolved')} · ${safeText(state.county||state.subdivision||'')}</strong></div><div><span>Weather</span><strong>${w?'Live modelled data · Open-Meteo':'Unavailable'}</strong></div><div><span>Public health</span><strong>Official cache · ${safeText(healthSources)} · global cache ${safeText(cacheTime)}${state.countryCode==='US'?` · CDC cache ${safeText(usCache)}`:''}${state.countryCode==='GB'?` · UKHSA cache ${safeText(ukCache)}`:''}</strong></div><div><span>National authority</span><strong><a href="${provider.authority_url}" target="_blank" rel="noopener">${safeText(provider.authority_name)}</a></strong></div>`;
   return c;
 }
 
@@ -162,7 +170,7 @@ function renderVicinity(c){
   let diseaseStatus='No recent matched item',diseaseDetail='Connected official feeds are not exhaustive.';let diseaseTone='good';
   if(m.local.length){const elevated=m.local.filter(i=>localResultWeight(i)>=3).length;diseaseStatus=elevated?'Local surveillance signal':'Local surveillance updated';diseaseDetail=`${m.local.length} population surveillance record${m.local.length===1?'':'s'} matched your county/catchment context. Your ${radius} km radius is not automatically the surveillance boundary.`;diseaseTone=elevated?'moderate':'good';}
   else if(m.exact.length){diseaseStatus='Official notice matched';diseaseDetail=`${m.exact.length} country-relevant outbreak/update item${m.exact.length===1?'':'s'}; not street-level exposure data.`;diseaseTone='moderate';}
-  else if(m.national.length){diseaseStatus='Surveillance updated';diseaseDetail=`Latest ${provider.authority_name} surveillance publications are available.`;diseaseTone='good';}
+  else if(m.national.length){diseaseStatus='Surveillance updated';diseaseDetail=`${m.national.length} recent ${provider.authority_name} metric/publication${m.national.length===1?'':'s'} matched the available national geography.`;diseaseTone='good';}
   else if(m.regional.length){diseaseStatus='Regional monitoring';diseaseDetail='ECDC regional communicable-disease monitoring is available for this country.';diseaseTone='good';}
   els.vicinityGrid.innerHTML=[statusCard('🦠','Disease activity',diseaseStatus,diseaseDetail,diseaseTone,provider.authority_url),statusCard('🌦','Weather health',weatherStatus,c.w?`${weatherLabel(c.w.weather_code,c.w.is_day)} · live modelled context`:'Provider unavailable',c.top&&['rain','heat','cold','wind','uv'].includes(c.top.key)?c.top.level:'good'),statusCard('🌬','Air health',airStatus,c.a?`Supporting exposure detail · European AQI ${Math.round(c.a.european_aqi)}`:'Provider unavailable',c.air.level),statusCard('🌍','Country context',state.countryName||'Unknown',[state.county,state.subdivision].filter(Boolean).join(' · ')||'Automatic country detection from location.','good',provider.authority_url),statusCard('👥','Community signal','Not collected','No individual health status is collected or displayed.','unknown'),statusCard('🏥','Healthcare access','Search nearby',`Find healthcare within your selected ${radius} km context.`,'good',mapsSearch('health centre urgent care pharmacy'))].join('');els.proximityBadge.textContent=`${radius} km · ${state.countryName||'country unresolved'}`;
 }
@@ -170,6 +178,7 @@ function renderVicinity(c){
 function localDetail(item){
   if(item.source_kind==='wastewater_surveillance')return `<div class="health-precision"><strong>Catchment result</strong><span>${safeText(item.result_category||'Unknown')} · ${safeText(localRelevanceLabel(item))} · sample ${safeText(fmtDate(item.sample_date))}</span></div>`;
   if(item.source_kind==='county_wastewater_surveillance')return `<div class="health-precision"><strong>County/sewershed context</strong><span>${safeText(item.activity_summary||'Recent surveillance record')} · ${safeText(localRelevanceLabel(item))}</span></div>`;
+  if(item.source==='UKHSA'&&item.metric)return `<div class="health-precision"><strong>Published metric</strong><span>${safeText(item.metric)}${item.metric_value!==undefined?` · ${safeText(item.metric_value)}`:''}</span></div>`;
   return '';
 }
 function renderPublicHealth(){

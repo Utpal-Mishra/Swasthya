@@ -23,9 +23,13 @@ jobs:
       - name: Validate Python syntax
         run: |
           python -m py_compile scripts/fetch_public_health.py
-          python -m py_compile scripts/feedparser.py
+          python -m py_compile scripts/fetch_us_wastewater.py
+          python -m py_compile scripts/fetch_ukhsa.py
 
       - name: Validate public JSON
         run: |
           python -m json.tool data/public-health.json > /dev/null
+          python -m json.tool data/us-wastewater.json > /dev/null
+          python -m json.tool data/ukhsa-health.json > /dev/null
           python -m json.tool data/country-health-providers.json > /dev/null
+          python -m json.tool docs/wearable-summary.schema.json > /dev/null

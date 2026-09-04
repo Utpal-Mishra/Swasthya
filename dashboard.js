@@ -1,3 +1,8 @@
+const wearableStyle=document.createElement('link');
+wearableStyle.rel='stylesheet';
+wearableStyle.href='wearables.css';
+document.head.appendChild(wearableStyle);
+
 const conditionContent={
   adhd:{title:"ADHD support check-in",description:"Notice how sleep, structure, focus load and stress are affecting your day.",actions:["Choose one clearly defined next task.","Reduce distractions for a short focus block.","Use a visible reminder or timer.","Seek an assessment from a qualified professional if difficulties are persistent and impairing."]},
   epilepsy:{title:"Epilepsy wellbeing check-in",description:"Track general wellbeing factors that may be useful to discuss with your care team. This is not seizure prediction.",actions:["Take prescribed medication exactly as directed.","Protect regular sleep and avoid known personal triggers.","Record events or concerns for your clinical team.","Use emergency services for a prolonged seizure, repeated seizures without recovery or serious injury."]},
@@ -12,9 +17,22 @@ const conditionDescription=document.querySelector("#conditionDescription");
 const insightScore=document.querySelector("#insightScore");
 const insightText=document.querySelector("#insightText");
 const conditionActions=document.querySelector("#conditionActions");
+const moodButtons=[...document.querySelectorAll('.mood-anchor')];
+const moodResult=document.querySelector('#moodAnchorResult');
+const clearMood=document.querySelector('#clearMoodAnchor');
 let activeCondition="adhd";
+let sessionMood=null;
 
 function safeText(value){return String(value).replace(/[&<>'"]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;","'":"&#39;",'"':"&quot;"}[char]));}
+function timeLabel(date=new Date()){return new Intl.DateTimeFormat([], {hour:'2-digit',minute:'2-digit'}).format(date);}
+
+function updateMoodAnchor(mood){
+  sessionMood=mood||null;
+  moodButtons.forEach(button=>button.classList.toggle('active',button.dataset.mood===sessionMood));
+  if(!moodResult)return;
+  if(!sessionMood){moodResult.innerHTML='<strong>No mood anchor selected</strong><span>Selection stays in this browser session.</span>';return;}
+  moodResult.innerHTML=`<strong>${safeText(sessionMood)}</strong><span>Self-reported at ${safeText(timeLabel())}. Future wearable analysis should compare physiology around moments like this rather than guessing your emotion.</span>`;
+}
 
 function updateCheckin(){
   ranges.forEach(range=>{
@@ -46,4 +64,7 @@ function selectCondition(name){
 
 tabs.forEach(tab=>tab.addEventListener("click",()=>selectCondition(tab.dataset.condition)));
 ranges.forEach(range=>range.addEventListener("input",updateCheckin));
+moodButtons.forEach(button=>button.addEventListener('click',()=>updateMoodAnchor(button.dataset.mood)));
+if(clearMood)clearMood.addEventListener('click',()=>updateMoodAnchor(null));
 selectCondition("adhd");
+updateMoodAnchor(null);

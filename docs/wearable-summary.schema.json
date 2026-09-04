@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://utpal-mishra.github.io/Swasthya/schemas/wearable-summary.schema.json",
+  "title": "Swasthya wearable daily summary",
+  "description": "Minimal derived wellness context intended to cross from an opt-in Android companion into Swasthya. Raw physiological streams are deliberately excluded.",
+  "type": "object",
+  "required": ["schema_version", "date", "source", "consent_scope"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "date": {"type": "string", "format": "date"},
+    "source": {"enum": ["samsung_health_data_sdk", "health_connect", "manual"]},
+    "consent_scope": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "sleep": {
+      "type": "object",
+      "properties": {
+        "duration_minutes": {"type": ["number", "null"], "minimum": 0},
+        "baseline_delta_minutes": {"type": ["number", "null"]},
+        "consistency_minutes": {"type": ["number", "null"], "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "heart": {
+      "type": "object",
+      "properties": {
+        "resting_bpm": {"type": ["number", "null"], "minimum": 0},
+        "resting_bpm_baseline_delta": {"type": ["number", "null"]},
+        "hrv_ms": {"type": ["number", "null"], "minimum": 0},
+        "hrv_baseline_delta": {"type": ["number", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "activity": {
+      "type": "object",
+      "properties": {
+        "steps": {"type": ["integer", "null"], "minimum": 0},
+        "active_minutes": {"type": ["number", "null"], "minimum": 0},
+        "minutes_since_exercise": {"type": ["number", "null"], "minimum": 0}
+      },
+      "additionalProperties": false
+    },
+    "recovery": {
+      "type": "object",
+      "properties": {
+        "energy_score": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
+        "skin_temperature_baseline_delta_c": {"type": ["number", "null"]},
+        "sleep_spo2_percent": {"type": ["number", "null"], "minimum": 0, "maximum": 100}
+      },
+      "additionalProperties": false
+    },
+    "mood_anchor": {
+      "type": ["object", "null"],
+      "properties": {
+        "label": {"enum": ["Happy", "Calm", "Focused", "Stressed", "Low", "Tired"]},
+        "self_reported_at": {"type": "string", "format": "date-time"}
+      },
+      "required": ["label", "self_reported_at"],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

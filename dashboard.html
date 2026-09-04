@@ -11,15 +11,55 @@
 <body>
   <header class="topbar">
     <a class="brand" href="index.html" aria-label="Swasthya home"><span class="brand-mark">S</span><span><strong>Swasthya</strong><small>Health intelligence near you</small></span></a>
-    <nav aria-label="Main navigation"><a href="index.html">Around Me</a><a class="active-nav" href="dashboard.html">My Health</a><a href="#neuro-health">Support modes</a></nav>
+    <nav aria-label="Main navigation"><a href="index.html">Around Me</a><a class="active-nav" href="dashboard.html">My Health</a><a href="#wearable-context">Wearable context</a><a href="#neuro-health">Support modes</a></nav>
   </header>
 
   <main>
     <section class="page-switch" aria-label="Application sections"><a class="page-switch-link" href="index.html"><strong>1</strong><span>Around Me · vicinity health intelligence</span></a><a class="page-switch-link active" href="dashboard.html"><strong>2</strong><span>My Health · optional personal dashboard</span></a></section>
 
-    <section class="dashboard-hero"><p class="eyebrow">MY HEALTH · OPTIONAL</p><h1>Notice your own wellbeing patterns without turning them into a diagnosis.</h1><p class="lead">This personal layer stays secondary to Swasthya’s main Around Me experience. Use it only when you want a private check-in or condition-specific support context.</p></section>
+    <section class="dashboard-hero"><p class="eyebrow">MY HEALTH · OPTIONAL</p><h1>Notice your own wellbeing patterns without turning them into a diagnosis.</h1><p class="lead">This personal layer stays secondary to Swasthya’s main Around Me experience. Wearable measurements can add physiological context, while your own check-in remains the source of truth for how you actually feel.</p></section>
 
-    <section class="notice" role="note"><strong>Self-reflection only.</strong> These check-ins do not diagnose, screen or predict ADHD, epilepsy, stress disorders or any mental-health condition. Epilepsy content does not predict seizures.</section>
+    <section class="notice" role="note"><strong>Wellness context, not mood diagnosis.</strong> A watch can observe sleep, heart-rate and activity patterns, but Swasthya must not claim that those signals alone prove you are happy, sad, stressed, focused or unwell.</section>
+
+    <section id="wearable-context" class="section-block dashboard-section">
+      <div class="section-heading"><div><p class="eyebrow">WEARABLE CONTEXT</p><h2>Samsung Health + your own mood anchor</h2></div><span class="demo-badge">Android companion required</span></div>
+      <p class="section-intro">The GitHub Pages website cannot directly read Samsung Health. The production path is an opt-in Android companion using Samsung Health Data SDK or Health Connect. Swasthya will use wearable measurements as context around recovery, arousal and fatigue—not as a machine-generated emotional diagnosis.</p>
+      <div class="wearable-layout">
+        <article class="wearable-status-card">
+          <div class="wearable-card-head"><div><span class="wearable-label">DEVICE CONNECTION</span><h3>Galaxy Watch / Samsung Health</h3></div><span class="status-pill ageing">NOT CONNECTED</span></div>
+          <p>Future opt-in data can include sleep, heart rate, activity, Energy Score, blood oxygen and skin temperature where supported. More specialised watch-side sensing can be considered only when it adds clear value.</p>
+          <div class="wearable-signal-grid">
+            <div><span>Sleep & recovery</span><strong>—</strong><small>Duration · consistency · sleep context</small></div>
+            <div><span>Heart context</span><strong>—</strong><small>Resting HR · trend · HRV/IBI where available</small></div>
+            <div><span>Activity load</span><strong>—</strong><small>Steps · exercise · recent exertion</small></div>
+            <div><span>Optional sensors</span><strong>—</strong><small>SpO₂ · skin temperature · EDA where supported</small></div>
+          </div>
+          <div class="wearable-boundary"><strong>What Swasthya may infer</strong><span>Possible elevated arousal · lower recovery · fatigue context · unusual deviation from your own baseline.</span></div>
+          <div class="wearable-boundary"><strong>What it must not infer from watch data alone</strong><span>“You are happy”, “you are depressed”, “you have anxiety”, “you are focused”, or any clinical diagnosis.</span></div>
+        </article>
+
+        <article class="mood-anchor-card">
+          <span class="wearable-label">HOW DO YOU FEEL?</span><h3>One-tap mood anchor</h3><p>Your label teaches Swasthya what your physiology means <em>for you</em>. It is more useful than asking a generic model to guess emotion from heart rate.</p>
+          <div class="mood-anchor-grid" role="group" aria-label="Choose how you feel right now">
+            <button type="button" class="mood-anchor" data-mood="Happy">🙂<span>Happy</span></button>
+            <button type="button" class="mood-anchor" data-mood="Calm">😌<span>Calm</span></button>
+            <button type="button" class="mood-anchor" data-mood="Focused">🎯<span>Focused</span></button>
+            <button type="button" class="mood-anchor" data-mood="Stressed">😣<span>Stressed</span></button>
+            <button type="button" class="mood-anchor" data-mood="Low">😔<span>Low</span></button>
+            <button type="button" class="mood-anchor" data-mood="Tired">😴<span>Tired</span></button>
+          </div>
+          <div id="moodAnchorResult" class="mood-result" aria-live="polite"><strong>No mood anchor selected</strong><span>Selection stays in this browser session.</span></div>
+          <button id="clearMoodAnchor" class="secondary mood-clear" type="button">Clear mood anchor</button>
+        </article>
+      </div>
+      <div class="wearable-explain-grid">
+        <article><span>1</span><div><strong>Measure</strong><small>Samsung Health supplies consented wellness measurements.</small></div></article>
+        <article><span>2</span><div><strong>Compare with your baseline</strong><small>Personal trends matter more than generic thresholds for mood context.</small></div></article>
+        <article><span>3</span><div><strong>Anchor with your report</strong><small>You tell Swasthya how you actually feel.</small></div></article>
+        <article><span>4</span><div><strong>Learn associations</strong><small>Over time, describe patterns without claiming cause or diagnosis.</small></div></article>
+      </div>
+      <p class="local-note">No Samsung Health data is transmitted by this static page. Native device integration requires explicit permissions and a separate Android application layer.</p>
+    </section>
 
     <section id="neuro-health" class="section-block dashboard-section">
       <p class="eyebrow">OPTIONAL SUPPORT MODES</p><h2>Neurodiversity and mental-health wellbeing</h2>
@@ -39,7 +79,7 @@
 
     <section id="air-quality" class="section-block dashboard-section">
       <div class="section-heading"><div><p class="eyebrow">ENVIRONMENTAL DETAIL</p><h2>Air-quality technical view</h2></div><span class="demo-badge">Supporting detail only</span></div>
-      <p class="section-intro">Citizens should not have to interpret pollutant numbers to know what matters. The Around Me page converts live environmental data into health relevance. This technical view is retained for users who want the underlying indicators; the values below remain illustrative until this page is connected to the live provider.</p>
+      <p class="section-intro">Citizens should not have to interpret pollutant numbers to know what matters. The Around Me page converts live environmental data into health relevance. This technical view is retained for users who want the underlying indicators; no fabricated current values are shown here.</p>
       <div class="kpi-matrix" aria-label="Air quality KPI matrix">
         <article class="kpi-card primary-kpi"><span>European AQI</span><strong>—</strong><small>Use Around Me for live health meaning</small></article>
         <article class="kpi-card"><span>PM2.5</span><strong>—</strong><small>Fine particles</small></article>
@@ -51,7 +91,7 @@
       <div class="source-strip"><span>No fabricated current values are shown here.</span><a href="https://airquality.ie/" target="_blank" rel="noopener">EPA AirQuality.ie ↗</a></div>
     </section>
 
-    <section class="section-block page-cta"><div><p class="eyebrow">PRIMARY EXPERIENCE</p><h2>Return to Health Around Me</h2><p>See live location-aware weather and environmental health context, proximity settings, public-health availability and nearby practical support.</p></div><a class="button-link" href="index.html">Open Around Me →</a></section>
+    <section class="section-block page-cta"><div><p class="eyebrow">PRIMARY EXPERIENCE</p><h2>Return to Health Around Me</h2><p>See live location-aware weather and environmental health context, proximity settings, official public-health intelligence and nearby practical support.</p></div><a class="button-link" href="index.html">Open Around Me →</a></section>
   </main>
 
   <footer><p><strong>Swasthya</strong> · Optional personal health layer</p><a href="https://github.com/Utpal-Mishra/Swasthya" target="_blank" rel="noopener">View source on GitHub ↗</a></footer>

@@ -62,29 +62,7 @@ public-health.json       us-wastewater.json       ukhsa-health.json
                      Health Around Me
 ```
 
-`.github/workflows/update-public-health.yml` runs every six hours, can be triggered manually and also refreshes after ingestion logic changes are merged to `main`.
-
-### Ireland wastewater proximity layer
-
-The HPSC adapter reads the latest National SARS-CoV-2 Wastewater Surveillance Programme report and extracts catchment results when HPSC publishes a machine-readable table.
-
-Records retain county, catchment, sample date, result category, publication date, source URL and explicit geographic precision. Swasthya matches them conservatively to the user's resolved county or named catchment context.
-
-A positive wastewater sample means SARS-CoV-2 RNA was detected in population-level wastewater surveillance. It does **not** mean an infected individual is at a particular address, that the user was exposed, or that the user is infected.
-
-### United States county/sewershed layer
-
-The CDC NWSS adapter is schema-tolerant across several pathogen datasets. It keeps only recent records and matches them to the user's resolved county where possible.
-
-It deliberately avoids turning every numeric wastewater measurement into a health warning. A record is elevated only when the official dataset supplies an elevated/high category or when a clearly relative source metric such as a very high historical percentile/detection proportion supports that description. Other records remain informational.
-
-A CDC wastewater site may serve all or only part of a county and can serve more than one county. Therefore a county match is **population surveillance context**, not evidence of a patient within the user's selected radius or proof of personal exposure.
-
-### UK respiratory surveillance layer
-
-UKHSA's public dashboard API is queried for available England-level respiratory metrics for COVID-19, influenza and RSV. Swasthya retains the metric name/value as UKHSA publishes it and shows its geography as **England national surveillance**.
-
-This layer deliberately does not claim that an England-level metric applies to the user's street or selected radius. If the user is elsewhere in the UK and a matching lower-level source is not connected, the national-authority/fallback path remains explicit rather than manufacturing local precision.
+`.github/workflows/update-public-health.yml` runs every six hours, can be triggered manually and refreshes after ingestion logic changes are merged to `main`.
 
 ### Geographic honesty
 
@@ -102,11 +80,9 @@ Show that precision explicitly
 Never: “patient detected within 5 km”
 ```
 
-This principle applies to every provider: Swasthya uses the finest geography the source genuinely supports and never manufactures smaller precision.
+Swasthya uses the finest geography the source genuinely supports and never manufactures smaller precision.
 
 ## Autonomous country switching
-
-The provider selection model is:
 
 ```text
 Live / selected location
@@ -122,38 +98,61 @@ Regional source when relevant
 WHO fallback
 ```
 
-For countries without a dedicated connected national/local machine-readable feed, Swasthya still uses WHO outbreak intelligence and links to the configured national health authority. `data/country-health-providers.json` contains the growing authority and emergency-number registry.
+For countries without a dedicated connected machine-readable national/local feed, Swasthya still uses WHO outbreak intelligence and links to the configured national health authority. `data/country-health-providers.json` contains the growing authority and emergency-number registry.
 
 ## Environmental health context
 
 The browser currently uses Open-Meteo for modelled weather and European AQI because it does not require a browser-side secret. Current interpretation considers rain, apparent temperature, cold, wind, UV and AQI as supporting exposure detail.
 
-AQI is deliberately secondary in the citizen-facing experience. Swasthya prioritises the health meaning and recommended action over raw pollutant KPIs.
+AQI is deliberately secondary in the citizen-facing experience. Swasthya prioritises health meaning and recommended action over raw pollutant KPIs.
 
-## My Health and Samsung wearable direction
+## My Health — Health Connect + Samsung wearable prototype
 
-The optional My Health page now has two complementary inputs:
-
-1. **Self-reported wellbeing** — lightweight support modes and mood anchors.
-2. **Future wearable context** — consented Samsung Health / Android data around sleep, heart rate, activity, recovery and supported sensor measurements.
-
-The current website includes a session-only mood anchor (`Happy`, `Calm`, `Focused`, `Stressed`, `Low`, `Tired`) and the wearable UX/contract, but it does **not** yet read Samsung Health directly because a static browser cannot access the Samsung Health data store.
-
-The planned production integration uses an Android companion with Samsung Health Data SDK and/or Health Connect. The preferred interpretation is:
+The optional My Health page now supports a real wearable-summary integration path rather than only a visual placeholder.
 
 ```text
-Wearable measurements
-        +
-Personal baseline
-        +
-User's own mood anchor
-        ↓
-Descriptive personal association
+Galaxy Watch
+    ↓
+Samsung Health
+    ↓
+Health Connect
+    ↓
+Swasthya Android companion
+    ↓
+on-device derived summary
+    ↓
+wearable-bridge.js
+    ↓
+My Health + user's mood anchor
 ```
 
-Wearables may support statements such as “recovery appears lower than your usual baseline” or “this pattern often coincided with your self-reported tired days.” They must not independently declare that the user is happy, depressed, anxious, focused or clinically stressed.
+Implemented:
 
-See `docs/wearables.md` and `docs/wearable-summary.schema.json`.
+- Android Health Connect companion scaffold under `android/health-connect-companion/`
+- Explicit read-permission flow
+- Steps, heart-rate, resting-heart-rate, sleep, oxygen-saturation and HRV-RMSSD support where Health Connect contains those records
+- 24-hour summary plus 14-day personal-baseline comparison
+- Browser/WebView bridge through `wearable-bridge.js`
+- Manual JSON-import fallback for testing
+- Session-only wearable summary storage in the current prototype
+- Self-reported anchors: `Happy`, `Calm`, `Focused`, `Stressed`, `Low`, `Tired`
+- Descriptive physiology states such as `Near your recent baseline`, `Mixed physiological context` and `Lower recovery / elevated arousal context`
+- CI syntax checks plus Android companion compilation
+
+The user's own label remains the source of truth for subjective mood. Wearable measurements are used to describe recovery, physiological arousal, fatigue and personal baseline deviations—not to declare that the user is happy, sad, anxious, focused or depressed.
+
+### Why Health Connect first
+
+Samsung Health can synchronize selected Galaxy Watch data to Health Connect with user permission. This gives Swasthya a broader Android interoperability layer and avoids making the first wearable architecture Samsung-only.
+
+A later Samsung Health Data SDK adapter can add richer Samsung-specific fields such as Energy Score and supported sleep/temperature detail when the Samsung partnership/distribution path is justified. Samsung Health Sensor SDK should be reserved for clearly justified higher-frequency signals such as IBI/EDA/PPG rather than collecting raw streams by default.
+
+See:
+
+- `docs/wearables.md`
+- `docs/wearable-summary.schema.json`
+- `android/health-connect-companion/README.md`
+- `examples/wearable-snapshot.example.json`
 
 ## Privacy principles
 
@@ -164,8 +163,9 @@ See `docs/wearables.md` and `docs/wearable-summary.schema.json`.
 - Individual patient health status is never displayed.
 - Wastewater signals are population-level context, never patient/exposure claims.
 - Future community-health signals require privacy-preserving aggregation and minimum-participant thresholds.
-- Wearable access requires explicit, granular permission and should favour local feature extraction over uploading raw sensor streams.
+- Wearable access requires explicit, granular permission and favours local feature extraction over uploading raw sensor streams.
 - Personal wellbeing/wearable history must not be combined with precise location without explicit purpose, consent and security architecture.
+- Before commercial persistent health history is introduced, the wearable frontend should be bundled/signed or made native rather than relying on remotely changeable web content.
 
 ## Source confidence
 
@@ -179,15 +179,15 @@ The current GitHub Pages version can show browser notifications while the page i
 
 ## Next priorities
 
-1. Extend fine-grained surveillance to more countries and add lower UK geography where UKHSA publishes suitable metrics.
-2. Validate and harden CDC/HPSC/UKHSA parsers against provider schema changes.
-3. Integrate official warning/weather feeds country-by-country where licensing permits.
-4. Build the Android companion prototype for consented Samsung Health summaries.
+1. Test the Health Connect companion on physical Samsung phone + Galaxy Watch hardware and confirm which Samsung-origin data types populate Health Connect.
+2. Add a Samsung Health Data SDK adapter for Energy Score/richer Samsung fields if the distribution path is justified.
+3. Extend fine-grained disease surveillance to more countries and lower geographies.
+4. Integrate official warning/weather feeds country-by-country where licensing permits.
 5. Move provider adapters into a backend canonical schema and provenance layer.
 6. Add secure background push notifications.
-7. Add privacy-safe community-health aggregation only after DPIA/privacy/security design.
+7. Add encrypted longitudinal personal history only after consent, export/deletion and privacy/security controls are complete.
 
-## Run locally
+## Run the website locally
 
 ```bash
 python -m http.server 8000

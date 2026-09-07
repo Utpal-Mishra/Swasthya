@@ -7,6 +7,7 @@ user-selected proximity-radius warning.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 from datetime import datetime, timezone
@@ -40,6 +41,10 @@ def now_iso() -> str:
 
 def strip(value: object) -> str:
     return " ".join(str(value or "").replace("\n", " ").split())
+
+
+def stable_id(value: str) -> str:
+    return hashlib.sha256(value.encode("utf-8")).hexdigest()[:16]
 
 
 def severity(text: str) -> str:
@@ -88,9 +93,9 @@ def parse_feed(country_code: str, slug: str) -> tuple[list[dict], dict]:
         combined = f"{title} {summary}"
         level = severity(combined)
         link = entry.get("link") or "https://www.meteoalarm.org/"
-        item_id = strip(entry.get("id") or link or title)
+        item_key = strip(entry.get("id") or link or title)
         items.append({
-            "id": f"meteoalarm-{country_code}-{abs(hash(item_id))}",
+            "id": f"meteoalarm-{country_code}-{stable_id(item_key)}",
             "source": "MeteoAlarm / national meteorological service",
             "source_kind": "official_weather_warning",
             "country_code": country_code,
@@ -125,7 +130,6 @@ def main() -> None:
             # Preserve this country's last known cache on retrieval failure.
             items.extend(x for x in old.get("items", []) if x.get("country_code") == code)
 
-    # Stable comparison: hash()-based IDs are intentionally ignored here.
     def stable(item: dict) -> tuple:
         return (item.get("country_code"), item.get("url"), item.get("title"), item.get("severity"), item.get("updated_at"))
     unique: dict[tuple, dict] = {}

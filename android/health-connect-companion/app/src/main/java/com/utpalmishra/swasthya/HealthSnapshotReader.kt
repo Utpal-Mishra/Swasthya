@@ -2,6 +2,7 @@ package com.utpalmishra.swasthya
 
 import androidx.health.connect.client.HealthConnectClient
 import androidx.health.connect.client.HealthConnectFeatures
+import androidx.health.connect.client.feature.ExperimentalMindfulnessSessionApi
 import androidx.health.connect.client.permission.HealthPermission
 import androidx.health.connect.client.records.HeartRateRecord
 import androidx.health.connect.client.records.HeartRateVariabilityRmssdRecord
@@ -20,6 +21,7 @@ import java.time.LocalDate
 import org.json.JSONArray
 import org.json.JSONObject
 
+@OptIn(ExperimentalMindfulnessSessionApi::class)
 class HealthSnapshotReader(private val client: HealthConnectClient) {
 
     companion object {

@@ -29,9 +29,11 @@ function timeLabel(date=new Date()){return new Intl.DateTimeFormat([], {hour:'2-
 function updateMoodAnchor(mood){
   sessionMood=mood||null;
   moodButtons.forEach(button=>button.classList.toggle('active',button.dataset.mood===sessionMood));
-  if(!moodResult)return;
-  if(!sessionMood){moodResult.innerHTML='<strong>No mood anchor selected</strong><span>Selection stays in this browser session.</span>';return;}
-  moodResult.innerHTML=`<strong>${safeText(sessionMood)}</strong><span>Self-reported at ${safeText(timeLabel())}. Future wearable analysis should compare physiology around moments like this rather than guessing your emotion.</span>`;
+  if(moodResult){
+    if(!sessionMood)moodResult.innerHTML='<strong>No mood anchor selected</strong><span>Selection stays in this browser session.</span>';
+    else moodResult.innerHTML=`<strong>${safeText(sessionMood)}</strong><span>Self-reported at ${safeText(timeLabel())}. Swasthya uses this label as the source of truth for subjective mood and compares wearable context around it rather than guessing emotion.</span>`;
+  }
+  window.SwasthyaWearableBridge?.recordMoodAnchor(sessionMood);
 }
 
 function updateCheckin(){
@@ -62,9 +64,34 @@ function selectCondition(name){
   updateCheckin();
 }
 
+function initialiseNativeWearableControls(){
+  const controls=document.querySelector('.wearable-controls');
+  if(!controls||!window.SwasthyaWearableBridge)return;
+
+  const status=document.createElement('p');
+  status.className='native-wearable-status';
+  status.textContent=window.SwasthyaNative?'Android companion detected. Health Connect access is not requested until you tap Connect.':'Open this page in the Swasthya Android companion for direct Health Connect access, or import a summary JSON here.';
+  controls.insertAdjacentElement('afterend',status);
+
+  window.SwasthyaWearableBridge.receiveNativeStatus=(message,state='ready')=>{
+    status.textContent=message;
+    status.dataset.state=state;
+  };
+
+  if(window.SwasthyaNative?.requestHealthConnect){
+    const connect=document.createElement('button');
+    connect.type='button';
+    connect.className='primary wearable-connect';
+    connect.textContent='Connect Health Connect';
+    connect.addEventListener('click',()=>window.SwasthyaNative.requestHealthConnect());
+    controls.prepend(connect);
+  }
+}
+
 tabs.forEach(tab=>tab.addEventListener("click",()=>selectCondition(tab.dataset.condition)));
 ranges.forEach(range=>range.addEventListener("input",updateCheckin));
 moodButtons.forEach(button=>button.addEventListener('click',()=>updateMoodAnchor(button.dataset.mood)));
 if(clearMood)clearMood.addEventListener('click',()=>updateMoodAnchor(null));
 selectCondition("adhd");
 updateMoodAnchor(null);
+initialiseNativeWearableControls();

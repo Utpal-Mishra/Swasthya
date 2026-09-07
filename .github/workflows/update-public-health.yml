@@ -8,6 +8,7 @@ on:
     branches: ["main"]
     paths:
       - "scripts/fetch_public_health.py"
+      - "scripts/fetch_hpsc_wastewater.py"
       - "scripts/fetch_us_wastewater.py"
       - "scripts/fetch_ukhsa.py"
       - "data/country-health-providers.json"
@@ -38,6 +39,9 @@ jobs:
       - name: Fetch WHO, ECDC and HPSC intelligence
         run: python scripts/fetch_public_health.py
 
+      - name: Fetch HPSC catchment wastewater intelligence
+        run: python scripts/fetch_hpsc_wastewater.py
+
       - name: Fetch CDC NWSS county wastewater intelligence
         run: python scripts/fetch_us_wastewater.py
 
@@ -47,17 +51,18 @@ jobs:
       - name: Validate generated JSON
         run: |
           python -m json.tool data/public-health.json >/dev/null
+          python -m json.tool data/ie-wastewater.json >/dev/null
           python -m json.tool data/us-wastewater.json >/dev/null
           python -m json.tool data/ukhsa-health.json >/dev/null
 
       - name: Commit material cache changes
         run: |
-          if git diff --quiet -- data/public-health.json data/us-wastewater.json data/ukhsa-health.json; then
+          if git diff --quiet -- data/public-health.json data/ie-wastewater.json data/us-wastewater.json data/ukhsa-health.json; then
             echo "No public-health changes detected."
             exit 0
           fi
           git config user.name "swasthya-data-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add data/public-health.json data/us-wastewater.json data/ukhsa-health.json
+          git add data/public-health.json data/ie-wastewater.json data/us-wastewater.json data/ukhsa-health.json
           git commit -m "chore: refresh public-health intelligence"
           git push

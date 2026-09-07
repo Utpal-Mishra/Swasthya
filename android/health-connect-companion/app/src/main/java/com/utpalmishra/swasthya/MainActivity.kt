@@ -2,7 +2,6 @@ package com.utpalmishra.swasthya
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.webkit.JavascriptInterface
 import android.webkit.WebResourceRequest
@@ -27,8 +26,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var webView: WebView
     private var healthClient: HealthConnectClient? = null
     private var pageReady = false
-
-    private val permissions = HealthSnapshotReader.permissions
 
     private val permissionLauncher = registerForActivityResult(
         PermissionController.createRequestPermissionResultContract()
@@ -84,9 +81,10 @@ class MainActivity : AppCompatActivity() {
             return
         }
         lifecycleScope.launch {
+            val requested = HealthSnapshotReader.permissionsFor(client)
             val granted = client.permissionController.getGrantedPermissions()
-            if (granted.containsAll(permissions)) readAndPush(granted)
-            else permissionLauncher.launch(permissions)
+            if (granted.containsAll(requested)) readAndPush(granted)
+            else permissionLauncher.launch(requested)
         }
     }
 

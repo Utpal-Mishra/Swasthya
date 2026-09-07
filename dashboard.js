@@ -29,9 +29,11 @@ function timeLabel(date=new Date()){return new Intl.DateTimeFormat([], {hour:'2-
 function updateMoodAnchor(mood){
   sessionMood=mood||null;
   moodButtons.forEach(button=>button.classList.toggle('active',button.dataset.mood===sessionMood));
-  if(!moodResult)return;
-  if(!sessionMood){moodResult.innerHTML='<strong>No mood anchor selected</strong><span>Selection stays in this browser session.</span>';return;}
-  moodResult.innerHTML=`<strong>${safeText(sessionMood)}</strong><span>Self-reported at ${safeText(timeLabel())}. Future wearable analysis should compare physiology around moments like this rather than guessing your emotion.</span>`;
+  if(moodResult){
+    if(!sessionMood)moodResult.innerHTML='<strong>No mood anchor selected</strong><span>Selection stays in this browser session.</span>';
+    else moodResult.innerHTML=`<strong>${safeText(sessionMood)}</strong><span>Self-reported at ${safeText(timeLabel())}. Swasthya uses this label as the source of truth for subjective mood and compares wearable context around it rather than guessing emotion.</span>`;
+  }
+  window.SwasthyaWearableBridge?.recordMoodAnchor(sessionMood);
 }
 
 function updateCheckin(){

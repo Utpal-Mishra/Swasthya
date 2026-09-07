@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="page-layout.css">
   <link rel="stylesheet" href="public-health.css">
+  <link rel="stylesheet" href="weather-alerts.css">
 </head>
 <body>
   <header class="topbar">
@@ -25,22 +26,24 @@
         <div class="input-row"><input id="location" value="Cork, Ireland" aria-label="Region, nearby town or city"><button id="locateButton" type="button">Use my location</button></div>
         <label for="radius">Health-awareness radius: <strong><span id="radiusValue">5</span> km</strong></label><input id="radius" type="range" min="1" max="25" value="5">
         <div class="notification-row"><div><strong>Live Health Awareness</strong><small>Refresh when your coarse location changes, including across country borders, and update the relevant official health sources.</small></div><label class="switch" aria-label="Enable live health awareness"><input id="liveToggle" type="checkbox"><span class="slider"></span></label></div>
-        <div class="notification-row compact-row"><div><strong>Meaningful notifications</strong><small>Browser alerts only for new or materially changed high-priority signals.</small></div><label class="switch" aria-label="Enable notifications"><input id="notificationToggle" type="checkbox"><span class="slider"></span></label></div>
+        <div class="notification-row compact-row"><div><strong>Meaningful notifications</strong><small>Browser alerts only for new or materially changed high-priority health or official-weather signals.</small></div><label class="switch" aria-label="Enable notifications"><input id="notificationToggle" type="checkbox"><span class="slider"></span></label></div>
         <p id="notificationStatus" class="privacy-note">Notifications are off.</p><p id="locationStatus" class="privacy-note">Location is optional. When enabled, coordinates are sent to selected data providers for weather, air and country lookup; Swasthya does not store them on this static site.</p>
       </div>
     </section>
 
-    <section class="notice" role="note"><strong>Awareness, not diagnosis or contact tracing.</strong> Swasthya never identifies nearby patients or exposes individual health status. Disease information is shown only from connected official sources at the geographic precision they actually support. A country, county or wastewater-catchment signal is never presented as a street-level case.</section>
+    <section class="notice" role="note"><strong>Awareness, not diagnosis or contact tracing.</strong> Swasthya never identifies nearby patients or exposes individual health status. Disease information is shown only from connected official sources at the geographic precision they actually support. Weather warnings likewise retain their official warning area rather than being forced into your selected radius.</section>
 
     <section class="live-context" aria-live="polite">
-      <div class="context-head"><div><p class="eyebrow">WHAT MATTERS NOW?</p><h2 id="contextTitle">Waiting for live location</h2><p id="contextSummary">Use your location to load current health-relevant conditions and official public-health intelligence.</p></div><div class="context-badge" id="contextBadge">NOT LIVE</div></div>
+      <div class="context-head"><div><p class="eyebrow">WHAT MATTERS NOW?</p><h2 id="contextTitle">Waiting for live location</h2><p id="contextSummary">Use your location to load current health-relevant conditions, official weather warnings and public-health intelligence.</p></div><div class="context-badge" id="contextBadge">NOT LIVE</div></div>
       <div class="context-facts" id="contextFacts"><div><span>Weather</span><strong>—</strong></div><div><span>Disease intelligence</span><strong>—</strong></div><div><span>Main concern</span><strong>—</strong></div><div><span>Updated</span><strong>—</strong></div></div>
       <div class="context-action" id="contextAction"><strong>Next action</strong><p>No live health action is available yet.</p></div>
-      <div class="context-links"><a id="supportLink" class="button-link" href="https://www.google.com/maps/search/pharmacy+near+Cork+Ireland" target="_blank" rel="noopener">Nearby support ↗</a><a class="secondary-link" href="#official-health">Official health intelligence ↓</a></div>
+      <div class="context-links"><a id="supportLink" class="button-link" href="https://www.google.com/maps/search/pharmacy+near+Cork+Ireland" target="_blank" rel="noopener">Nearby support ↗</a><a class="secondary-link" href="#official-weather">Official weather warnings ↓</a><a class="secondary-link" href="#official-health">Official health intelligence ↓</a></div>
       <details class="context-details"><summary>Data confidence and sources</summary><div id="contextProvenance" class="provenance-grid"><div><span>Location</span><strong>Not resolved</strong></div><div><span>Weather</span><strong>Not loaded</strong></div><div><span>Public health</span><strong>Official feed cache loading</strong></div></div></details>
     </section>
 
     <section class="metrics" aria-label="Location awareness summary"><article><span>Region</span><strong id="areaMetric">Cork, Ireland</strong></article><article><span>Radius</span><strong id="radiusMetric">5 km</strong></article><article><span>Relevant signals</span><strong id="signalMetric">0</strong></article><article><span>Checked</span><strong id="checkedMetric">—</strong></article></section>
+
+    <section id="official-weather" class="section-block"><div class="section-heading"><div><p class="eyebrow">OFFICIAL WEATHER WARNINGS</p><h2>Warnings before forecasts</h2></div><span id="weatherWarningMeta" class="demo-badge">Resolving country…</span></div><p class="section-intro">Modelled weather helps describe what is happening now. Official warnings take priority when their published area can be matched to your resolved region. Europe uses MeteoAlarm/EUMETNET; U.S. coordinates use the National Weather Service point-alert service.</p><div id="weatherWarningGrid" class="weather-warning-grid" aria-live="polite"></div></section>
 
     <section class="section-block health-around"><div class="section-heading"><div><p class="eyebrow">HEALTH AROUND YOU</p><h2>Vicinity health intelligence</h2></div><span id="proximityBadge" class="demo-badge">Waiting for location</span></div><p class="section-intro">The selected radius is used directly for environmental context and nearby services. Where official disease surveillance has finer geography, Swasthya can match your county or named surveillance catchment. The radius still does not redefine the source boundary.</p><div id="vicinityGrid" class="vicinity-grid" aria-live="polite"></div></section>
 
@@ -59,5 +62,6 @@
   <footer><p><strong>Swasthya</strong> · Health intelligence around you</p><a href="https://github.com/Utpal-Mishra/Swasthya" target="_blank" rel="noopener">View source on GitHub ↗</a></footer>
   <script src="app.js"></script>
   <script src="proximity-health.js"></script>
+  <script src="weather-alerts.js"></script>
 </body>
 </html>

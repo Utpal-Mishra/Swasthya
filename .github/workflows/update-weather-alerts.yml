@@ -1,0 +1,51 @@
+name: Update Official Weather Warnings
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    paths:
+      - "scripts/fetch_weather_alerts.py"
+      - ".github/workflows/update-weather-alerts.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: swasthya-weather-alerts
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install ingestion dependency
+        run: python -m pip install --disable-pip-version-check requests
+
+      - name: Fetch MeteoAlarm Atom warnings
+        run: python scripts/fetch_weather_alerts.py
+
+      - name: Validate cache
+        run: python -m json.tool data/weather-alerts.json > /dev/null
+
+      - name: Commit material cache changes
+        run: |
+          if git diff --quiet -- data/weather-alerts.json; then
+            echo "No weather-warning cache change"
+            exit 0
+          fi
+          git config user.name "swasthya-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/weather-alerts.json
+          git commit -m "Refresh official weather warnings"
+          git push

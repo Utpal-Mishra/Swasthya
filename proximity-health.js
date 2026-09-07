@@ -20,7 +20,11 @@ function wastewaterDistanceKm(item){
 
 const baseAllHealthItems=allHealthItems;
 allHealthItems=function(){
-  return [...baseAllHealthItems(),...(state.ieWastewaterData?.items||[])];
+  const base=baseAllHealthItems();
+  const enriched=state.ieWastewaterData?.items||[];
+  if(!enriched.length)return base;
+  const withoutLegacyIrishWastewater=base.filter(item=>!(item.source==='HPSC'&&item.source_kind==='wastewater_surveillance'));
+  return [...withoutLegacyIrishWastewater,...enriched];
 };
 
 const baseHpscWastewaterRelevance=hpscWastewaterRelevance;

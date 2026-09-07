@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-09-07",
+  "generated_at": "2026-09-07T08:00:00Z",
+  "source": "manual",
+  "data_origin": "Demonstration snapshot — not real health data",
+  "consent_scope": [
+    "sleep",
+    "heart_rate",
+    "resting_heart_rate",
+    "steps",
+    "hrv_rmssd",
+    "oxygen_saturation"
+  ],
+  "sleep": {
+    "duration_minutes": 405,
+    "baseline_delta_minutes": -48,
+    "consistency_minutes": null
+  },
+  "heart": {
+    "resting_bpm": 64,
+    "average_bpm": 78,
+    "resting_bpm_baseline_delta": 3,
+    "hrv_ms": 41,
+    "hrv_baseline_delta": -4
+  },
+  "activity": {
+    "steps": 5380,
+    "active_minutes": null,
+    "minutes_since_exercise": null
+  },
+  "recovery": {
+    "energy_score": null,
+    "skin_temperature_baseline_delta_c": null,
+    "sleep_spo2_percent": 97.1
+  },
+  "mood_anchor": null
+}

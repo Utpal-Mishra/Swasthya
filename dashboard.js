@@ -64,9 +64,34 @@ function selectCondition(name){
   updateCheckin();
 }
 
+function initialiseNativeWearableControls(){
+  const controls=document.querySelector('.wearable-controls');
+  if(!controls||!window.SwasthyaWearableBridge)return;
+
+  const status=document.createElement('p');
+  status.className='native-wearable-status';
+  status.textContent=window.SwasthyaNative?'Android companion detected. Health Connect access is not requested until you tap Connect.':'Open this page in the Swasthya Android companion for direct Health Connect access, or import a summary JSON here.';
+  controls.insertAdjacentElement('afterend',status);
+
+  window.SwasthyaWearableBridge.receiveNativeStatus=(message,state='ready')=>{
+    status.textContent=message;
+    status.dataset.state=state;
+  };
+
+  if(window.SwasthyaNative?.requestHealthConnect){
+    const connect=document.createElement('button');
+    connect.type='button';
+    connect.className='primary wearable-connect';
+    connect.textContent='Connect Health Connect';
+    connect.addEventListener('click',()=>window.SwasthyaNative.requestHealthConnect());
+    controls.prepend(connect);
+  }
+}
+
 tabs.forEach(tab=>tab.addEventListener("click",()=>selectCondition(tab.dataset.condition)));
 ranges.forEach(range=>range.addEventListener("input",updateCheckin));
 moodButtons.forEach(button=>button.addEventListener('click',()=>updateMoodAnchor(button.dataset.mood)));
 if(clearMood)clearMood.addEventListener('click',()=>updateMoodAnchor(null));
 selectCondition("adhd");
 updateMoodAnchor(null);
+initialiseNativeWearableControls();

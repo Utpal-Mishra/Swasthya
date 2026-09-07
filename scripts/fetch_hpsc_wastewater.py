@@ -17,10 +17,6 @@ from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data" / "ie-wastewater.json"
-INDEX_URLS = [
-    "https://www.hpsc.ie/a-z/nationalwastewatersurveillanceprogramme/2026wastewatersurveillanceprogrammereports/",
-    "https://hpsc.ie/p/nationalwastewatersurveillanceprogramme/wastewater-surveillance-reports-2026/",
-]
 GEOCODE_URL = "https://geocoding-api.open-meteo.com/v1/search"
 UA = "Swasthya-hpsc-wastewater/1.0 (+https://github.com/Utpal-Mishra/Swasthya)"
 SESSION = requests.Session()
@@ -31,6 +27,18 @@ VALID_RESULTS = {"positive", "weak positive", "undetectable", "unavailable", "no
 
 def iso_now() -> str:
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def index_urls() -> list[str]:
+    year = datetime.now(timezone.utc).year
+    years = [year, year - 1]
+    urls: list[str] = []
+    for value in years:
+        urls.extend([
+            f"https://www.hpsc.ie/a-z/nationalwastewatersurveillanceprogramme/{value}wastewatersurveillanceprogrammereports/",
+            f"https://hpsc.ie/p/nationalwastewatersurveillanceprogramme/wastewater-surveillance-reports-{value}/",
+        ])
+    return urls
 
 
 def parse_report_date(text: str) -> str:
@@ -57,7 +65,8 @@ def parse_sample_date(value: str) -> str | None:
 
 def discover_latest_report() -> tuple[str, int, int]:
     candidates: list[tuple[int, int, str]] = []
-    for index_url in INDEX_URLS:
+    discovered_weeks: set[tuple[int, int]] = set()
+    for index_url in index_urls():
         try:
             r = SESSION.get(index_url, timeout=TIMEOUT)
             r.raise_for_status()
@@ -72,28 +81,36 @@ def discover_latest_report() -> tuple[str, int, int]:
             if not m:
                 continue
             week, year = int(m.group(1)), int(m.group(2))
-            if href.lower().endswith(".html") or "nwsp_main_week_" in href.lower():
+            discovered_weeks.add((year, week))
+            if href.lower().split("?", 1)[0].endswith(".html"):
                 candidates.append((year, week, href))
-        if candidates:
-            break
 
-    if candidates:
-        year, week, href = sorted(candidates, reverse=True)[0]
-        return href, week, year
-
-    # Conservative fallback for the current programme: try recent week-pattern URLs.
-    year = datetime.now(timezone.utc).year
-    current_week = datetime.now(timezone.utc).isocalendar().week
-    base = f"https://www.hpsc.ie/a-z/nationalwastewatersurveillanceprogramme/{year}wastewatersurveillanceprogrammereports/"
-    for week in range(current_week, max(current_week - 12, 0), -1):
+    for year, week in sorted(discovered_weeks, reverse=True):
+        if any(y == year and w == week for y, w, _ in candidates):
+            continue
+        base = f"https://www.hpsc.ie/a-z/nationalwastewatersurveillanceprogramme/{year}wastewatersurveillanceprogrammereports/"
         for suffix in ("", "_v2", "_v1_min", "_v1"):
-            url = f"{base}nwsp_main_week_{week:02d}_{year}{suffix}.html"
-            try:
-                r = SESSION.get(url, timeout=12)
-                if r.ok and "National SARS-CoV-2 Wastewater Surveillance Programme" in r.text:
-                    return url, week, year
-            except Exception:
-                pass
+            candidates.append((year, week, f"{base}nwsp_main_week_{week:02d}_{year}{suffix}.html"))
+
+    if not candidates:
+        year = datetime.now(timezone.utc).year
+        current_week = datetime.now(timezone.utc).isocalendar().week
+        base = f"https://www.hpsc.ie/a-z/nationalwastewatersurveillanceprogramme/{year}wastewatersurveillanceprogrammereports/"
+        for week in range(current_week, max(current_week - 12, 0), -1):
+            for suffix in ("", "_v2", "_v1_min", "_v1"):
+                candidates.append((year, week, f"{base}nwsp_main_week_{week:02d}_{year}{suffix}.html"))
+
+    checked: set[str] = set()
+    for year, week, url in sorted(candidates, reverse=True):
+        if url in checked:
+            continue
+        checked.add(url)
+        try:
+            r = SESSION.get(url, timeout=12)
+            if r.ok and "National SARS-CoV-2 Wastewater Surveillance Programme" in r.text:
+                return url, week, year
+        except Exception:
+            pass
     raise RuntimeError("Could not discover a current HPSC wastewater HTML report")
 
 

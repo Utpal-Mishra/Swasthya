@@ -1,7 +1,25 @@
 {
-  "generated_at": "2026-09-07T11:05:10Z",
+  "generated_at": "2026-09-07T21:29:21Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
+    {
+      "id": "ecdc-https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
+      "source": "ECDC",
+      "source_kind": "epidemiological_update",
+      "title": "Ebola disease outbreak in the Democratic Republic of the Congo",
+      "published_at": "2026-09-07T15:36:21Z",
+      "url": "https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
+      "countries": [
+        "CD",
+        "CG"
+      ],
+      "regions": [
+        "EU_EEA"
+      ],
+      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
+      "importance": "moderate",
+      "summary": "Since May 2026, an Ebola virus disease outbreak caused by Bundibugyo virus has been ongoing in the Democratic Republic of the Congo (DRC)."
+    },
     {
       "id": "ecdc-https://www.ecdc.europa.eu/en/middle-east-respiratory-syndrome-coronavirus-mers-cov-situation-update",
       "source": "ECDC",
@@ -18,24 +36,6 @@
       "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
       "importance": "moderate",
       "summary": "Summary Since the beginning of 2026, and as of 31 August 2026, two MERS cases, including one fatality, have been reported in Saudi Arabia."
-    },
-    {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
-      "source": "ECDC",
-      "source_kind": "epidemiological_update",
-      "title": "Ebola disease outbreak in the Democratic Republic of the Congo",
-      "published_at": "2026-09-04T15:36:21Z",
-      "url": "https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
-      "countries": [
-        "CD",
-        "CG"
-      ],
-      "regions": [
-        "EU_EEA"
-      ],
-      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
-      "importance": "moderate",
-      "summary": "Since May 2026, an Ebola virus disease outbreak caused by Bundibugyo virus has been ongoing in the Democratic Republic of the Congo (DRC)."
     },
     {
       "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-29-august-4-september-week-36",
@@ -1156,23 +1156,6 @@
       "geographic_precision": "Ireland national/report-specific surveillance",
       "importance": "info",
       "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
-    },
-    {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-18-24-july-2026-week-30",
-      "source": "ECDC",
-      "source_kind": "regional_surveillance",
-      "title": "Communicable disease threats report, 18 - 24 July 2026, week 30",
-      "published_at": "2026-07-24T13:55:28Z",
-      "url": "https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-18-24-july-2026-week-30",
-      "countries": [
-        "CG"
-      ],
-      "regions": [
-        "EU_EEA"
-      ],
-      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
-      "importance": "moderate",
-      "summary": "This issue of the ECDC Communicable Disease Threats Report (CDTR) covers the period 18 - 24 July 2026, and includes updates on Ebola, West Nile Virus infections, Crimean-Congo haemorrhagic fever, malaria, dengue, expert deployment, World Pride, and an overview of respiratory virus epidemiology in the EU/EEA."
     },
     {
       "id": "hpsc-antimicrobial-resistance-in-neisseria-gonorrhoeae-ireland-2015-2025",

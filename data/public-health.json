@@ -1,7 +1,24 @@
 {
-  "generated_at": "2026-09-07T04:35:27Z",
+  "generated_at": "2026-09-07T11:05:10Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
+    {
+      "id": "ecdc-https://www.ecdc.europa.eu/en/middle-east-respiratory-syndrome-coronavirus-mers-cov-situation-update",
+      "source": "ECDC",
+      "source_kind": "epidemiological_update",
+      "title": "MERS-CoV worldwide overview",
+      "published_at": "2026-09-07T12:20:22Z",
+      "url": "https://www.ecdc.europa.eu/en/middle-east-respiratory-syndrome-coronavirus-mers-cov-situation-update",
+      "countries": [
+        "SA"
+      ],
+      "regions": [
+        "EU_EEA"
+      ],
+      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
+      "importance": "moderate",
+      "summary": "Summary Since the beginning of 2026, and as of 31 August 2026, two MERS cases, including one fatality, have been reported in Saudi Arabia."
+    },
     {
       "id": "ecdc-https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
       "source": "ECDC",

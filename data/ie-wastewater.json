@@ -1,8 +1,753 @@
 {
-  "generated_at": null,
-  "report_week": null,
-  "report_year": null,
-  "report_url": "https://www.hpsc.ie/a-z/nationalwastewatersurveillanceprogramme/2026wastewatersurveillanceprogrammereports/",
+  "generated_at": "2026-09-07T11:05:18Z",
+  "report_week": 33,
+  "report_year": 2026,
+  "report_url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
   "notice": "Official HPSC wastewater surveillance. Catchment signals are population surveillance and must not be interpreted as nearby patient locations or direct exposure.",
-  "items": []
+  "items": [
+    {
+      "id": "hpsc-wastewater-2026-w33-carlow",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Carlow",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-18",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Carlow"
+      ],
+      "county": "Carlow",
+      "catchment": "Carlow",
+      "result_category": "Weak Positive",
+      "importance": "low",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a weak positive SARS-CoV-2 wastewater result for the Carlow catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-cavan",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Cavan",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-17",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Cavan"
+      ],
+      "county": "Cavan",
+      "catchment": "Cavan",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Cavan catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-ennis-north",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Ennis North",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-16",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Clare"
+      ],
+      "county": "Clare",
+      "catchment": "Ennis North",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Ennis North catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-ballincollig",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Ballincollig",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-17",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Cork"
+      ],
+      "county": "Cork",
+      "catchment": "Ballincollig",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Ballincollig catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-cork-city",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Cork City",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-17",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Cork"
+      ],
+      "county": "Cork",
+      "catchment": "Cork City",
+      "result_category": "Weak Positive",
+      "importance": "low",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a weak positive SARS-CoV-2 wastewater result for the Cork City catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-cork-lower-harbour",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Cork Lower Harbour",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-17",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Cork"
+      ],
+      "county": "Cork",
+      "catchment": "Cork Lower Harbour",
+      "result_category": "Undetectable",
+      "importance": "info",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a undetectable SARS-CoV-2 wastewater result for the Cork Lower Harbour catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-buncrana",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Buncrana",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-19",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Donegal"
+      ],
+      "county": "Donegal",
+      "catchment": "Buncrana",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Buncrana catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-letterkenny",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Letterkenny",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-18",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Donegal"
+      ],
+      "county": "Donegal",
+      "catchment": "Letterkenny",
+      "result_category": "Weak Positive",
+      "importance": "low",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a weak positive SARS-CoV-2 wastewater result for the Letterkenny catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-balbriggan",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Balbriggan",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-18",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Dublin"
+      ],
+      "county": "Dublin",
+      "catchment": "Balbriggan",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Balbriggan catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-portrane-donabate",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Portrane Donabate",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-17",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Dublin"
+      ],
+      "county": "Dublin",
+      "catchment": "Portrane Donabate",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Portrane Donabate catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-ringsend-1",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Ringsend 1",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-16",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Dublin"
+      ],
+      "county": "Dublin",
+      "catchment": "Ringsend 1",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Ringsend 1 catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-ringsend-2",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Ringsend 2",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-19",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Dublin"
+      ],
+      "county": "Dublin",
+      "catchment": "Ringsend 2",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Ringsend 2 catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-shanganagh",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Shanganagh",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-18",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Dublin"
+      ],
+      "county": "Dublin",
+      "catchment": "Shanganagh",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Shanganagh catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-swords",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Swords",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-17",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Dublin"
+      ],
+      "county": "Dublin",
+      "catchment": "Swords",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Swords catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-galway",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Galway",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-16",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Galway"
+      ],
+      "county": "Galway",
+      "catchment": "Galway",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Galway catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-tralee",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Tralee",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-17",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Kerry"
+      ],
+      "county": "Kerry",
+      "catchment": "Tralee",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Tralee catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-lower-liffey-valley-regional-sewerage-scheme-leixlip",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Lower Liffey Valley Regional Sewerage Scheme (Leixlip)",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-18",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Kildare"
+      ],
+      "county": "Kildare",
+      "catchment": "Lower Liffey Valley Regional Sewerage Scheme (Leixlip)",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Lower Liffey Valley Regional Sewerage Scheme (Leixlip) catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-upper-liffey-valley-sewerage-scheme-osberstown",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Upper Liffey Valley Sewerage Scheme (Osberstown)",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-18",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Kildare"
+      ],
+      "county": "Kildare",
+      "catchment": "Upper Liffey Valley Sewerage Scheme (Osberstown)",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Upper Liffey Valley Sewerage Scheme (Osberstown) catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-kilkenny",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Kilkenny",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-16",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Kilkenny"
+      ],
+      "county": "Kilkenny",
+      "catchment": "Kilkenny",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Kilkenny catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-portlaoise",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Portlaoise",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-16",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Laois"
+      ],
+      "county": "Laois",
+      "catchment": "Portlaoise",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Portlaoise catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-limerick-city",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Limerick City",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-17",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Limerick"
+      ],
+      "county": "Limerick",
+      "catchment": "Limerick City",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Limerick City catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-drogheda",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Drogheda",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-17",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Louth"
+      ],
+      "county": "Louth",
+      "catchment": "Drogheda",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Drogheda catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-dundalk",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Dundalk",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-17",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Louth"
+      ],
+      "county": "Louth",
+      "catchment": "Dundalk",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Dundalk catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-castlebar",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Castlebar",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-16",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Mayo"
+      ],
+      "county": "Mayo",
+      "catchment": "Castlebar",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Castlebar catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-navan",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Navan",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-17",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Meath"
+      ],
+      "county": "Meath",
+      "catchment": "Navan",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Navan catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-monaghan",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Monaghan",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-17",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Monaghan"
+      ],
+      "county": "Monaghan",
+      "catchment": "Monaghan",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Monaghan catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-sligo",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Sligo",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-18",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Sligo"
+      ],
+      "county": "Sligo",
+      "catchment": "Sligo",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Sligo catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-clonmel",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Clonmel",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-17",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Tipperary"
+      ],
+      "county": "Tipperary",
+      "catchment": "Clonmel",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Clonmel catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-waterford",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Waterford",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-16",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Waterford"
+      ],
+      "county": "Waterford",
+      "catchment": "Waterford",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Waterford catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-mullingar",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Mullingar",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-18",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Westmeath"
+      ],
+      "county": "Westmeath",
+      "catchment": "Mullingar",
+      "result_category": "Positive",
+      "importance": "moderate",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a positive SARS-CoV-2 wastewater result for the Mullingar catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    },
+    {
+      "id": "hpsc-wastewater-2026-w33-wexford",
+      "source": "HPSC",
+      "source_kind": "wastewater_surveillance",
+      "title": "SARS-CoV-2 wastewater · Wexford",
+      "published_at": "2026-08-28T00:00:00Z",
+      "sample_date": "2026-08-16",
+      "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [
+        "Wexford"
+      ],
+      "county": "Wexford",
+      "catchment": "Wexford",
+      "result_category": "Weak Positive",
+      "importance": "low",
+      "geographic_precision": "wastewater treatment catchment; not a patient location or circular radius",
+      "latitude": null,
+      "longitude": null,
+      "coordinate_precision": "catchment name only",
+      "summary": "HPSC reported a weak positive SARS-CoV-2 wastewater result for the Wexford catchment. This indicates population-level wastewater detection only; it does not identify an infected person or prove personal exposure."
+    }
+  ]
 }

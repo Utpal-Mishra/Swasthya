@@ -2,152 +2,93 @@
 
 ## Purpose
 
-Wearables can strengthen Swasthya's optional **My Health** layer by adding objective wellness context around a user's own self-reported experience.
+Wearables strengthen Swasthya's optional **My Health** layer by adding objective physiological context around a user's own self-reported experience.
 
-The intended question is not:
+The product question is not:
 
 > Can the watch decide whether the user is happy, sad, stressed or focused?
 
 It is:
 
-> What physiological context was present when the user reported feeling happy, calm, focused, stressed, low or tired, and are there recurring personal patterns worth noticing?
+> What recovery/arousal context was present when the user reported feeling happy, calm, focused, stressed, low or tired, and do recurring personal associations appear over time?
 
-Heart rate, sleep, activity and autonomic signals are non-specific. Exercise, illness, excitement, caffeine, temperature, stress and many other factors can produce overlapping physiological patterns. Therefore mood labels remain user-reported.
+Heart rate, HRV, sleep, activity, skin temperature and EDA are non-specific. Exercise, illness, excitement, caffeine, heat, stress and many other factors can create overlapping patterns. **The user's own mood label remains the subjective ground truth.**
 
-## Implemented prototype
-
-Swasthya now contains an Android Health Connect companion prototype under:
-
-`android/health-connect-companion/`
-
-The current flow is:
+## Implemented path
 
 ```text
-Galaxy Watch / supported wearable
+Galaxy Watch / supported Android wearable
         ↓
-Samsung Health / compatible Android health app
+Samsung Health / compatible health app
         ↓
 Health Connect
         ↓
-Explicit per-type permission
+Explicit per-type permission + feature check
         ↓
 Swasthya Android companion
         ↓
 on-device 24 h summary + 14-day baseline
         ↓
-wearable-bridge.js
+source attribution + wearable-bridge.js
         ↓
 My Health
         +
 user-reported mood anchor
 ```
 
-The Android companion requests read access only to the supported types used by the prototype:
+The Android companion currently supports, when present and permitted:
 
 - steps
 - heart rate
 - resting heart rate
-- sleep
+- sleep duration
 - oxygen saturation
 - HRV RMSSD
+- skin-temperature delta on Health Connect versions that support the feature
+- mindfulness-session duration on Health Connect versions that support the feature
 
-If a permission or data type is unavailable, the UI shows it as unavailable rather than estimating it.
+Optional Health Connect features are checked at runtime. Unsupported records remain unavailable rather than being estimated.
 
-The same summary can be imported manually into the web dashboard as JSON. An example is available at `examples/wearable-snapshot.example.json`.
+The summary also collects Health Connect `DataOrigin.packageName` values from available records. If the record origin identifies Samsung Health, Swasthya labels the summary **Samsung Health via Health Connect**. This is preferable to assuming every Health Connect measurement came from the watch.
 
-## Why Health Connect is the first integration
+## Samsung Health reality
 
-Samsung Health can synchronize selected Galaxy Watch data into Health Connect with user permission. Health Connect gives Swasthya a broader Android interoperability layer rather than coupling the initial product to one wearable manufacturer.
+Samsung Health can synchronize selected Galaxy Watch information to Health Connect after the user grants permission. The exact synchronized scope can vary by Samsung Health version and device, so the existence of a Health Connect record class does not guarantee Samsung Health will populate it.
 
-It is therefore the preferred first path for commonly shared data such as:
+Samsung's current Health Data SDK offers richer Samsung-specific fields including Energy Score, sleep, heart rate, skin temperature and blood oxygen. It does **not** expose a general public mood or emotion record that tells a third-party app the user is happy, sad or focused.
 
-- steps
-- exercise/activity
-- heart rate
-- sleep
-- blood oxygen when populated
-- HRV when populated by the source application
+The first Swasthya architecture therefore remains Health Connect-first. A Samsung Health Data SDK adapter is a second-stage integration because production use requires Samsung's app/partner distribution path and a Samsung library dependency.
 
-A Health Connect record type existing does not guarantee Samsung Health will populate that type on every device. Swasthya must preserve `Unavailable` states.
+## What the watch is useful for
 
-## Samsung-specific expansion
+### Stronger uses
 
-### Samsung Health Data SDK
-
-Samsung Health Data SDK can later add Samsung-specific wellness fields that are not assumed to be available through Health Connect, including supported values such as:
-
-- Energy Score
-- richer sleep data
-- skin temperature
-- blood oxygen
-- heart rate
-- activity summary
-
-Samsung's distribution process for applications using the Samsung Health Data SDK includes Samsung partnership/registration requirements. It should therefore be a deliberate second adapter rather than the only product architecture.
-
-### Samsung Health Sensor SDK
-
-Only add the Sensor SDK when a clearly justified feature benefits from higher-frequency watch-side measurements such as:
-
-- inter-beat intervals
-- heart-rate context
-- PPG / ECG-derived research features where permitted
-- skin temperature
-- blood oxygen
-- electrodermal activity on supported devices
-
-Raw physiological streams should not be collected merely because they are available.
-
-## What Swasthya calculates
-
-Prefer interpretable personal-baseline features rather than a universal emotion classifier.
-
-### Recovery context
-
-- sleep duration
-- sleep difference from a recent baseline
-- resting heart-rate deviation
-- HRV deviation when available
+- sleep duration and sleep debt relative to personal baseline
+- recovery/fatigue context
+- resting-heart-rate deviations
+- HRV deviations / autonomic context
+- activity/exertion context
+- SpO₂ context when available
+- skin-temperature deviations when available
+- mindfulness/breathing-session context
 - Samsung Energy Score in a future Samsung-specific adapter
 
-### Autonomic / arousal context
+### Weaker uses
 
-- resting heart-rate deviation from personal baseline
-- HRV RMSSD deviation when available
-- recent activity as a confounder when available
-- future EDA only where a supported Samsung sensor path and clear product need exist
+Do not directly classify from watch data alone:
 
-### Activity context
+- happiness
+- sadness
+- focus/concentration
+- anxiety or depression
+- ADHD
+- seizure likelihood
 
-- steps
-- recent exercise where available
-- active time where available
+`Focused` is particularly difficult because physiological arousal during concentration can overlap with stress, exercise, excitement or caffeine effects.
 
-### Other optional context
+## Personal association learning
 
-- blood oxygen
-- skin-temperature deviation from personal baseline
-- time of day
-- self-reported caffeine/illness context only if the user chooses to provide it
-
-## Current heuristic language
-
-The web bridge uses deliberately simple baseline-relative product heuristics to decide whether to describe the physiology as:
-
-- `Near your recent baseline`
-- `Mixed physiological context`
-- `Lower recovery / elevated arousal context`
-- `Baseline still building`
-
-These are not clinical thresholds. They are presentation heuristics and should be replaced or validated before any clinical claim is considered.
-
-The current prototype may treat signals such as approximately one hour less sleep than baseline, a noticeably higher resting heart rate, or lower HRV as contributors to a descriptive context. It also explicitly warns that exercise, illness, temperature, caffeine and ordinary variation can explain the same pattern.
-
-## Mood anchors
-
-The user's own label is the primary description of subjective state.
-
-Current lightweight anchors:
+The web bridge stores self-reported anchors only in the browser session in the current prototype:
 
 - Happy
 - Calm
@@ -156,71 +97,53 @@ Current lightweight anchors:
 - Low
 - Tired
 
-The current prototype stores anchors only for the browser session. It waits for multiple anchors before describing even a basic personal association.
+It waits for at least eight total anchors and at least three occurrences of the same label before attempting a baseline-relative description.
 
-Example future wording:
+Example acceptable output:
 
-> On days you labelled yourself `Tired`, your previous night's sleep was often below your own baseline.
+> When you reported `Stressed` (4×), resting heart rate averaged above your baseline and HRV averaged below baseline. This is a personal association, not evidence that those measurements caused or can predict the mood.
 
-Acceptable wording describes association. It does not claim that one measurement caused the mood.
+This is deliberately different from an emotion classifier.
 
-## What wearable data is good for
+## Skin temperature and mindfulness
 
-Wearable measurements are most useful for:
+Skin temperature is treated as contextual physiology, not a diagnostic fever measurement. If a source supplies a meaningful delta, Swasthya can mention that it differs from the source baseline and explicitly note possible confounders.
 
-- recovery / fatigue context
-- sleep consistency
-- physiological arousal
-- stress-related context when interpreted cautiously
-- activity/exertion context
-- noticing personal deviations from baseline
+Mindfulness records represent sessions such as meditation or breathing. A logged mindfulness session can be shown as context but is not interpreted as evidence that the person is calm or unstressed.
 
-They are much weaker as a direct classifier of:
+## Future Samsung Sensor SDK / EDA
 
-- happiness
-- sadness
-- concentration/focus
-- anxiety as a diagnosis
-- depression
-- ADHD
-- seizure likelihood
+Samsung's Sensor SDK can expose raw or processed watch-side sensors. Electrodermal activity (EDA) is especially relevant to physiological arousal, but Samsung documents EDA continuous tracking for **Galaxy Watch8 series and later**.
 
-`Focused` is particularly difficult to infer from wrist physiology because elevated arousal can represent concentration, exercise, stress, excitement or other states.
+EDA could improve a future `arousal context` feature, but it still cannot distinguish stress from excitement or other sympathetic activation without context. It should therefore be:
+
+- opt-in
+- feature-specific
+- processed on device where practical
+- stored as derived features rather than raw continuous streams by default
+- never marketed as direct mood detection
 
 ## Privacy and data minimisation
 
 Default principles:
 
 - explicit opt-in for wearable access
-- granular data-type permissions
-- local/on-device feature extraction where practical
-- do not upload raw ECG, PPG, EDA or location by default
-- store derived daily features rather than raw sensor streams when possible
+- granular permissions
+- local/on-device feature extraction
+- retain source attribution
+- do not upload raw ECG, PPG, EDA or precise location by default
+- store derived features rather than raw sensor streams where possible
+- keep mood labels user-controlled
+- provide export/deletion controls before persistent history is introduced
 - never combine precise location and sensitive wellbeing history without explicit purpose and consent
-- clear data-export and deletion controls before persistent accounts are introduced
-- allow wearable access to be revoked independently of other Swasthya features
 
-The current Android prototype injects a derived summary into the public GitHub Pages frontend running in a restricted WebView. That is acceptable for development, but a commercial version handling persistent sensitive data should bundle/sign the frontend or use a native UI so health summaries are not exposed to remotely changeable application code.
+The development companion currently injects a derived summary into the Swasthya WebView. A commercial version handling persistent health history should bundle/sign the frontend or use a native UI so sensitive summaries are not exposed to remotely changeable application code.
 
-## Current implementation status
+## Next
 
-Completed:
-
-- My Health wearable UX
-- session-only mood anchors
-- wearable summary JSON contract
-- JSON import/testing path
-- `wearable-bridge.js`
-- Health Connect Android companion scaffold
-- Health Connect permission flow
-- 24-hour wellness summary
-- 14-day baseline comparison where data is available
-- Android CI compile check
-
-Next:
-
-1. Test on a physical Samsung phone + Galaxy Watch with Samsung Health → Health Connect sync enabled.
-2. Verify which Samsung-origin data types populate Health Connect for the user's watch model.
-3. Add origin metadata and exercise confounders.
-4. Add a Samsung Health Data SDK adapter for Energy Score/richer Samsung-only fields if the partnership/distribution path is justified.
-5. Build longitudinal encrypted storage only after consent, deletion/export and privacy architecture are in place.
+1. Test on physical Samsung phone + Galaxy Watch hardware with Samsung Health → Health Connect sync enabled.
+2. Verify which records actually carry Samsung Health as `DataOrigin` for the user's device/watch combination.
+3. Add exercise-session timing as a stronger arousal confounder.
+4. Evaluate Samsung Health Data SDK for Energy Score only if the partner/distribution route is justified.
+5. Evaluate EDA only for compatible Galaxy Watch8+ hardware and a clearly defined feature.
+6. Add encrypted longitudinal storage only after consent, export/deletion and privacy controls are designed.

@@ -1,7 +1,22 @@
 {
-  "generated_at": "2026-09-07T21:29:21Z",
+  "generated_at": "2026-09-09T16:36:21Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
+    {
+      "id": "hpsc-hiv-mpox-sti-trends-in-ireland-report-september-2026",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "HIV, mpox & STI trends in Ireland Report, September 2026",
+      "published_at": "2026-09-09T00:00:00Z",
+      "url": "https://file.hpsc.ie/uploads/sexuallytransmittedinfections/surveillancereports/1788966919.pdf",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
     {
       "id": "ecdc-https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
       "source": "ECDC",

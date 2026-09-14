@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T12:40:23Z",
+  "generated_at": "2026-09-14T21:47:38Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -1081,23 +1081,6 @@
       "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
       "importance": "moderate",
       "summary": "This issue of the ECDC Communicable Disease Threats Report (CDTR) covers the period 1 - 7 August 2026, and includes updates on Ebola, chikungunya, dengue, West Nile Virus infection, Crimean-Congo haemorrhagic fever, Vibrio, respiratory virus epidemiology in the EU/EEA, World Pride, Middle East respiratory syndrome coronavirus, and expert deployments."
-    },
-    {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-25-31-july-2026-week-31",
-      "source": "ECDC",
-      "source_kind": "regional_surveillance",
-      "title": "Communicable disease threats report, 25 - 31 July 2026, week 31",
-      "published_at": "2026-07-31T12:59:05Z",
-      "url": "https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-25-31-july-2026-week-31",
-      "countries": [
-        "CG"
-      ],
-      "regions": [
-        "EU_EEA"
-      ],
-      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
-      "importance": "moderate",
-      "summary": "This issue of the ECDC Communicable Disease Threats Report (CDTR) covers the period 27 - 31 July 2026, and includes updates on Ebola, West Nile Virus infections, Crimean-Congo haemorrhagic fever, dengue, avian influenza A(H9N2), expert deployment, cholera, chikungunya virus disease, Vibrio, World Pride, and an overview of respiratory virus epidemiology in the EU/EEA."
     },
     {
       "id": "hpsc-summary-report-on-carbapenemase-producing-enterobacterales-cpe-june-2026",

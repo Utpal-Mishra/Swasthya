@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-14T21:47:38Z",
+  "generated_at": "2026-09-15T16:55:43Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -7,7 +7,7 @@
       "source": "ECDC",
       "source_kind": "epidemiological_update",
       "title": "Ebola disease outbreak in the Democratic Republic of the Congo",
-      "published_at": "2026-09-14T15:36:21Z",
+      "published_at": "2026-09-15T15:36:21Z",
       "url": "https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
       "countries": [
         "CD",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-15T16:55:43Z",
+  "generated_at": "2026-09-16T11:27:59Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -1017,23 +1017,6 @@
       "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
       "importance": "moderate",
       "summary": "This issue of the ECDC Communicable Disease Threats Report (CDTR) covers the period 8 - 14 August 2026, and includes updates on Ebola, chikungunya, dengue, West Nile Virus infection, Crimean-Congo haemorrhagic fever, Vibrio, respiratory virus epidemiology in the EU/EEA, World Pride, mpox, and expert deployments."
-    },
-    {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/surveillance-mpox-eueea-monthly-report",
-      "source": "ECDC",
-      "source_kind": "epidemiological_update",
-      "title": "Surveillance of Mpox in the EU/EEA, monthly report",
-      "published_at": "2026-08-14T10:13:11Z",
-      "url": "https://www.ecdc.europa.eu/en/publications-data/surveillance-mpox-eueea-monthly-report",
-      "countries": [
-        "TR"
-      ],
-      "regions": [
-        "EU_EEA"
-      ],
-      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
-      "importance": "moderate",
-      "summary": "This report presents data on mpox cases reported to the European Surveillance System (EpiPulse Cases). EU/EEA countries report case based data to ECDC on diagnosed mpox cases. For case numbers by countries, Western Balkans and Türkiye are included."
     },
     {
       "id": "hpsc-sari-surveillance-report-week-32-2026",

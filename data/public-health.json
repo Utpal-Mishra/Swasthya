@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T12:43:17Z",
+  "generated_at": "2026-09-21T21:56:58Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -1109,23 +1109,6 @@
       "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
       "importance": "info",
       "summary": "Every month ECDC provides detailed epidemiological overview of the worldwide transmission of chikungunya virus disease in its weekly threat report (Communicable Diseases Threat Report)."
-    },
-    {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-1-7-august-2026-week-32",
-      "source": "ECDC",
-      "source_kind": "regional_surveillance",
-      "title": "Communicable disease threats report, 1 - 7 August 2026, week 32",
-      "published_at": "2026-08-07T13:55:50Z",
-      "url": "https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-1-7-august-2026-week-32",
-      "countries": [
-        "CG"
-      ],
-      "regions": [
-        "EU_EEA"
-      ],
-      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
-      "importance": "moderate",
-      "summary": "This issue of the ECDC Communicable Disease Threats Report (CDTR) covers the period 1 - 7 August 2026, and includes updates on Ebola, chikungunya, dengue, West Nile Virus infection, Crimean-Congo haemorrhagic fever, Vibrio, respiratory virus epidemiology in the EU/EEA, World Pride, Middle East respiratory syndrome coronavirus, and expert deployments."
     },
     {
       "id": "hpsc-summary-report-on-carbapenemase-producing-enterobacterales-cpe-june-2026",

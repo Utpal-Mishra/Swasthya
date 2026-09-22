@@ -6,11 +6,12 @@
   "type": "object",
   "required": ["schema_version", "date", "source", "consent_scope"],
   "properties": {
-    "schema_version": {"enum": ["1.0", "swasthya-wearable-v1"]},
+    "schema_version": {"enum": ["1.0", "1.1", "swasthya-wearable-v1"]},
     "date": {"type": "string", "format": "date"},
     "generated_at": {"type": ["string", "null"], "format": "date-time"},
     "source": {"enum": ["samsung_health_data_sdk", "health_connect", "manual"]},
     "data_origin": {"type": ["string", "null"]},
+    "data_origins": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
     "consent_scope": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
     "sleep": {
       "type": "object",
@@ -47,6 +48,13 @@
         "energy_score": {"type": ["number", "null"], "minimum": 0, "maximum": 100},
         "skin_temperature_baseline_delta_c": {"type": ["number", "null"]},
         "sleep_spo2_percent": {"type": ["number", "null"], "minimum": 0, "maximum": 100}
+      },
+      "additionalProperties": false
+    },
+    "mindfulness": {
+      "type": "object",
+      "properties": {
+        "minutes_24h": {"type": ["number", "null"], "minimum": 0}
       },
       "additionalProperties": false
     },

@@ -19,6 +19,7 @@ jobs:
         run: |
           node --check app.js
           node --check proximity-health.js
+          node --check weather-alerts.js
           node --check dashboard.js
           node --check wearable-bridge.js
 
@@ -28,6 +29,7 @@ jobs:
           python -m py_compile scripts/fetch_hpsc_wastewater.py
           python -m py_compile scripts/fetch_us_wastewater.py
           python -m py_compile scripts/fetch_ukhsa.py
+          python -m py_compile scripts/fetch_weather_alerts.py
 
       - name: Validate public JSON
         run: |
@@ -35,6 +37,7 @@ jobs:
           python -m json.tool data/ie-wastewater.json > /dev/null
           python -m json.tool data/us-wastewater.json > /dev/null
           python -m json.tool data/ukhsa-health.json > /dev/null
+          python -m json.tool data/weather-alerts.json > /dev/null
           python -m json.tool data/country-health-providers.json > /dev/null
           python -m json.tool docs/wearable-summary.schema.json > /dev/null
           python -m json.tool examples/wearable-snapshot.example.json > /dev/null

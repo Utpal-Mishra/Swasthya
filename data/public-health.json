@@ -1,28 +1,13 @@
 {
-  "generated_at": "2026-09-23T11:30:32Z",
+  "generated_at": "2026-09-23T16:54:06Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
-    {
-      "id": "hpsc-surveillance-of-antimicrobial-consumption-in-primary-care-q2-2026",
-      "source": "HPSC",
-      "source_kind": "national_surveillance",
-      "title": "Surveillance of Antimicrobial Consumption in Primary Care Q2 , 2026",
-      "published_at": "2026-09-23T00:00:00Z",
-      "url": "https://file.hpsc.ie/uploads/europeanantimicrobialresistancesurveillancesystemearss/surveillancereports/1790157510.html",
-      "countries": [
-        "IE"
-      ],
-      "regions": [],
-      "geographic_precision": "Ireland national/report-specific surveillance",
-      "importance": "info",
-      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
-    },
     {
       "id": "ecdc-https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
       "source": "ECDC",
       "source_kind": "epidemiological_update",
       "title": "Ebola disease outbreak in the Democratic Republic of the Congo",
-      "published_at": "2026-09-21T15:36:21Z",
+      "published_at": "2026-09-23T15:36:21Z",
       "url": "https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
       "countries": [
         "CD",
@@ -36,12 +21,12 @@
       "summary": "Since May 2026, an Ebola virus disease outbreak caused by Bundibugyo virus has been ongoing in the Democratic Republic of the Congo (DRC)."
     },
     {
-      "id": "hpsc-surveillance-of-antimicrobial-consumption-in-primary-care-2026-quarter-2",
+      "id": "hpsc-surveillance-of-antimicrobial-consumption-in-primary-care-quarter-2-2026",
       "source": "HPSC",
       "source_kind": "national_surveillance",
-      "title": "Surveillance of Antimicrobial Consumption In Primary Care 2026 Quarter 2",
-      "published_at": "2026-09-21T00:00:00Z",
-      "url": "https://file.hpsc.ie/uploads/europeanantimicrobialresistancesurveillancesystemearss/surveillancereports/1789980806.html",
+      "title": "Surveillance of Antimicrobial Consumption in Primary Care, Quarter 2, 2026",
+      "published_at": "2026-09-23T00:00:00Z",
+      "url": "https://file.hpsc.ie/uploads/europeanantimicrobialresistancesurveillancesystemearss/surveillancereports/1790157510.html",
       "countries": [
         "IE"
       ],
@@ -81,21 +66,6 @@
       "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
       "importance": "moderate",
       "summary": "This issue of the ECDC Communicable Disease Threats Report (CDTR) covers the period 12-18 September, and includes updates on Ebola, malaria, botulism, avian influenza A(H9N2), influenza A(H5), respiratory virus epidemiology in the EU/.EEA, West Nile virus infections, chikungunya, dengue, Crimean-Congo haemorrhagic fever, Vibrio, measles, and expert deployments."
-    },
-    {
-      "id": "hpsc-health-protection-strategy-2022-2027",
-      "source": "HPSC",
-      "source_kind": "national_surveillance",
-      "title": "Health Protection Strategy 2022-2027",
-      "published_at": "2026-09-16T00:00:00Z",
-      "url": "https://file.hpsc.ie/uploads/researchandguidelines/annualreports/1789567974.pdf",
-      "countries": [
-        "IE"
-      ],
-      "regions": [],
-      "geographic_precision": "Ireland national/report-specific surveillance",
-      "importance": "info",
-      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
     },
     {
       "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-5-11-september-week-37",
@@ -1141,12 +1111,12 @@
       "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
     },
     {
-      "id": "hpsc-enhanced-surveillance-of-carbapenemase-producing-enterobacterales-cpe-in-ireland-2025",
+      "id": "hpsc-surveillance-of-novel-or-rare-antimicrobial-resistant-organisms-nrao-in-ireland-2022-2025",
       "source": "HPSC",
       "source_kind": "national_surveillance",
-      "title": "Enhanced surveillance of Carbapenemase-Producing Enterobacterales (CPE) in Ireland, 2025",
+      "title": "Surveillance of novel or rare antimicrobial resistant organisms (NRAO) in Ireland, 2022 - 2025",
       "published_at": "2026-07-30T00:00:00Z",
-      "url": "https://file.hpsc.ie/uploads/carbapenemresistantenterobacteriaceaecre/surveillancereports/1785423458.pdf",
+      "url": "https://file.hpsc.ie/uploads/nrao/surveillancereports/1785424296.pdf",
       "countries": [
         "IE"
       ],
@@ -1156,12 +1126,12 @@
       "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
     },
     {
-      "id": "hpsc-surveillance-of-novel-or-rare-antimicrobial-resistant-organisms-nrao-in-ireland-2022-2025",
+      "id": "hpsc-enhanced-surveillance-of-carbapenemase-producing-enterobacterales-cpe-in-ireland-2025",
       "source": "HPSC",
       "source_kind": "national_surveillance",
-      "title": "Surveillance of novel or rare antimicrobial resistant organisms (NRAO) in Ireland, 2022 - 2025",
+      "title": "Enhanced surveillance of Carbapenemase-Producing Enterobacterales (CPE) in Ireland, 2025",
       "published_at": "2026-07-30T00:00:00Z",
-      "url": "https://file.hpsc.ie/uploads/nrao/surveillancereports/1785424296.pdf",
+      "url": "https://file.hpsc.ie/uploads/carbapenemresistantenterobacteriaceaecre/surveillancereports/1785423458.pdf",
       "countries": [
         "IE"
       ],

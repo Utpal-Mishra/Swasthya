@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T16:54:06Z",
+  "generated_at": "2026-09-24T17:07:18Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -1079,21 +1079,6 @@
       "geographic_precision": "Ireland national/report-specific surveillance",
       "importance": "info",
       "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
-    },
-    {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/chikungunya-monthly",
-      "source": "ECDC",
-      "source_kind": "epidemiological_update",
-      "title": "Chikungunya virus disease worldwide overview",
-      "published_at": "2026-08-10T14:05:05Z",
-      "url": "https://www.ecdc.europa.eu/en/chikungunya-monthly",
-      "countries": [],
-      "regions": [
-        "EU_EEA"
-      ],
-      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
-      "importance": "info",
-      "summary": "Every month ECDC provides detailed epidemiological overview of the worldwide transmission of chikungunya virus disease in its weekly threat report (Communicable Diseases Threat Report)."
     },
     {
       "id": "hpsc-summary-report-on-carbapenemase-producing-enterobacterales-cpe-june-2026",

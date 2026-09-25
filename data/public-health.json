@@ -1,7 +1,24 @@
 {
-  "generated_at": "2026-09-25T04:53:30Z",
+  "generated_at": "2026-09-25T17:07:37Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
+    {
+      "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-19-25-september-week-39",
+      "source": "ECDC",
+      "source_kind": "regional_surveillance",
+      "title": "Communicable disease threats report, 19-25 September, week 39",
+      "published_at": "2026-09-25T12:26:04Z",
+      "url": "https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-19-25-september-week-39",
+      "countries": [
+        "CG"
+      ],
+      "regions": [
+        "EU_EEA"
+      ],
+      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
+      "importance": "moderate",
+      "summary": "This issue of the ECDC Communicable Disease Threats Report (CDTR) covers the period 19-25 September, and includes updates on respiratory virus epidemiology in the EU/EEA Ebola, ECDC expert deployment, West Nile Virus, Crimean-Congo haemorrhagic fever, dengue, chikungunya, and vibrio risk in coastal waters."
+    },
     {
       "id": "ecdc-https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
       "source": "ECDC",

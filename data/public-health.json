@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T17:07:18Z",
+  "generated_at": "2026-09-25T04:53:30Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -1117,66 +1117,6 @@
       "title": "Enhanced surveillance of Carbapenemase-Producing Enterobacterales (CPE) in Ireland, 2025",
       "published_at": "2026-07-30T00:00:00Z",
       "url": "https://file.hpsc.ie/uploads/carbapenemresistantenterobacteriaceaecre/surveillancereports/1785423458.pdf",
-      "countries": [
-        "IE"
-      ],
-      "regions": [],
-      "geographic_precision": "Ireland national/report-specific surveillance",
-      "importance": "info",
-      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
-    },
-    {
-      "id": "hpsc-hepatitis-c-in-ireland-2025-infographic",
-      "source": "HPSC",
-      "source_kind": "national_surveillance",
-      "title": "Hepatitis C in Ireland 2025 infographic",
-      "published_at": "2026-07-27T00:00:00Z",
-      "url": "https://file.hpsc.ie/uploads/hepatitisc/epidemiologicaldata/annualreports/1766246718.png",
-      "countries": [
-        "IE"
-      ],
-      "regions": [],
-      "geographic_precision": "Ireland national/report-specific surveillance",
-      "importance": "info",
-      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
-    },
-    {
-      "id": "hpsc-epidemiology-of-hepatitis-b-in-ireland",
-      "source": "HPSC",
-      "source_kind": "national_surveillance",
-      "title": "Epidemiology of Hepatitis B in Ireland",
-      "published_at": "2026-07-27T00:00:00Z",
-      "url": "https://file.hpsc.ie/uploads/hepatitisb/surveillancereports/1766247198.pdf",
-      "countries": [
-        "IE"
-      ],
-      "regions": [],
-      "geographic_precision": "Ireland national/report-specific surveillance",
-      "importance": "info",
-      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
-    },
-    {
-      "id": "hpsc-hepatitis-b-in-ireland-2025-infographic",
-      "source": "HPSC",
-      "source_kind": "national_surveillance",
-      "title": "Hepatitis B in Ireland 2025 infographic",
-      "published_at": "2026-07-27T00:00:00Z",
-      "url": "https://file.hpsc.ie/uploads/hepatitisb/surveillancereports/1766247228.png",
-      "countries": [
-        "IE"
-      ],
-      "regions": [],
-      "geographic_precision": "Ireland national/report-specific surveillance",
-      "importance": "info",
-      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
-    },
-    {
-      "id": "hpsc-epidemiology-of-hepatitis-c-in-ireland",
-      "source": "HPSC",
-      "source_kind": "national_surveillance",
-      "title": "Epidemiology of Hepatitis C in Ireland",
-      "published_at": "2026-07-27T00:00:00Z",
-      "url": "https://file.hpsc.ie/uploads/hepatitisc/epidemiologicaldata/1753093620.pdf",
       "countries": [
         "IE"
       ],

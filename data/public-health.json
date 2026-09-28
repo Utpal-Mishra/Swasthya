@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-28T05:18:45Z",
+  "generated_at": "2026-09-28T13:48:10Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -1064,23 +1064,6 @@
       "geographic_precision": "Ireland national/report-specific surveillance",
       "importance": "info",
       "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
-    },
-    {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-8-14-august-2026-week-33",
-      "source": "ECDC",
-      "source_kind": "regional_surveillance",
-      "title": "Communicable disease threats report, 8 - 14 August 2026, week 33",
-      "published_at": "2026-08-14T13:05:44Z",
-      "url": "https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-8-14-august-2026-week-33",
-      "countries": [
-        "CG"
-      ],
-      "regions": [
-        "EU_EEA"
-      ],
-      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
-      "importance": "moderate",
-      "summary": "This issue of the ECDC Communicable Disease Threats Report (CDTR) covers the period 8 - 14 August 2026, and includes updates on Ebola, chikungunya, dengue, West Nile Virus infection, Crimean-Congo haemorrhagic fever, Vibrio, respiratory virus epidemiology in the EU/EEA, World Pride, mpox, and expert deployments."
     },
     {
       "id": "hpsc-sari-surveillance-report-week-32-2026",

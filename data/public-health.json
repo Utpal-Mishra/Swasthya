@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T17:07:37Z",
+  "generated_at": "2026-09-28T05:18:45Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -1104,36 +1104,6 @@
       "title": "Summary Report on Carbapenemase Producing Enterobacterales (CPE) June 2026",
       "published_at": "2026-07-31T00:00:00Z",
       "url": "https://file.hpsc.ie/uploads/carbapenemresistantenterobacteriaceaecre/surveillancereports/1785486285.pdf",
-      "countries": [
-        "IE"
-      ],
-      "regions": [],
-      "geographic_precision": "Ireland national/report-specific surveillance",
-      "importance": "info",
-      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
-    },
-    {
-      "id": "hpsc-surveillance-of-novel-or-rare-antimicrobial-resistant-organisms-nrao-in-ireland-2022-2025",
-      "source": "HPSC",
-      "source_kind": "national_surveillance",
-      "title": "Surveillance of novel or rare antimicrobial resistant organisms (NRAO) in Ireland, 2022 - 2025",
-      "published_at": "2026-07-30T00:00:00Z",
-      "url": "https://file.hpsc.ie/uploads/nrao/surveillancereports/1785424296.pdf",
-      "countries": [
-        "IE"
-      ],
-      "regions": [],
-      "geographic_precision": "Ireland national/report-specific surveillance",
-      "importance": "info",
-      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
-    },
-    {
-      "id": "hpsc-enhanced-surveillance-of-carbapenemase-producing-enterobacterales-cpe-in-ireland-2025",
-      "source": "HPSC",
-      "source_kind": "national_surveillance",
-      "title": "Enhanced surveillance of Carbapenemase-Producing Enterobacterales (CPE) in Ireland, 2025",
-      "published_at": "2026-07-30T00:00:00Z",
-      "url": "https://file.hpsc.ie/uploads/carbapenemresistantenterobacteriaceaecre/surveillancereports/1785423458.pdf",
       "countries": [
         "IE"
       ],

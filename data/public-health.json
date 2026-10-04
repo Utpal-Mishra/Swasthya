@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-02T22:10:44Z",
+  "generated_at": "2026-10-04T12:17:29Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -1064,23 +1064,6 @@
       "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
       "importance": "moderate",
       "summary": "This issue of the ECDC Communicable Disease Threats Report (CDTR) covers the period 15-21 August 2026, and includes updates on Ebola, respiratory virus epidemiology in the EU/EEA, swine flu, West Nile virus, Crimean-Congo haemorrhagic fever, dengue, chikungunya, vibrio, influenza, Dermatophilosis congolensis, Salmonella Enteritidis, and measles."
-    },
-    {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/news-events/epidemiological-update-11-august-2026-imported-case-andes-hantavirus-eueea",
-      "source": "ECDC",
-      "source_kind": "epidemiological_update",
-      "title": "Epidemiological update – 11 August 2026: Imported case of Andes hantavirus in the EU/EEA",
-      "published_at": "2026-08-20T11:39:42Z",
-      "url": "https://www.ecdc.europa.eu/en/news-events/epidemiological-update-11-august-2026-imported-case-andes-hantavirus-eueea",
-      "countries": [
-        "AR"
-      ],
-      "regions": [
-        "EU_EEA"
-      ],
-      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
-      "importance": "moderate",
-      "summary": "On 6 August 2026, French public health authorities reported an imported case of Andes hantavirus infection in a traveller from Argentina."
     },
     {
       "id": "hpsc-streptococcus-pneumoniae-invasive-in-ireland-2025",

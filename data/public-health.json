@@ -1,7 +1,22 @@
 {
-  "generated_at": "2026-10-04T12:17:29Z",
+  "generated_at": "2026-10-05T14:30:48Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
+    {
+      "id": "ecdc-https://www.ecdc.europa.eu/en/chikungunya-monthly",
+      "source": "ECDC",
+      "source_kind": "epidemiological_update",
+      "title": "Chikungunya virus disease worldwide overview",
+      "published_at": "2026-10-05T14:05:05Z",
+      "url": "https://www.ecdc.europa.eu/en/chikungunya-monthly",
+      "countries": [],
+      "regions": [
+        "EU_EEA"
+      ],
+      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
+      "importance": "info",
+      "summary": "Every month ECDC provides detailed epidemiological overview of the worldwide transmission of chikungunya virus disease in its weekly threat report (Communicable Diseases Threat Report)."
+    },
     {
       "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-26-september-2-october-week-40",
       "source": "ECDC",

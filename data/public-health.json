@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T00:00:48Z",
+  "generated_at": "2026-10-06T13:20:12Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -827,6 +827,53 @@
       "summary": "HPSC wastewater surveillance for Wexford, Wexford; sample 13/09/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
     },
     {
+      "id": "ecdc-https://www.ecdc.europa.eu/en/middle-east-respiratory-syndrome-coronavirus-mers-cov-situation-update",
+      "source": "ECDC",
+      "source_kind": "epidemiological_update",
+      "title": "MERS-CoV worldwide overview",
+      "published_at": "2026-09-29T12:20:22Z",
+      "url": "https://www.ecdc.europa.eu/en/middle-east-respiratory-syndrome-coronavirus-mers-cov-situation-update",
+      "countries": [
+        "SA"
+      ],
+      "regions": [
+        "EU_EEA"
+      ],
+      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
+      "importance": "moderate",
+      "summary": "Summary Since the beginning of 2026, and as of 31 August 2026, two MERS cases, including one fatality, have been reported in Saudi Arabia."
+    },
+    {
+      "id": "ecdc-https://www.ecdc.europa.eu/en/all-topics-z/cholera/surveillance-and-disease-data/cholera-monthly",
+      "source": "ECDC",
+      "source_kind": "epidemiological_update",
+      "title": "Cholera worldwide overview",
+      "published_at": "2026-09-28T11:56:33Z",
+      "url": "https://www.ecdc.europa.eu/en/all-topics-z/cholera/surveillance-and-disease-data/cholera-monthly",
+      "countries": [],
+      "regions": [
+        "EU_EEA"
+      ],
+      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
+      "importance": "info",
+      "summary": "A worldwide epidemiological summary of the countries most affected by cholera."
+    },
+    {
+      "id": "ecdc-https://www.ecdc.europa.eu/en/dengue-monthly",
+      "source": "ECDC",
+      "source_kind": "epidemiological_update",
+      "title": "Dengue worldwide overview",
+      "published_at": "2026-09-28T07:17:53Z",
+      "url": "https://www.ecdc.europa.eu/en/dengue-monthly",
+      "countries": [],
+      "regions": [
+        "EU_EEA"
+      ],
+      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
+      "importance": "info",
+      "summary": "Every month ECDC provides detailed epidemiological overview of the worldwide transmission of dengue in its weekly threat report (Communicable Diseases Threat Report)."
+    },
+    {
       "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-19-25-september-week-39",
       "source": "ECDC",
       "source_kind": "regional_surveillance",
@@ -936,23 +983,6 @@
       "geographic_precision": "Ireland national/report-specific surveillance",
       "importance": "info",
       "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
-    },
-    {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/middle-east-respiratory-syndrome-coronavirus-mers-cov-situation-update",
-      "source": "ECDC",
-      "source_kind": "epidemiological_update",
-      "title": "MERS-CoV worldwide overview",
-      "published_at": "2026-09-07T12:20:22Z",
-      "url": "https://www.ecdc.europa.eu/en/middle-east-respiratory-syndrome-coronavirus-mers-cov-situation-update",
-      "countries": [
-        "SA"
-      ],
-      "regions": [
-        "EU_EEA"
-      ],
-      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
-      "importance": "moderate",
-      "summary": "Summary Since the beginning of 2026, and as of 31 August 2026, two MERS cases, including one fatality, have been reported in Saudi Arabia."
     },
     {
       "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-29-august-4-september-week-36",

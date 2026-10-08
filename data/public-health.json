@@ -1,7 +1,22 @@
 {
-  "generated_at": "2026-10-07T23:03:07Z",
+  "generated_at": "2026-10-08T23:18:27Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
+    {
+      "id": "hpsc-integrated-respiratory-virus-bulletin-week-40-2026",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "Integrated Respiratory Virus Bulletin Week 40 2026",
+      "published_at": "2026-10-08T00:00:00Z",
+      "url": "https://file.hpsc.ie/uploads/acuterespiratoryinfection/surveillancereports/1791473894.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
     {
       "id": "hpsc-appendices-for-hpsc-report-on-flu-vaccine-uptake-in-hospitals-in-ireland-2025-2026",
       "source": "HPSC",

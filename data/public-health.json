@@ -1,7 +1,25 @@
 {
-  "generated_at": "2026-10-08T23:18:27Z",
+  "generated_at": "2026-10-09T22:35:37Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
+    {
+      "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-3-9-october-week-41",
+      "source": "ECDC",
+      "source_kind": "regional_surveillance",
+      "title": "Communicable disease threats report, 3 - 9 October, week 41",
+      "published_at": "2026-10-09T13:30:22Z",
+      "url": "https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-3-9-october-week-41",
+      "countries": [
+        "CG",
+        "DE"
+      ],
+      "regions": [
+        "EU_EEA"
+      ],
+      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
+      "importance": "moderate",
+      "summary": "This issue of the Communicable disease threats report (CDTR) covers the period 3 - 9October 2026, and includes updates on respiratory virus epidemiology in the EU/EEA, pneumonia of unknown aetiology, Ebola, expert deployment, West Nile Virus, Crimean-Congo haemorrhagic fever, dengue, chikungunya, symptomatic Sindbis case in Germany, measles, and Salmonella Strathcona."
+    },
     {
       "id": "hpsc-integrated-respiratory-virus-bulletin-week-40-2026",
       "source": "HPSC",

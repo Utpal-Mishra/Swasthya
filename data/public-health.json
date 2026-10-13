@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T15:16:27Z",
+  "generated_at": "2026-10-13T14:06:35Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -66,7 +66,7 @@
       ],
       "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
       "importance": "moderate",
-      "summary": "This issue of the Communicable disease threats report (CDTR) covers the period 3 - 9October 2026, and includes updates on respiratory virus epidemiology in the EU/EEA, pneumonia of unknown aetiology, Ebola, expert deployment, West Nile Virus, Crimean-Congo haemorrhagic fever, dengue, chikungunya, symptomatic Sindbis case in Germany, measles, and Salmonella Strathcona."
+      "summary": "This issue of the Communicable disease threats report (CDTR) covers the period 3 - 9October 2026, and includes updates on respiratory virus epidemiology in the EU/EEA, pneumonia of unknown aetiology, Ebola, expert deployment, West Nile Virus, Crimean-Congo haemorrhagic fever, dengue, chikungunya, symptomatic Sindbis case in Germany, measles, and Salmonella Strathcona ."
     },
     {
       "id": "hpsc-integrated-respiratory-virus-bulletin-week-40-2026",

@@ -1,16 +1,19 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "date": "2026-09-07",
   "generated_at": "2026-09-07T08:00:00Z",
   "source": "manual",
   "data_origin": "Demonstration snapshot — not real health data",
+  "data_origins": [],
   "consent_scope": [
     "sleep",
     "heart_rate",
     "resting_heart_rate",
     "steps",
     "hrv_rmssd",
-    "oxygen_saturation"
+    "oxygen_saturation",
+    "skin_temperature",
+    "mindfulness"
   ],
   "sleep": {
     "duration_minutes": 405,
@@ -31,8 +34,11 @@
   },
   "recovery": {
     "energy_score": null,
-    "skin_temperature_baseline_delta_c": null,
+    "skin_temperature_baseline_delta_c": 0.2,
     "sleep_spo2_percent": 97.1
+  },
+  "mindfulness": {
+    "minutes_24h": 12
   },
   "mood_anchor": null
 }

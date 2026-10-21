@@ -1,7 +1,22 @@
 {
-  "generated_at": "2026-10-20T16:58:59Z",
+  "generated_at": "2026-10-21T17:08:00Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
+    {
+      "id": "hpsc-sari-surveillance-report-week-41-2026",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "SARI Surveillance Report, Week 41 2026",
+      "published_at": "2026-10-21T00:00:00Z",
+      "url": "https://file.hpsc.ie/uploads/acuterespiratoryinfection/surveillancereports/1792592120.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
     {
       "id": "hpsc-integrated-respiratory-virus-bulletin-week-41-2026",
       "source": "HPSC",

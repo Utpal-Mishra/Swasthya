@@ -1,7 +1,37 @@
 {
-  "generated_at": "2026-10-23T04:44:09Z",
+  "generated_at": "2026-10-23T17:02:56Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
+    {
+      "id": "hpsc-integrated-respiratory-virus-bulletin-week-42-2026",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "Integrated Respiratory Virus Bulletin Week 42 2026",
+      "published_at": "2026-10-23T00:00:00Z",
+      "url": "https://file.hpsc.ie/uploads/acuterespiratoryinfection/surveillancereports/1792759584.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
+    {
+      "id": "hpsc-ntegrated-respiratory-virus-bulletin-week-42-2026",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "ntegrated Respiratory Virus Bulletin Week 42 2026",
+      "published_at": "2026-10-23T00:00:00Z",
+      "url": "https://file.hpsc.ie/uploads/acuterespiratoryinfection/surveillancereports/1792759467.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
     {
       "id": "hpsc-sari-surveillance-report-week-41-2026",
       "source": "HPSC",
@@ -48,12 +78,12 @@
       "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
     },
     {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
+      "id": "ecdc-https://www.ecdc.europa.eu/en/ebola-disease-multi-country-outbreak-2026",
       "source": "ECDC",
       "source_kind": "epidemiological_update",
-      "title": "Ebola disease outbreak in the Democratic Republic of the Congo",
+      "title": "Ebola disease: Multi-country outbreak 2026",
       "published_at": "2026-10-19T15:36:21Z",
-      "url": "https://www.ecdc.europa.eu/en/ebola-outbreak-democratic-republic-congo-and-uganda",
+      "url": "https://www.ecdc.europa.eu/en/ebola-disease-multi-country-outbreak-2026",
       "countries": [
         "CD",
         "CG"

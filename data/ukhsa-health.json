@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-22T17:07:25Z",
+  "generated_at": "2026-10-23T11:33:35Z",
   "notice": "UKHSA values are England-level official surveillance metrics. They are not individual exposure data and do not inherit the user's selected radius.",
   "items": [
     {
@@ -107,7 +107,7 @@
       "source": "UKHSA",
       "source_kind": "national_surveillance",
       "title": "Influenza · influenza_healthcare_hospitalAdmissionRateByWeek",
-      "published_at": "2026-04-20",
+      "published_at": "2026-10-12",
       "url": "https://ukhsa-dashboard.data.gov.uk/",
       "countries": [
         "GB"
@@ -119,15 +119,15 @@
       "importance": "info",
       "topic": "Influenza",
       "metric": "influenza_healthcare_hospitalAdmissionRateByWeek",
-      "metric_value": 0.18,
-      "summary": "Latest UKHSA dashboard value for Influenza: influenza_healthcare_hospitalAdmissionRateByWeek = 0.18. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
+      "metric_value": 1.47,
+      "summary": "Latest UKHSA dashboard value for Influenza: influenza_healthcare_hospitalAdmissionRateByWeek = 1.47. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
     },
     {
       "id": "ukhsa-rsv-rsv_healthcare_admissionratebyweek",
       "source": "UKHSA",
       "source_kind": "national_surveillance",
       "title": "RSV · RSV_healthcare_admissionRateByWeek",
-      "published_at": "2026-03-30",
+      "published_at": "2026-10-12",
       "url": "https://ukhsa-dashboard.data.gov.uk/",
       "countries": [
         "GB"
@@ -139,15 +139,15 @@
       "importance": "info",
       "topic": "RSV",
       "metric": "RSV_healthcare_admissionRateByWeek",
-      "metric_value": 0.0,
-      "summary": "Latest UKHSA dashboard value for RSV: RSV_healthcare_admissionRateByWeek = 0.0. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
+      "metric_value": 0.33,
+      "summary": "Latest UKHSA dashboard value for RSV: RSV_healthcare_admissionRateByWeek = 0.33. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
     },
     {
       "id": "ukhsa-rsv-rsv_testing_positivitybyweek",
       "source": "UKHSA",
       "source_kind": "national_surveillance",
       "title": "RSV · RSV_testing_positivityByWeek",
-      "published_at": "2026-09-28",
+      "published_at": "2026-10-12",
       "url": "https://ukhsa-dashboard.data.gov.uk/",
       "countries": [
         "GB"
@@ -159,8 +159,8 @@
       "importance": "info",
       "topic": "RSV",
       "metric": "RSV_testing_positivityByWeek",
-      "metric_value": 0.0,
-      "summary": "Latest UKHSA dashboard value for RSV: RSV_testing_positivityByWeek = 0.0. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
+      "metric_value": 0.31,
+      "summary": "Latest UKHSA dashboard value for RSV: RSV_testing_positivityByWeek = 0.31. The metric is shown as published and is not converted into a Swasthya clinical-risk score."
     }
   ]
 }

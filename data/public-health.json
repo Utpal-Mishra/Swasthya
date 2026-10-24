@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-23T17:02:56Z",
+  "generated_at": "2026-10-24T04:31:23Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -1206,21 +1206,6 @@
       "title": "Epidemiology of invasive Group A streptococcal (iGAS) infections in Ireland, 2024-2025",
       "published_at": "2026-08-26T00:00:00Z",
       "url": "https://file.hpsc.ie/uploads/groupastreptococcaldiseasegas/epidemiologicaldata/annualreports/1787755888.pdf",
-      "countries": [
-        "IE"
-      ],
-      "regions": [],
-      "geographic_precision": "Ireland national/report-specific surveillance",
-      "importance": "info",
-      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
-    },
-    {
-      "id": "hpsc-enhanced-surveillance-of-clostridioides-difficile-infection-in-ireland-q1-q2-2026",
-      "source": "HPSC",
-      "source_kind": "national_surveillance",
-      "title": "Enhanced Surveillance of Clostridioides difficile Infection in Ireland Q1–Q2 2026",
-      "published_at": "2026-08-25T00:00:00Z",
-      "url": "https://file.hpsc.ie/uploads/clostridioidesdifficile/surveillancereports/1787665727.pdf",
       "countries": [
         "IE"
       ],

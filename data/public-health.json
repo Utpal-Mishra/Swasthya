@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-25T04:36:00Z",
+  "generated_at": "2026-10-26T22:37:22Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -1136,23 +1136,6 @@
       "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
       "importance": "moderate",
       "summary": "This issue of the ECDC Communicable Disease Threats Report (CDTR) covers the period 12-18 September, and includes updates on Ebola, malaria, botulism, avian influenza A(H9N2), influenza A(H5), respiratory virus epidemiology in the EU/.EEA, West Nile virus infections, chikungunya, dengue, Crimean-Congo haemorrhagic fever, Vibrio, measles, and expert deployments."
-    },
-    {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-5-11-september-week-37",
-      "source": "ECDC",
-      "source_kind": "regional_surveillance",
-      "title": "Communicable disease threats report, 5 - 11 September, week 37",
-      "published_at": "2026-09-11T13:59:09Z",
-      "url": "https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-5-11-september-week-37",
-      "countries": [
-        "CG"
-      ],
-      "regions": [
-        "EU_EEA"
-      ],
-      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
-      "importance": "moderate",
-      "summary": "This issue of the ECDC Communicable Disease Threats Report (CDTR) covers the period 5 -12 September, and includes updates on Ebola, an overview of respiratory virus epidemiology in the EU/EEA, West Nile virus, Crimean-Congo haemorrhagic fever, dengue, chikungunya, and vibrio."
     },
     {
       "id": "hpsc-sari-surveillance-report-week-36-2026",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-26T22:37:22Z",
+  "generated_at": "2026-10-27T04:58:38Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -1159,21 +1159,6 @@
       "title": "National SARS-CoV-2 Wastewater Surveillance Programme Report - Week 33 2026",
       "published_at": "2026-09-01T00:00:00Z",
       "url": "https://file.hpsc.ie/uploads/novelcoronavirus/surveillancereports/1788268515.html",
-      "countries": [
-        "IE"
-      ],
-      "regions": [],
-      "geographic_precision": "Ireland national/report-specific surveillance",
-      "importance": "info",
-      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
-    },
-    {
-      "id": "hpsc-summary-report-on-carbapenemase-producing-enterobacterales-cpe-july-2026",
-      "source": "HPSC",
-      "source_kind": "national_surveillance",
-      "title": "Summary Report on Carbapenemase Producing Enterobacterales (CPE) July 2026",
-      "published_at": "2026-08-28T00:00:00Z",
-      "url": "https://file.hpsc.ie/uploads/carbapenemresistantenterobacteriaceaecre/epidemiologicaldata/1787910084.pdf",
       "countries": [
         "IE"
       ],

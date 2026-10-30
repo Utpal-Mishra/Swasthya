@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-29T22:42:41Z",
+  "generated_at": "2026-10-30T22:15:14Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -1102,21 +1102,6 @@
       "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
       "importance": "moderate",
       "summary": "Summary Since the beginning of 2026, and as of 31 August 2026, two MERS cases, including one fatality, have been reported in Saudi Arabia."
-    },
-    {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/all-topics-z/cholera/surveillance-and-disease-data/cholera-monthly",
-      "source": "ECDC",
-      "source_kind": "epidemiological_update",
-      "title": "Cholera worldwide overview",
-      "published_at": "2026-09-28T11:56:33Z",
-      "url": "https://www.ecdc.europa.eu/en/all-topics-z/cholera/surveillance-and-disease-data/cholera-monthly",
-      "countries": [],
-      "regions": [
-        "EU_EEA"
-      ],
-      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
-      "importance": "info",
-      "summary": "A worldwide epidemiological summary of the countries most affected by cholera."
     },
     {
       "id": "ecdc-https://www.ecdc.europa.eu/en/dengue-monthly",

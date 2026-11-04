@@ -1,7 +1,22 @@
 {
-  "generated_at": "2026-11-02T15:42:03Z",
+  "generated_at": "2026-11-04T14:26:46Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
+    {
+      "id": "hpsc-invasive-s-aureus-infections-in-ireland-2025",
+      "source": "HPSC",
+      "source_kind": "national_surveillance",
+      "title": "Invasive S. aureus infections in Ireland, 2025",
+      "published_at": "2026-11-04T00:00:00Z",
+      "url": "https://file.hpsc.ie/uploads/saureusmrsa/annualreports/1793784243.html",
+      "countries": [
+        "IE"
+      ],
+      "regions": [],
+      "geographic_precision": "Ireland national/report-specific surveillance",
+      "importance": "info",
+      "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
+    },
     {
       "id": "hpsc-sari-surveillance-report-week-43-2026",
       "source": "HPSC",
@@ -1085,23 +1100,6 @@
       "importance": "moderate",
       "proximity_mode": "catchment_context",
       "summary": "HPSC wastewater surveillance for Wexford, Wexford; sample 13/09/2026. SARS-CoV-2 RNA was detected and quantified in the wastewater sample. This is population-level surveillance and cannot identify infected individuals or prove personal exposure."
-    },
-    {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/middle-east-respiratory-syndrome-coronavirus-mers-cov-situation-update",
-      "source": "ECDC",
-      "source_kind": "epidemiological_update",
-      "title": "MERS-CoV worldwide overview",
-      "published_at": "2026-09-29T12:20:22Z",
-      "url": "https://www.ecdc.europa.eu/en/middle-east-respiratory-syndrome-coronavirus-mers-cov-situation-update",
-      "countries": [
-        "SA"
-      ],
-      "regions": [
-        "EU_EEA"
-      ],
-      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
-      "importance": "moderate",
-      "summary": "Summary Since the beginning of 2026, and as of 31 August 2026, two MERS cases, including one fatality, have been reported in Saudi Arabia."
     },
     {
       "id": "ecdc-https://www.ecdc.europa.eu/en/dengue-monthly",

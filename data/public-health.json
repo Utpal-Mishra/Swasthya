@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T06:20:40Z",
+  "generated_at": "2026-11-16T21:57:47Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -399,23 +399,6 @@
       "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
       "importance": "info",
       "summary": "Every month ECDC provides detailed epidemiological overview of the worldwide transmission of chikungunya virus disease in its weekly threat report (Communicable Diseases Threat Report)."
-    },
-    {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-26-september-2-october-week-40",
-      "source": "ECDC",
-      "source_kind": "regional_surveillance",
-      "title": "Communicable disease threats report, 26 September - 2 October, week 40",
-      "published_at": "2026-10-02T16:00:46Z",
-      "url": "https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-26-september-2-october-week-40",
-      "countries": [
-        "CG"
-      ],
-      "regions": [
-        "EU_EEA"
-      ],
-      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
-      "importance": "moderate",
-      "summary": "This issue of the Communicable disease threats report (CDTR) covers the period 26 September - 2 October 2026, and includes updates on Crimean Congo haemorrhagic fever, Chikungunya virus disease, cholera, COVID-19, dengue, Ebola, avian influenza, seasonal influenza, Middle Eastern Respiratory Syndrome (MERS), respiratory syncytial infection, Vibriosis and West Nile virus infection."
     },
     {
       "id": "hpsc-summary-report-on-carbapenemase-producing-enterobacterales-cpe-august-2026",

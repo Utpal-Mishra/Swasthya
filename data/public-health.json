@@ -1,7 +1,25 @@
 {
-  "generated_at": "2026-11-16T21:57:47Z",
+  "generated_at": "2026-11-17T20:51:21Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
+    {
+      "id": "ecdc-https://www.ecdc.europa.eu/en/ebola-disease-multi-country-outbreak-2026",
+      "source": "ECDC",
+      "source_kind": "epidemiological_update",
+      "title": "Ebola disease: Multi-country outbreak 2026",
+      "published_at": "2026-11-17T16:36:21Z",
+      "url": "https://www.ecdc.europa.eu/en/ebola-disease-multi-country-outbreak-2026",
+      "countries": [
+        "CD",
+        "CG"
+      ],
+      "regions": [
+        "EU_EEA"
+      ],
+      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
+      "importance": "moderate",
+      "summary": "Since May 2026, an Ebola virus disease outbreak caused by Bundibugyo virus has been ongoing in the Democratic Republic of the Congo (DRC)."
+    },
     {
       "id": "hpsc-hiv-mpox-sti-trends-in-ireland-report-november-2026",
       "source": "HPSC",
@@ -256,24 +274,6 @@
       "geographic_precision": "Ireland national/report-specific surveillance",
       "importance": "info",
       "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
-    },
-    {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/ebola-disease-multi-country-outbreak-2026",
-      "source": "ECDC",
-      "source_kind": "epidemiological_update",
-      "title": "Ebola disease: Multi-country outbreak 2026",
-      "published_at": "2026-10-19T15:36:21Z",
-      "url": "https://www.ecdc.europa.eu/en/ebola-disease-multi-country-outbreak-2026",
-      "countries": [
-        "CD",
-        "CG"
-      ],
-      "regions": [
-        "EU_EEA"
-      ],
-      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
-      "importance": "moderate",
-      "summary": "Since May 2026, an Ebola virus disease outbreak caused by Bundibugyo virus has been ongoing in the Democratic Republic of the Congo (DRC)."
     },
     {
       "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-10-16-october-week-42",

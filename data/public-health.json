@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-22T06:40:41Z",
+  "generated_at": "2026-11-23T23:48:57Z",
   "notice": "Country, regional and available local public-health signals are aggregated from official sources. Absence of a matched item does not mean absence of disease. Geographic precision is always shown.",
   "items": [
     {
@@ -291,12 +291,12 @@
       "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
     },
     {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-10-16-october-week-42",
+      "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-10-16-october-2026-week-42",
       "source": "ECDC",
       "source_kind": "regional_surveillance",
-      "title": "Communicable disease threats report, 10 - 16 October, week 42",
+      "title": "Communicable disease threats report, 10 - 16 October 2026, week 42",
       "published_at": "2026-10-16T14:01:27Z",
-      "url": "https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-10-16-october-week-42",
+      "url": "https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-10-16-october-2026-week-42",
       "countries": [
         "CG"
       ],
@@ -336,24 +336,6 @@
       "geographic_precision": "Ireland national/report-specific surveillance",
       "importance": "info",
       "summary": "Official HPSC surveillance publication. Open the source for disease-specific geography, methods and interpretation."
-    },
-    {
-      "id": "ecdc-https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-3-9-october-week-41",
-      "source": "ECDC",
-      "source_kind": "regional_surveillance",
-      "title": "Communicable disease threats report, 3 - 9 October, week 41",
-      "published_at": "2026-10-09T13:30:22Z",
-      "url": "https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-3-9-october-week-41",
-      "countries": [
-        "CG",
-        "DE"
-      ],
-      "regions": [
-        "EU_EEA"
-      ],
-      "geographic_precision": "EU/EEA regional surveillance; country names are extracted only when explicitly present",
-      "importance": "moderate",
-      "summary": "This issue of the Communicable disease threats report (CDTR) covers the period 3 - 9October 2026, and includes updates on respiratory virus epidemiology in the EU/EEA, pneumonia of unknown aetiology, Ebola, expert deployment, West Nile Virus, Crimean-Congo haemorrhagic fever, dengue, chikungunya, symptomatic Sindbis case in Germany, measles, and Salmonella Strathcona ."
     },
     {
       "id": "hpsc-integrated-respiratory-virus-bulletin-week-40-2026",
